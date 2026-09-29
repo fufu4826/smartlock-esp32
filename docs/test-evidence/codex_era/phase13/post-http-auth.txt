@@ -1,6 +1,0 @@
-IDENTITY META: id=D000001 name=gugy role=0 status=0 verifier=1
-IDENTITY META: id=D000002 name=boom role=2 status=0 verifier=1
-IDENTITY META: id=D000003 name=Root role=2 status=0 verifier=1
-IDENTITY META: id=D000004 name=Ki role=2 status=0 verifier=1
-AUTH INSPECT: valid=1 identities=4 owners=1 verifiers=4 OWNER_VERIFIER_PRESERVED=1 heap=132040 min_heap=113292
-AUTH INSPECT END

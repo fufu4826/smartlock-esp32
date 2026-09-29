@@ -55,7 +55,7 @@ Local Owner session: NOT AVAILABLE to current automation. Both exposed profiles 
 
 The user explicitly authorized physical-only LINE maintenance as the safe alternative. The implementation is narrowly limited to sl-line via the existing bounded USB frame. Normal Owner/role/Management authority is unchanged. No network arming or credential-writing route remains.
 
-Real LINE setup: dedicated SmartLock OA @<redacted-line-basic-id>; provider SmartLock 2005577815; Messaging API channel 2011762201. Account owner completed login/SMS and required agreements. Manager confirms Free plan and 300 monthly messages; no paid upgrade, premium ID, billing or add-on enabled. Webhook absent/disabled; chat, greeting and automatic replies disabled. Owner provider-scoped recipient and one long-lived token held only in private browser-runtime memory, never printed or written to source/report. The console reports the creator account was automatically added as friend; human receipt remains required and is not inferred from that count.
+Real LINE setup: dedicated SmartLock OA @<redacted-line-basic-id>; provider SmartLock <redacted-provider-id>; Messaging API channel <redacted-channel-id>. Account owner completed login/SMS and required agreements. Manager confirms Free plan and 300 monthly messages; no paid upgrade, premium ID, billing or add-on enabled. Webhook absent/disabled; chat, greeting and automatic replies disabled. Owner provider-scoped recipient and one long-lived token held only in private browser-runtime memory, never printed or written to source/report. The console reports the creator account was automatically added as friend; human receipt remains required and is not inferred from that count.
 
 ## Physical-only integrated approval
 

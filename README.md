@@ -67,7 +67,7 @@ This repository is the **complete sanitized project**: firmware source, released
 | `firmware/previous/` | Original accepted release `d1e5ce3` |
 | `firmware/SHA256SUMS.txt`, `firmware/VERSION_INFO.md` | Hashes and flashing instructions |
 | `docs/reports/claude/` | Claude reports: Factory Reset LINE preservation, Management settings, LINE broadcast, real-board acceptance |
-| `docs/reports/phases/` | Codex phase reports (Phase 0–14, LINE, Google Sheets history, heap investigations; 58 reports) |
+| `docs/reports/phases/` | Codex phase reports (Phase 0–14, LINE, heap investigations; 46 reports). Obsolete Google Sheets and Backup/Restore/OTA (Phase 12–13) material was removed |
 | `docs/reports/architecture/`, `docs/reports/product-scope/` | Architecture, design and product-scope documents |
 | `docs/thesis/` | Source indexes for **chapters 1–5**, plus `FINAL_TEST_MATRIX.md`, `DEVELOPMENT_TIMELINE.md` and `IMPORTANT_COMMITS.md` |
 | `docs/test-evidence/` | Sanitized evidence: Codex-era logs and JSON, Claude real-board serial logs (redacted), build evidence, screenshots |

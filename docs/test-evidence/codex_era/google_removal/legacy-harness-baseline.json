@@ -1,6 +1,0 @@
-{
-  "test": "legacy browser_identity.test.js",
-  "baseline_exit": 1,
-  "same_missing_fake_window_listener": true,
-  "production_enrollment_unchanged": true
-}

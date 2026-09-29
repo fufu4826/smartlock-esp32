@@ -1,9 +1,0 @@
-{
-  "binary_bytes": 1276288,
-  "binary_sha256": "7daf74158a2f3d9cdad2d062d382da0dbbed345ce93150d8c3a41b79ab8ab322",
-  "app_capacity": 1310720,
-  "headroom_bytes": 34432,
-  "program_bytes": 1269713,
-  "static_ram_bytes": 109108,
-  "layout_unchanged": true
-}

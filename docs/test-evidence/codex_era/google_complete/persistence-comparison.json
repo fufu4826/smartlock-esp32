@@ -1,9 +1,0 @@
-{
-  "identity_metadata_preserved": true,
-  "system_configuration_preserved": true,
-  "authoritative_counts_healthy": true,
-  "ephemeral_authority_cleared": true,
-  "oldest_segment_preserved": true,
-  "no_panic_watchdog": true,
-  "installation_healthy": true
-}
