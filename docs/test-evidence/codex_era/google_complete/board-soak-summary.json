@@ -1,0 +1,22 @@
+{
+  "state": "FAIL",
+  "seconds": 1200.0,
+  "samples": 40,
+  "health_successes": 38,
+  "health_failures": [
+    {
+      "seconds": 272.1,
+      "kind": "URLError"
+    },
+    {
+      "seconds": 972.8,
+      "kind": "URLError"
+    }
+  ],
+  "all_diagnostics_locked": true,
+  "free_heap_min": 133656,
+  "free_heap_max": 139856,
+  "minimum_heap": 105768,
+  "largest_block_min": 77812,
+  "largest_block_max": 86004
+}

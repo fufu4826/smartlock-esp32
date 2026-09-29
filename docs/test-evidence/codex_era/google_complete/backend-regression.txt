@@ -1,0 +1,90 @@
+
+> smartlock-history-protocol-proof@0.1.0 test
+> npm run build && node --test --test-concurrency=1 dist/test/*.test.js
+
+
+> smartlock-history-protocol-proof@0.1.0 prebuild
+> node scripts/clean.mjs
+
+
+> smartlock-history-protocol-proof@0.1.0 build
+> tsc -p tsconfig.json
+
+✔ writes exact RAW ranges without append allocation or formula interpretation (6.9696ms)
+✔ quota and explicit conflicts fail before modifying reserved rows (2.3219ms)
+✔ manual edit is visible at its fixed row and is never silently repaired by the adapter (3.0127ms)
+✔ partial fixed-range write persists only the configured prefix and reports a typed retryable error (3.7754ms)
+✔ lost response is thrown only after the exact full range is persisted and survives adapter restart (20.2511ms)
+✔ after-write hook can model backend crash after Sheet state is durable (12.1054ms)
+✔ deleted destination and injected deletion are explicit non-retryable errors (1.6423ms)
+✔ parallel writes to reserved row ranges are serialized deterministically (1.1831ms)
+✔ real ingestion HTTP route returns PENDING, then exact scope-bound ACK after work and retry (5138.8851ms)
+✔ client-lost committed HTTP response retries the same receipt and assigned Sheet rows (3001.1389ms)
+✔ health and the fixed route/method allowlist do not dispatch other requests (126.9331ms)
+✔ valid upload passes exact body, metadata, and bearer token to the service (11.0137ms)
+✔ authorization and required metadata are enforced before service dispatch (53.5881ms)
+✔ content type and content encoding are checked before dispatch (15.4466ms)
+✔ body limit accepts exactly 8192 bytes and rejects both declared and streamed overflow (45.0659ms)
+✔ duplicate security headers are rejected even when Node combines normalized headers (6.1787ms)
+✔ absolute request deadline terminates a slow trickle without dispatching it (170.7749ms)
+✔ truncated client body never reaches the service (60.2341ms)
+✔ HTTPS API negotiates TLS 1.2+ and rejects an untrusted certificate (267.5995ms)
+✔ single local runner cannot concurrently own a live ledger directory (40.721ms)
+✔ ambiguous or malformed owner lock fails closed (11.3721ms)
+✔ exports stable 24-column A-X projection and three Thai tab names (3.5891ms)
+✔ current access projection separates a verified identity from the claim and localizes occurrence time (40.3753ms)
+✔ UTC timestamp without fractional seconds converts correctly in Bangkok time (1.0802ms)
+✔ backend receipt time accepts the millisecond precision from Date.toISOString (1.3837ms)
+✔ unknown denied claim is never promoted to an identity name, ID, role or verified identity (1.0688ms)
+✔ a credential-verified denied identity can be named without changing its DENIED result (1.4057ms)
+✔ enrollment/revocation rows identify the target as subject and do not invent an issuer (1.64ms)
+✔ legacy history leaves unavailable names, roles, firmware and identities blank (1.4113ms)
+✔ legacy access IDs remain honestly attributed while legacy denied IDs are unverified claims (3.1146ms)
+✔ physical Admin PIN events never infer a person from a snapshot or identity-like source data (1.2623ms)
+✔ uptime-only events keep occurrence date blank and system actions use system tab (0.6949ms)
+✔ malformed event time and invalid timezone fail instead of inventing an occurrence time (1.4965ms)
+✔ CRC32 uses the EventLog reflected polynomial and expected wire representation (1.741ms)
+✔ recorded legacy and current segments parse with exact IDs, row order, and source attribution (8.2608ms)
+✔ synthetic gap fixture is labeled and parses denied, revoke, and emergency relock actions (2.647ms)
+✔ rejects protocol/meta, body digest, and filename/nonce mismatches (9.5114ms)
+✔ rejects bad CRC, malformed UTF-8, line endings, invalid enum, order, size and record count (3.8308ms)
+✔ canonicalEvent is deterministic and includes every source field (1.068ms)
+✔ ACK accepts only exact complete receipt, and rejects every bound-field or ID/order mismatch (3.661ms)
+✔ ACK rejects duplicate JSON keys, malformed/truncated JSON, invalid UTF-8, and bodies over 4096 bytes (1.7301ms)
+✔ 24/25: forced full process termination at before_reservation, disk-ledger recovery, second restart (14840.3161ms)
+✔ 24/25: forced full process termination at after_reservation, disk-ledger recovery, second restart (12332.2003ms)
+✔ 24/25: forced full process termination at after_sheet_write, disk-ledger recovery, second restart (13488.8023ms)
+✔ 24/25: forced full process termination at before_sql_commit, disk-ledger recovery, second restart (12550.7102ms)
+✔ 24/25: forced full process termination at after_sql_commit, disk-ledger recovery, second restart (13477.7892ms)
+✔ 01/02: recorded normal Access sequence uploads; exact retry preserves every row and receipt (4474.9738ms)
+✔ 03: 20 concurrent duplicate submissions reserve only one set of exact rows (4214.1313ms)
+✔ 04: lost committed ACK is recovered by retry without another Sheet write (2739.6712ms)
+✔ 05/06/07: recover service crash at before_reservation (3217.7999ms)
+✔ 05/06/07: recover service crash at after_reservation (3199.0331ms)
+✔ 05/06/07: recover service crash at after_sheet_write (2823.8529ms)
+✔ 05/06/07: recover service crash at before_sql_commit (3128.0424ms)
+✔ 05/06/07: recover service crash at after_sql_commit (3287.5078ms)
+✔ 08: partial Sheet range write remains PENDING and recovers all original reservations (2948.6273ms)
+✔ 09: existing correct rows are read and preserved while missing rows are repaired (2846.6169ms)
+✔ 10: same event ID with changed canonical content conflicts and transaction rolls back (3399.3595ms)
+✔ 11: same segment ID with different valid body/hash conflicts even before delivery (2603.4608ms)
+✔ 10: event content conflict takes precedence over pending-batch backpressure (2614.5256ms)
+✔ 12/13: wrong installation, link, inactive connection and key cannot reserve or obtain ACK (2647.1122ms)
+✔ 14/17/18: out-of-order, duplicate and malformed events never partially reserve (3018.8964ms)
+✔ 15/16/17: extra, missing and duplicate ACK IDs are rejected against actual full segment (2599.5686ms)
+✔ 19: recorded legacy schema remains readable with source IDs preserved and name unknown (2791.7221ms)
+✔ 20: quota failure retains reservation and no COMMITTED ACK; retry succeeds (3108.1423ms)
+✔ 21: deleted destination blocks delivery, never recreates or acknowledges (2711.8083ms)
+✔ 22: user-edited reserved row is detected before ANY write, never overwritten (3583.6945ms)
+✔ 23: Sheets write succeeds but response is lost; retry reuses stored range (3194.1928ms)
+✔ 25: close/reopen filesystem SQL ledger preserves raw bytes, reservations, and pending job (8055.7409ms)
+✔ partial durable state cannot manufacture a COMMITTED ACK through batch flag alone (4254.5075ms)
+✔ backpressure permits exact retries but refuses a second pending segment (1868.6601ms)
+ℹ tests 70
+ℹ suites 0
+ℹ pass 70
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157512.0337

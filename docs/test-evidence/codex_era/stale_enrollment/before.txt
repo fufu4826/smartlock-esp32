@@ -1,0 +1,3 @@
+IDENTITY META: id=D000001 name=ko role=0 status=0 verifier=1
+AUTH INSPECT: valid=1 identities=1 owners=1 verifiers=1 OWNER_VERIFIER_PRESERVED=0 heap=134020 min_heap=108472
+AUTH INSPECT END

@@ -1,0 +1,16 @@
+{
+  "calibrationBytes": 10,
+  "cfg-a": {
+    "generation": 1,
+    "unlockDurationMs": 10000,
+    "configured": 0,
+    "ownerExists": 0
+  },
+  "pinVerifierBytes": 48,
+  "cfg-b": {
+    "generation": 2,
+    "unlockDurationMs": 5000,
+    "configured": 1,
+    "ownerExists": 1
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "generated_utc": "2026-09-27T22:54:40.251331+00:00",
+  "scope": "read-only LAN DNS/mDNS/HTTP probes; no credentials, auth, router, Wi-Fi, host files, or device settings touched",
+  "target": {
+    "canonical_host": "smartlock-04225a0ff0a4.local",
+    "board_ip_for_diagnostics_only": "192.168.1.179",
+    "expected_pc_ip": "192.168.1.145",
+    "pc_ip_present": true,
+    "rounds": 3,
+    "timeout_seconds": 4.0
+  },
+  "dns_servers_ipv4": [
+    "192.168.1.1"
+  ],
+  "interpretation": "numeric-IP HTTP is diagnostic only; canonical_url_health requires OS resolution and HTTP at the canonical origin; all DNS questions use the exact .local FQDN; DNS output admits only QR responses for the canonical name and reports owner/type/A/rcode",
+  "rounds": [
+    {
+      "round": 1,
+      "cases": {
+        "os_getaddrinfo": {
+          "status": "error",
+          "error": "gaierror",
+          "detail": "[Errno 11001] getaddrinfo failed",
+          "elapsed_ms": 1281
+        },
+        "numeric_ip_health": {
+          "status": "ok",
+          "http_status": 200,
+          "body_prefix": "ok\n",
+          "elapsed_ms": 382
+        },
+        "canonical_url_health": {
+          "status": "error",
+          "error": "URLError",
+          "detail": "<urlopen error [Errno 11001] getaddrinfo failed>",
+          "elapsed_ms": 1418
+        },
+        "mdns_unicast_udp5353_A": {
+          "status": "ok",
+          "result": "response",
+          "responses": [
+            {
+              "peer_ip": "192.168.1.179",
+              "rcode": 0,
+              "questions": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A"
+                }
+              ],
+              "records": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A",
+                  "A": "192.168.1.179"
+                }
+              ]
+            }
+          ],
+          "elapsed_ms": 4164
+        },
+        "mdns_multicast_QU_A": {
+          "status": "no_response",
+          "result": "no_response",
+          "responses": [],
+          "elapsed_ms": 4007
+        },
+        "mdns_multicast_QM_A_joined_udp5353": {
+          "status": "no_response",
+          "bind": "ok",
+          "join": "ok",
+          "result": "no_response",
+          "responses": [],
+          "elapsed_ms": 4004
+        },
+        "dns_udp53_board_A": {
+          "status": "ok",
+          "result": "response",
+          "responses": [
+            {
+              "peer_ip": "192.168.1.179",
+              "rcode": 0,
+              "questions": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A"
+                }
+              ],
+              "records": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A",
+                  "A": "192.168.4.1"
+                }
+              ]
+            }
+          ],
+          "elapsed_ms": 4174
+        },
+        "dns_udp53_lan_A": [
+          {
+            "server_ip": "192.168.1.1",
+            "status": "ok",
+            "result": "response",
+            "responses": [
+              {
+                "peer_ip": "192.168.1.1",
+                "rcode": 3,
+                "questions": [
+                  {
+                    "name": "smartlock-04225a0ff0a4.local",
+                    "type": "A"
+                  }
+                ],
+                "records": []
+              }
+            ],
+            "elapsed_ms": 4019
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "cases": {
+        "os_getaddrinfo": {
+          "status": "error",
+          "error": "gaierror",
+          "detail": "[Errno 11001] getaddrinfo failed",
+          "elapsed_ms": 1260
+        },
+        "numeric_ip_health": {
+          "status": "ok",
+          "http_status": 200,
+          "body_prefix": "ok\n",
+          "elapsed_ms": 389
+        },
+        "canonical_url_health": {
+          "status": "error",
+          "error": "URLError",
+          "detail": "<urlopen error [Errno 11001] getaddrinfo failed>",
+          "elapsed_ms": 1536
+        },
+        "mdns_unicast_udp5353_A": {
+          "status": "ok",
+          "result": "response",
+          "responses": [
+            {
+              "peer_ip": "192.168.1.179",
+              "rcode": 0,
+              "questions": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A"
+                }
+              ],
+              "records": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A",
+                  "A": "192.168.1.179"
+                }
+              ]
+            }
+          ],
+          "elapsed_ms": 4217
+        },
+        "mdns_multicast_QU_A": {
+          "status": "no_response",
+          "result": "no_response",
+          "responses": [],
+          "elapsed_ms": 4003
+        },
+        "mdns_multicast_QM_A_joined_udp5353": {
+          "status": "no_response",
+          "bind": "ok",
+          "join": "ok",
+          "result": "no_response",
+          "responses": [],
+          "elapsed_ms": 4005
+        },
+        "dns_udp53_board_A": {
+          "status": "ok",
+          "result": "response",
+          "responses": [
+            {
+              "peer_ip": "192.168.1.179",
+              "rcode": 0,
+              "questions": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A"
+                }
+              ],
+              "records": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A",
+                  "A": "192.168.4.1"
+                }
+              ]
+            }
+          ],
+          "elapsed_ms": 4093
+        },
+        "dns_udp53_lan_A": [
+          {
+            "server_ip": "192.168.1.1",
+            "status": "ok",
+            "result": "response",
+            "responses": [
+              {
+                "peer_ip": "192.168.1.1",
+                "rcode": 3,
+                "questions": [
+                  {
+                    "name": "smartlock-04225a0ff0a4.local",
+                    "type": "A"
+                  }
+                ],
+                "records": []
+              }
+            ],
+            "elapsed_ms": 4011
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "cases": {
+        "os_getaddrinfo": {
+          "status": "error",
+          "error": "gaierror",
+          "detail": "[Errno 11001] getaddrinfo failed",
+          "elapsed_ms": 1260
+        },
+        "numeric_ip_health": {
+          "status": "ok",
+          "http_status": 200,
+          "body_prefix": "ok\n",
+          "elapsed_ms": 380
+        },
+        "canonical_url_health": {
+          "status": "error",
+          "error": "URLError",
+          "detail": "<urlopen error [Errno 11001] getaddrinfo failed>",
+          "elapsed_ms": 1426
+        },
+        "mdns_unicast_udp5353_A": {
+          "status": "ok",
+          "result": "response",
+          "responses": [
+            {
+              "peer_ip": "192.168.1.179",
+              "rcode": 0,
+              "questions": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A"
+                }
+              ],
+              "records": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A",
+                  "A": "192.168.1.179"
+                }
+              ]
+            }
+          ],
+          "elapsed_ms": 4214
+        },
+        "mdns_multicast_QU_A": {
+          "status": "no_response",
+          "result": "no_response",
+          "responses": [],
+          "elapsed_ms": 4016
+        },
+        "mdns_multicast_QM_A_joined_udp5353": {
+          "status": "no_response",
+          "bind": "ok",
+          "join": "ok",
+          "result": "no_response",
+          "responses": [],
+          "elapsed_ms": 4015
+        },
+        "dns_udp53_board_A": {
+          "status": "ok",
+          "result": "response",
+          "responses": [
+            {
+              "peer_ip": "192.168.1.179",
+              "rcode": 0,
+              "questions": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A"
+                }
+              ],
+              "records": [
+                {
+                  "name": "smartlock-04225a0ff0a4.local",
+                  "type": "A",
+                  "A": "192.168.4.1"
+                }
+              ]
+            }
+          ],
+          "elapsed_ms": 4091
+        },
+        "dns_udp53_lan_A": [
+          {
+            "server_ip": "192.168.1.1",
+            "status": "ok",
+            "result": "response",
+            "responses": [
+              {
+                "peer_ip": "192.168.1.1",
+                "rcode": 3,
+                "questions": [
+                  {
+                    "name": "smartlock-04225a0ff0a4.local",
+                    "type": "A"
+                  }
+                ],
+                "records": []
+              }
+            ],
+            "elapsed_ms": 4008
+          }
+        ]
+      }
+    }
+  ]
+}

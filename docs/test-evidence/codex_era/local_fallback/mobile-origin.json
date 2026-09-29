@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "production_assets": [
+    "Manage",
+    "Access"
+  ],
+  "transport": "two local fixture receivers representing LAN/AP; not DNS or physical Android proof",
+  "origin": "http://smartlock-04225a0ff0a4.local",
+  "unchanged_browser_credential": true,
+  "no_credential_migration": true
+}

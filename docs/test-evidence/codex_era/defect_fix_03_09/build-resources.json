@@ -1,0 +1,53 @@
+{
+  "firmware_binary_bytes": 1257216,
+  "slot_bytes": 1310720,
+  "binary_headroom_bytes": 53504,
+  "growth_bytes": 17008,
+  "pio_program_bytes": 1250641,
+  "static_ram_bytes": 108556,
+  "sha256": "13fab55330adb9b981f4b194dfb82bd7883a3016e49f6032f71cc89e5fff4805",
+  "partitions": [
+    {
+      "type": 1,
+      "subtype": 2,
+      "offset": 36864,
+      "size": 20480,
+      "label": "nvs"
+    },
+    {
+      "type": 1,
+      "subtype": 0,
+      "offset": 57344,
+      "size": 8192,
+      "label": "otadata"
+    },
+    {
+      "type": 0,
+      "subtype": 16,
+      "offset": 65536,
+      "size": 1310720,
+      "label": "app0"
+    },
+    {
+      "type": 0,
+      "subtype": 17,
+      "offset": 1376256,
+      "size": 1310720,
+      "label": "app1"
+    },
+    {
+      "type": 1,
+      "subtype": 130,
+      "offset": 2686976,
+      "size": 1441792,
+      "label": "spiffs"
+    },
+    {
+      "type": 1,
+      "subtype": 3,
+      "offset": 4128768,
+      "size": 65536,
+      "label": "coredump"
+    }
+  ]
+}

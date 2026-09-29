@@ -1,0 +1,46 @@
+﻿SMARTLOCK REGION-FIRST HEAP DIAGNOSTIC FLASH AND CAPTURE
+Date: 2026-09-28
+
+Identity gate:
+- COM6, USB-SERIAL CH340, VID:PID 1A86:7523; sole present adapter.
+- Read-only esptool chip_id matched the saved MAC in evidence/admin_menu_fix/flash-verify.txt (MAC omitted here); ESP32-D0WD-V3 rev 3.1, 40 MHz.
+
+Application-only write command:
+python C:\Users\fufu\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port COM6 --baud 115200 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect 0x10000 C:\ESP\esp32_035_lock_touch_test\docs\phase_reports\evidence\heap_diagnostic_2026_09_28\diagnostic_firmware.bin
+Result: SUCCESS. Wrote 1,242,352 bytes at 0x00010000; hash of data verified; only app range 0x10000-0x13ffff erased; normal RTS hard reset. No bootloader/partition/otadata/NVS/SD argument supplied.
+
+Read-only verification command:
+python C:\Users\fufu\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port COM6 --baud 115200 --before default_reset --after no_reset verify_flash 0x10000 C:\ESP\esp32_035_lock_touch_test\docs\phase_reports\evidence\heap_diagnostic_2026_09_28\diagnostic_firmware.bin
+Result: verify OK (digest matched), 1,242,352 bytes; stayed in bootloader.
+
+One normal reset and serial capture:
+- COM6 opened with DTR=false, RTS=false; one 150 ms RTS pulse; no other reset.
+- After 60 seconds sent exactly one DIAG_HEAP command and captured through DIAG_HEAP END.
+- Sanitized capture: serial_diag_capture.txt. Safe boot markers show BOOT, LockController LOCKED, GPIO22 LOCKED, lock timer OK, READY.
+- Captured 22 phase records: H00-H20 and H22. H21 explicitly unavailable because no denied heap admission occurred. H22 integrity PASS.
+- No physical/UI/PIN/LINE Test action occurred.
+
+Capture limitation for Sol review:
+The sanitized capture retained DIAG_HEAP lines and log lines tagged heap_init. It contains the DIAG_HEAP REGION SUMMARY marker but no per-region lines from heap_caps_print_heap_info; those lines may have used another ESP-IDF log tag and were filtered from the file. Do not claim the per-region output was preserved. This may make the capture incomplete for the region-summary requirement. Stop here pending Sol's decision whether the first capture is valid or a new capture is needed.
+
+No production restore or further board action performed. Preserved production backup remains untouched.
+
+CORRECTIVE CAPTURE (Sol-authorized one additional normal reset)
+- Read COM6 UART unfiltered in memory, but persisted only approved boot markers, DIAG_HEAP lines, and direct-printf heap metadata lines; arbitrary UART lines were discarded and never written.
+- DTR=false; one 150 ms RTS pulse. Waited 60 seconds after reset, sent one DIAG_HEAP command, captured through DIAG_HEAP END.
+- Sanitized evidence: serial_diag_capture_corrective.txt.
+- Phase coverage verified: 23/23 phases H00-H22 represented by a snapshot or explicit unavailable marker; H21 unavailable (no denied admission). H22 integrity PASS.
+- Per-region output verified: one `Heap summary for capabilities 0x00000804`, nine region `At 0x` rows, matching per-region allocation/block lines, and Totals. The largest region is 0x3ffe4350, len 113840, free 58348, largest_free_block 53236, free_blocks 9; total summary free 58412, allocated 145076, min_free 2472, largest_free_block 53236.
+- No further reset/flash/board actions. Do not restore until Sol reviews this capture.
+
+PRODUCTION RESTORATION (Sol-approved)
+Write command: python C:\Users\fufu\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port COM6 --baud 115200 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect 0x10000 C:\ESP\esp32_035_lock_touch_test\docs\phase_reports\evidence\heap_diagnostic_2026_09_28\production_firmware_before_diag.bin
+Result: SUCCESS; wrote 1,238,752 bytes at 0x10000; hash of data verified; hard reset. Only app0 range supplied.
+Verify command: python C:\Users\fufu\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port COM6 --baud 115200 --before default_reset --after no_reset verify_flash 0x10000 C:\ESP\esp32_035_lock_touch_test\docs\phase_reports\evidence\heap_diagnostic_2026_09_28\production_firmware_before_diag.bin
+Result: verify OK (digest matched); stayed in bootloader.
+One normal RTS reset capture: production_restore_capture.txt. BOOT/READY, LockController and GPIO22 LOCKED, Configured/Owner present, identity DB PASS (2 identities, 1 Owner), SD/calibration/Admin PIN store/AP/DNS/mDNS/HTTP/STA checks healthy, LINE configured/enabled, zero queued/sent/failed, no active sessions. Early LINE state was TimeUnavailable; later no-reset DIAG_SYSTEM in production_restore_later_status.txt reports state 1 (Ready).
+No physical/UI/PIN/LINE Test action. No board actions after the later status read.
+
+SOURCE CLEANUP
+Saved tracked diagnostic diff: diagnostic_source.patch. Preserved exact HeapDiagnostics.cpp/.h under source/; hashes matched the src copies before removal. Restored only src/main.cpp, src/events/Diagnostics.cpp, src/notifications/LineNotifications.cpp, src/notifications/LineNotifications.h to HEAD and removed only src/events/HeapDiagnostics.cpp/.h. Those six source paths now have no changes; unrelated WIP remains untouched.
+Diagnostic image and patch remain preserved for Sol's review.

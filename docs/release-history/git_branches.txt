@@ -1,0 +1,1 @@
+﻿* master d1e5ce3 fix: harden admin pin bootstrap and emergency unlock gating

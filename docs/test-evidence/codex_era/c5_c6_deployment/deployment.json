@@ -1,0 +1,73 @@
+﻿{
+    "port":  "COM6",
+    "identity":  {
+                     "present_serial_adapters":  1,
+                     "adapter":  "USB-SERIAL CH340",
+                     "vid_pid":  "1A86:7523",
+                     "chip":  "ESP32-D0WD-V3 revision 3.1",
+                     "flash_size_bytes":  4194304,
+                     "live_mac_exactly_matches_saved_record":  true,
+                     "mac_value_recorded":  false,
+                     "historical_reference":  "docs/phase_reports/evidence/admin_menu_fix/flash-verify.txt"
+                 },
+    "firmware":  {
+                     "source_commit":  "d1e5ce38058790a973ce90c1addf33ef206ce4cd",
+                     "path":  ".pio/build/esp32_035/firmware.bin",
+                     "bytes":  1238752,
+                     "sha256":  "084227e2e77994ae21b773e253c209b8ba49b897354b3969a5f76f328cb06be9",
+                     "ram_used_bytes":  112612,
+                     "app_partition_used_bytes":  1232177,
+                     "app_partition_capacity_bytes":  1310720
+                 },
+    "live_partition":  {
+                           "offset":  "0x8000",
+                           "bytes":  3072,
+                           "sha256":  "148b959cbff1c38aa8e1d5c0ba9d612c54997b945e56a63f41223eef650653a1",
+                           "matches_saved_live_capture":  true,
+                           "matches_current_build":  true,
+                           "evidence_file":  "live-partition.bin"
+                       },
+    "live_otadata":  {
+                         "offset":  "0xe000",
+                         "bytes":  8192,
+                         "sha256":  "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+                         "matches_saved_board_capture":  true,
+                         "saved_parse_ota_sequence":  1,
+                         "saved_parse_selected_application":  "app0@0x10000",
+                         "evidence_file":  "live-otadata.bin"
+                     },
+    "write":  {
+                  "tool":  "esptool.py v4.11.0",
+                  "operation":  "write_flash",
+                  "offset":  "0x10000",
+                  "bytes":  1238752,
+                  "erased_range":  "0x10000-0x13efff",
+                  "esptool_hash_verified":  true,
+                  "write_arguments_included":  [
+                                                   "0x10000 firmware.bin"
+                                               ],
+                  "write_arguments_excluded":  [
+                                                   "bootloader",
+                                                   "partition table",
+                                                   "boot_app0",
+                                                   "otadata",
+                                                   "NVS",
+                                                   "SD"
+                                               ]
+              },
+    "readback":  {
+                     "tool":  "esptool.py v4.11.0",
+                     "operation":  "verify_flash",
+                     "offset":  "0x10000",
+                     "bytes":  1238752,
+                     "digest_matched":  true,
+                     "after":  "no_reset; bootloader left for bounded postflash capture"
+                 },
+    "limitations":  {
+                        "postflash_partition_otadata_reread":  false,
+                        "nvs_or_sd_raw_or_digest_preservation":  "no NVS sector/content digest collected; postflash fixed DIAG_SYSTEM observed SD healthy and read-only inert-history metadata (23 files, 18945 bytes, digest a63df454); no preflash digest retained, so no comparison",
+                        "line_passive_counters":  "observed once postflash via fixed DIAG_SYSTEM; preflash values not retained",
+                        "canonical_origin_state":  "observed once postflash via fixed DIAG_SYSTEM; preflash value not retained",
+                        "boot_capture_before_flash":  "passive UART read found no buffered boot lines; preflash state came from fixed read-only diagnostics"
+                    }
+}

@@ -1,0 +1,34 @@
+SmartLock H1 final monitored normal reboot and read-only diagnostics
+Captured: 2026-09-27T20:20:17+07:00
+COM6 at 115200 baud. DTR was held false; RTS was toggled for a normal EN reboot, then serial boot output was captured.
+Read-only commands after normal boot: DIAG_AUTH and DIAG_SYSTEM only. No DIAG_AUDIT, credential, PIN, configuration write, or unlock command.
+
+BOOT
+SmartLock core product (USB updates; cloud paused)
+LockController: LOCKED
+GPIO22: LOCKED
+LOCK TIMER: OK
+Touch calibration loaded
+Touch: OK
+SD: OK (30000 MB)
+IDENTITY MODEL: PASS OWNER_VERIFIER_PRESERVED=0
+IDENTITY DB: PASS identities=2 owners=1 active=2 revoked=0
+CANONICAL: http://smartlock-04225a0ff0a4.local MDNS: OK
+HTTP: OK
+NETWORK: PROTECTED RECOVERY AP
+ADMIN PIN STORE: OK
+CLOUD: {"enabled":false,"configured":false,"googleReady":true,"busy":false,"pendingEvents":106,"pendingSegments":20,"historyLostEvents":0,"unrecordedEvents":0,"failures":0,"uploadedBatches":0,"lastResult":"disabled"}
+HEAP: free=128224 min=108260
+READY
+STA: CONNECTED IP 192.168.1.179
+IDENTITY META: id=D000001 name=ko role=0 status=0 verifier=1
+IDENTITY META: id=D000002 name=hi role=2 status=0 verifier=1
+AUTH INSPECT: valid=1 identities=2 owners=1 verifiers=2 OWNER_VERIFIER_PRESERVED=0 heap=124212 min_heap=108260
+AUTH INSPECT END
+SYSTEM INSPECT: configured=1 owner=1 unlock_ms=5000 sd=1 calibration=1 pin_store=1 locked=1 gpio22=1 sta=1 admin_active=0
+SYSTEM SESSIONS: access=0 management_qr=0 management_auth=0 enrollment=0
+SYSTEM INSPECT END
+INSTALLATION: healthy=1 id=3676c44dffc173298feb01620c8d00cf unit=000004225a0ff0a4
+HEAP: free=127556 min=108260 largest=73716
+CLOUD: {"enabled":false,"configured":false,"googleReady":true,"busy":false,"pendingEvents":109,"pendingSegments":21,"historyLostEvents":0,"unrecordedEvents":0,"failures":0,"uploadedBatches":0,"lastResult":"disabled"}
+SYSTEM DIAG END

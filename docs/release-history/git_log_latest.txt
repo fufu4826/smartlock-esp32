@@ -1,0 +1,40 @@
+eaac772 (HEAD -> master) feat: broadcast line notifications to all friends
+a5325b5 feat: complete owner management settings
+523fd0b feat: preserve prototype line config across factory reset
+570f382 chore: archive post-acceptance SmartLock materials
+d1e5ce3 (tag: smartlock-final-accepted-2026-09-28) fix: harden admin pin bootstrap and emergency unlock gating
+8c15375 Record canonical hostname recurrence evidence without firmware changes
+ae25d30 Record web LINE deployment and preserved-state verification
+979fc74 Move LINE maintenance to Owner and shared Admin PIN; release HTTP buffers
+2c28030 Record LINE friend page deployment and runtime observations
+870ec7f Give LINE Add Friend its own Management page and remove TFT fallback button
+dc2a6fa Record fallback deployment and pending real phone acceptance
+c229d41 Preserve mDNS responder and disable modem sleep for availability
+2b4fcf2 Add protected same-origin Wi-Fi fallback for Access and Management
+c5106ac Confirm Owner receipt and complete LINE acceptance
+8df5c8e Record accepted real LINE push without exposing credentials
+f750bf8 (tag: line-owner-provisioning-v2-tls) Record private LINE provisioning and live TLS recovery evidence
+14645a9 Give isolated LINE TLS worker sufficient handshake stack
+a8bffe5 Record physical LINE provisioning deployment and state preservation
+48c653e (tag: line-owner-provisioning-v2-physical) Authorize scoped LINE USB setup through physical Admin
+324b92d Record LINE v2 deployment and state preservation evidence
+3fc128d (tag: line-owner-provisioning-v2) Add Owner-gated USB LINE provisioning and remove web credential entry
+f1bdc71 Record LINE deployment and preserved-state acceptance
+064518a (tag: line-notifications-v1) Implement RAM-only LINE security notifications
+07ef632 Record Google removal commit in acceptance report
+b6db664 Remove Google Sheets integration
+4439bdb (tag: google-sheets-archive-before-removal) Checkpoint Google Sheets implementation before removal
+c6c90af Release one-click Google Sheets integration with verified receipts
+f40efbc Add local free-only Worker and D1 feasibility proof
+0ce8c66 Record Google history integration and live acceptance evidence
+9217f0c Implement local-first Google Sheets history pipeline
+a1712ca Add Phase 1 Google history protocol and durable backend proof
+9613716 Fix SmartLock registration recovery, session deadlines and bounded audit history
+62ae5c2 Check current credential authority before browser enrollment
+fc6c4bf Remove display and lock settings Management sections
+55273cd Simplify fresh Owner Setup and remove legacy admin passphrase
+6ca306d Reconcile deployed Admin menu fix with production baseline
+d991331 Record cleanup physical PASS and gate final reset execution
+65ee81d Remove Backup Restore and browser OTA from product
+519a6d7 (tag: admin-pin-physical-pass-2026-09-26) Record Admin physical PASS and prepare from-zero acceptance
+c3c9dac Add physical Admin PIN and confirmed timed emergency unlock

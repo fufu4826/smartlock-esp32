@@ -1,0 +1,150 @@
+{
+  "state": "PASS",
+  "checks": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200,
+      "pass": true,
+      "ms": 136
+    },
+    {
+      "path": "/api/cloud/status",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 44
+    },
+    {
+      "path": "/api/cloud/pair/start",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 60
+    },
+    {
+      "path": "/api/cloud/pair/claim",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 51
+    },
+    {
+      "path": "/api/cloud/pair/confirm",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 259
+    },
+    {
+      "path": "/api/cloud/pair/status",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 40
+    },
+    {
+      "path": "/api/cloud/sync",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 70
+    },
+    {
+      "path": "/api/cloud/disconnect",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 51
+    },
+    {
+      "path": "/api/access/request",
+      "method": "POST",
+      "status": 400,
+      "pass": true,
+      "ms": 68
+    },
+    {
+      "path": "/api/enroll/complete",
+      "method": "POST",
+      "status": 400,
+      "pass": true,
+      "ms": 159
+    },
+    {
+      "path": "/owner-bootstrap",
+      "method": "GET",
+      "status": 410,
+      "pass": true,
+      "ms": 89
+    },
+    {
+      "path": "/api/cloud/configure",
+      "method": "GET",
+      "status": 302,
+      "pass": true,
+      "ms": 144
+    },
+    {
+      "path": "/api/cloud/configure",
+      "method": "POST",
+      "status": 404,
+      "pass": true,
+      "ms": 221
+    },
+    {
+      "path": "/api/backup",
+      "method": "GET",
+      "status": 302,
+      "pass": true,
+      "ms": 82
+    },
+    {
+      "path": "/api/backup",
+      "method": "POST",
+      "status": 404,
+      "pass": true,
+      "ms": 59
+    },
+    {
+      "path": "/api/restore",
+      "method": "GET",
+      "status": 302,
+      "pass": true,
+      "ms": 129
+    },
+    {
+      "path": "/api/restore",
+      "method": "POST",
+      "status": 404,
+      "pass": true,
+      "ms": 193
+    },
+    {
+      "path": "/api/ota",
+      "method": "GET",
+      "status": 302,
+      "pass": true,
+      "ms": 45
+    },
+    {
+      "path": "/api/ota",
+      "method": "POST",
+      "status": 404,
+      "pass": true,
+      "ms": 41
+    },
+    {
+      "path": "slow-body",
+      "seconds": 5.06,
+      "pass": true
+    },
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200,
+      "pass": true,
+      "ms": 76
+    }
+  ]
+}

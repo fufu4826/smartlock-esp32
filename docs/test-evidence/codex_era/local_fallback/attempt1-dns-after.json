@@ -1,0 +1,17 @@
+[
+  {
+    "port": 53,
+    "target": "192.168.1.179",
+    "reply": false
+  },
+  {
+    "port": 5353,
+    "target": "192.168.1.179",
+    "reply": false
+  },
+  {
+    "port": 5353,
+    "target": "224.0.0.251",
+    "reply": false
+  }
+]

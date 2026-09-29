@@ -1,0 +1,9 @@
+{
+  "binaryBytes": 1288880,
+  "otaSlotBytes": 1310720,
+  "otaHeadroomBytes": 21840,
+  "sha256": "2754c0a51a4dbb1fd912cc673787fa1fffe261673048aef10f37594d4428274d",
+  "programBytes": 1282297,
+  "staticRamBytes": 109148,
+  "partitionLayoutUnchanged": true
+}

@@ -1,0 +1,52 @@
+SYSTEM INSPECT: configured=1 owner=1 unlock_ms=5000 sd=1 calibration=1 pin_store=1 locked=1 gpio22=1 sta=1 admin_active=0
+SYSTEM SESSIONS: access=0 management_qr=0 management_auth=0 enrollment=0
+SYSTEM INSPECT END
+INSTALLATION: healthy=1 id=3676c44dffc173298feb01620c8d00cf unit=000004225a0ff0a4
+HEAP: free=122392 min=118260 largest=69620
+LINE INSPECT: configured=1 enabled=1 config_version=2 test_state=0 provision_armed=0 queue=0 sent=0 failed=0 state=6
+INERT HISTORY: files=23 bytes=18945 digest=a63df454 writes=DISABLED
+SYSTEM DIAG END
+Guru Meditation Error: Core  0 panic'ed (Unhandled debug exception). 
+Debug exception reason: Stack canary watchpoint triggered (line-worker) 
+Core  0 register dump:
+PC      : 0x40149abe  PS      : 0x00060636  A0      : 0x8014a89d  A1      : 0x3ffeaf10  
+A2      : 0x36363636  A3      : 0x3fff98a4  A4      : 0x36363636  A5      : 0x3ffeb020  
+A6      : 0x00000010  A7      : 0x00003600  A8      : 0x00000036  A9      : 0x3ffeb230  
+A10     : 0x00000000  A11     : 0x00000000  A12     : 0x00000030  A13     : 0x3ffd3fc4  
+A14     : 0x3ffeb450  A15     : 0x3f436854  SAR     : 0x00000017  EXCCAUSE: 0x00000001  
+EXCVADDR: 0x00000000  LBEG    : 0x40149a80  LEND    : 0x40149ac4  LCOUNT  : 0x00000005  
+
+
+Backtrace: 0x40149abb:0x3ffeaf10 0x4014a89a:0x3ffeb270 0x4014a91d:0x3ffeb290 0x4014aad1:0x3ffeb2b0 0x40142d20:0x3ffeb2d0 0x40142e85:0x3ffeb2f0 0x4014298b:0x3ffeb360 0x4013e9dd:0x3ffeb380 0x4013f584:0x3ffeb3f0 0x4014005b:0x3ffeb5e0 0x401403d1:0x3ffeb740 0x401403f8:0x3ffeb770 0x4013e5b0:0x3ffeb7d0 0x4013e912:0x3ffeb870 0x4013e93a:0x3ffeb8b0 0x40143b3d:0x3ffeb8d0 0x40143b6f:0x3ffeb8f0 0x40143766:0x3ffeb9c0 0x40143785:0x3ffeb9f0 0x40143905:0x3ffeba20 0x4014dad2:0x3ffeba70 0x4014dd11:0x3ffebb90 0x40137145:0x3ffebbc0 0x40138718:0x3ffebc10 0x401366a5:0x3ffebcb0 0x401366df:0x3ffebcd0 0x400ebbd9:0x3ffebcf0 0x400ead93:0x3ffebf80 0x400dc819:0x3ffebfd0 0x400dce9e:0x3ffece60 0x400dd164:0x3ffeced0
+
+
+
+
+ELF file SHA256: 8de0e68b4aa77ed0
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+BOOT
+SmartLock core product (USB updates)
+LockController: LOCKED
+GPIO22: LOCKED
+LOCK TIMER: OK
+Config schema: 1
+Configured: YES
+Owner exists: YES
+TFT: OK
+Touch calibration loaded
+Touch: OK
+SD: OK (30000 MB)
+SESSION TEST: PASS
+IDENTITY MODEL: PASS OWNER_VERIFIER_PRESERVED=0
+IDENTITY DB: PASS identities=2 owners=1 active=2 revoked=0

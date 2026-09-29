@@ -1,0 +1,25 @@
+SCREEN: OFF
+
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+[769579][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[769697][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+SCREEN: OFF
+
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+[792432][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[802603][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+ACCESS: UNLOCKED
+
+[804054][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+LOCK STATE: LOCKED (hardware timer)
+
+SCREEN: OFF
+

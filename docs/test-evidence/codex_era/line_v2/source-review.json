@@ -1,0 +1,9 @@
+{
+  "source_and_binary_forbidden_terms": 0,
+  "binary_bytes": 1233632,
+  "headroom_bytes": 77088,
+  "static_ram_bytes": 113564,
+  "sha256": "1c326fef3bba30e631baeb1207eec0c65eb7584582190d8bb208bdc707eddfd9",
+  "partition_matches_recorded_live": true,
+  "real_LINE_secrets_obtained": false
+}

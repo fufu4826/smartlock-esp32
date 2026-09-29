@@ -1,0 +1,15 @@
+{
+  "available_automation_browsers": [
+    "Codex in-app",
+    "Opera existing profile"
+  ],
+  "existing_Owner_Management_tabs": 0,
+  "canonical_navigation_both": "ERR_NAME_NOT_RESOLVED",
+  "diagnostic_STA_IP": "192.168.1.179",
+  "numeric_health_after_normal_reboot": "PASS",
+  "temporary_hosts_mapping": "access denied; unchanged",
+  "local_Owner_session": "NOT AVAILABLE to automation",
+  "stored_credential_presence": "not proven absent; canonical origin could not load",
+  "credential_copied_or_extracted": false,
+  "basis_for_adjustment": "User explicitly authorized physical-only narrow LINE maintenance when local Owner web work is unavailable"
+}

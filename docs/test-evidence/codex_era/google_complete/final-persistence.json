@@ -1,0 +1,10 @@
+{
+  "identities_preserved": true,
+  "system_state_preserved": true,
+  "installation_id_survives_normal_reboot": true,
+  "auth_integrity_healthy": true,
+  "ephemeral_authority_zero": true,
+  "eventlog_healthy": true,
+  "oldest_history_preserved": true,
+  "no_panic_watchdog": true
+}

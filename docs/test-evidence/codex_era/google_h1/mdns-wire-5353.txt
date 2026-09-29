@@ -1,0 +1,12 @@
+UDP mDNS receive/query probe UTC=2026-09-27T13:30:57+00:00 PC=192.168.1.145 target=192.168.1.179:5353
+Bounded 1.2s receives; no network/firewall configuration changes.
+bind local:5353=PASS
+2026-09-27T13:30:58+00:00 multicast-QM-A dst=224.0.0.251:5353 packets=1 answers=none
+2026-09-27T13:31:00+00:00 multicast-QU-A dst=224.0.0.251:5353 packets=1 answers=none
+2026-09-27T13:31:01+00:00 multicast-QM-http-PTR dst=224.0.0.251:5353 packets=1 answers=none
+2026-09-27T13:31:02+00:00 multicast-QU-http-PTR dst=224.0.0.251:5353 packets=1 answers=none
+2026-09-27T13:31:03+00:00 direct-QM-A dst=192.168.1.179:5353 packets=0 answers=none
+2026-09-27T13:31:05+00:00 direct-QU-A dst=192.168.1.179:5353 packets=1 answers=192.168.1.179 id=4660 A smartlock-04225a0ff0a4.local 192.168.1.179
+2026-09-27T13:31:06+00:00 direct-QM-http-PTR dst=192.168.1.179:5353 packets=0 answers=none
+2026-09-27T13:31:08+00:00 direct-QU-http-PTR dst=192.168.1.179:5353 packets=0 answers=none
+2026-09-27T13:31:08+00:00 END

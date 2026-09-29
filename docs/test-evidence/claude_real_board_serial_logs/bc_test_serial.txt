@@ -1,0 +1,48 @@
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+SCREEN: MANAGEMENT QR
+[232450][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[233012][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[239988][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+ADMIN: MANAGEMENT HOLD -> PIN
+
+ADMIN: PIN REJECTED -> PIN
+
+ADMIN: PIN ACCEPTED -> MENU
+
+SCREEN: ACCESS QR
+SCREEN: OFF
+
+SCREEN: ACCESS QR
+SCREEN: OFF
+
+SCREEN: ACCESS QR
+SCREEN: OFF
+
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+SCREEN: MANAGEMENT QR
+ADMIN: MANAGEMENT HOLD -> PIN
+
+ADMIN: PIN REJECTED -> PIN
+
+ADMIN: PIN ACCEPTED -> MENU
+
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+[858820][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+ACCESS: UNLOCKED
+
+[859190][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+LOCK STATE: LOCKED (hardware timer)
+
+SCREEN: OFF
+
+[1007337][E][WebServer.cpp:650] _handleRequest(): request handler not found
+

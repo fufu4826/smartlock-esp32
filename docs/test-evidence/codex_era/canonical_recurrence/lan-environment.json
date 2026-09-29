@@ -1,0 +1,103 @@
+{
+  "generated_utc": "2026-09-28T03:43:42.561585+00:00",
+  "scope": "read-only local environment inventory and one unauthenticated default-gateway root GET; redirects not followed; no SSID, MAC/BSSID, device identifiers, cookies, login, credentials, or response body retained",
+  "network": {
+    "adapter_alias": "Wi-Fi 2",
+    "status": "Up",
+    "ipv4": "192.168.1.145",
+    "prefix_length": 24,
+    "default_gateway": "192.168.1.1",
+    "link_speed": "576 Mbps",
+    "band": "5GHz",
+    "channel": 48,
+    "radio_type": "802.11ax",
+    "active_firewall_profile": "Public",
+    "ipv4_connectivity": "Internet"
+  },
+  "capture_facilities": {
+    "pktmon": {
+      "available": true,
+      "path": "C:\\Windows\\System32\\PktMon.exe",
+      "capture_attempted": false
+    },
+    "tshark": {
+      "available": false
+    },
+    "dumpcap": {
+      "available": false
+    },
+    "wireshark": {
+      "available": false
+    },
+    "npcap": {
+      "installed": false
+    },
+    "adb": {
+      "available": false,
+      "connected_device_count": 0
+    }
+  },
+  "windows_firewall": {
+    "profiles": [
+      {
+        "name": "Domain",
+        "enabled": true,
+        "default_inbound_action": "NotConfigured",
+        "default_outbound_action": "NotConfigured"
+      },
+      {
+        "name": "Private",
+        "enabled": true,
+        "default_inbound_action": "NotConfigured",
+        "default_outbound_action": "NotConfigured"
+      },
+      {
+        "name": "Public",
+        "enabled": true,
+        "default_inbound_action": "NotConfigured",
+        "default_outbound_action": "NotConfigured"
+      }
+    ],
+    "explicit_mdns_inbound_rule": {
+      "protocol": "UDP",
+      "local_port": 5353,
+      "enabled": true,
+      "action": "Allow",
+      "profiles": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "status": "Parsed successfully"
+    },
+    "python_application_rules": [
+      {
+        "protocol": "UDP",
+        "local_port_scope": "Any",
+        "enabled": true,
+        "action": "Allow",
+        "profile_scope": "Public",
+        "count": 2
+      },
+      {
+        "protocol": "UDP",
+        "local_port_scope": "Any",
+        "enabled": true,
+        "action": "Allow",
+        "profile_scope": "Private+Public",
+        "count": 1
+      }
+    ],
+    "note": "Rule inventory records configured filters only; it does not establish which executable owns the current probe socket or whether multicast reaches the adapter."
+  },
+  "gateway_root_http": {
+    "request": "unauthenticated GET http://192.168.1.1/",
+    "redirects_followed": false,
+    "reachable": true,
+    "status_code": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "server_header_present": false,
+    "title_present_in_read_prefix": false,
+    "model_identified": false
+  }
+}

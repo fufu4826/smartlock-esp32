@@ -1,0 +1,14 @@
+Minimal heap probe capture
+Started UTC: 2026-09-28T11:43:42.885033+00:00
+Port: COM6 at 115200 baud
+Reset: one 150 ms RTS pulse; DTR held false
+Stable-idle wait: 180 seconds after READY
+Command order: DIAG_HEAP_MIN once, then DIAG_SYSTEM once
+Serial retention: safe boot markers, the raw DIAG_HEAP_MIN line, and LINE INSPECT/PIPELINE plus SYSTEM DIAG END only
+Safe boot markers: BOOT | SmartLock core product (USB updates) | LockController: LOCKED | GPIO22: LOCKED | LOCK TIMER: OK | LINE: READY (Owner Management + ADMIN PIN) | READY
+Raw metric line: DIAG_HEAP_MIN phase=stable_idle timestamp_ms=182420 total_free=61536 allocated=145000 largest=55284 minimum_free=8288 free_blocks=19 allocated_blocks=488 integrity=PASS internal_free=109464 internal_largest=55284
+LINE INSPECT: configured=1 enabled=1 config_version=2 test_state=0 queue=0 sent=0 failed=0 state=1
+LINE PIPELINE: unlock=0 pin=0 emergency=0 enqueued=0 push_started=0 tls_connected=2 push_written=0 responses=2 heap_blocked=0 last_push_http=0 admission_free=109464 admission_largest=55284 admission_min=56196 tls_min=56196 tls_after_largest=38900
+SYSTEM DIAG END
+Discarded non-allowlisted serial lines: 38
+RESULT: PASS

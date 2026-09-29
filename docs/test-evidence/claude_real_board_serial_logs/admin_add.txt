@@ -1,0 +1,13 @@
+ // Management unlock duration: single ConfigStore field, 1..60 s bounds enforced by the store, persists across reload.
+ records.clear();{ConfigStore c;CHECK(c.begin()==ConfigStore::Result::CreatedDefaults);auto v=c.config();
+  v.unlockDurationMs=999;CHECK(!c.save(v));v.unlockDurationMs=60001;CHECK(!c.save(v));CHECK(c.config().unlockDurationMs==10000);
+  v.unlockDurationMs=1000;CHECK(c.save(v));v.unlockDurationMs=60000;CHECK(c.save(v));
+  ConfigStore again;CHECK(again.begin()==ConfigStore::Result::Ok);CHECK(again.config().unlockDurationMs==60000);}
+ // Management Admin PIN change: wrong current PIN shares the verify counter/lockout; new PIN survives reload; old PIN rejected.
+ records.clear();clockMs=300000;pinEvents=0;CHECK(AdminPin::begin(false,true));CHECK(AdminPin::initialize("2468"));
+ CHECK(AdminPin::change("1111","1357","1357",300001)==R::Invalid);CHECK(AdminPin::change("1112","1357","1357",300002)==R::Invalid);
+ CHECK(AdminPin::change("1113","1357","1357",300003)==R::Locked);CHECK(pinEvents==3&&lastLockout);
+ CHECK(AdminPin::change("2468","1357","1357",300004)==R::Locked);CHECK(AdminPin::verify("2468",359999)==R::Locked);
+ CHECK(AdminPin::change("2468","13a7","13a7",360004)==R::Invalid);CHECK(pinEvents==3);
+ CHECK(AdminPin::change("2468","1357","1357",360005)==R::Ok);CHECK(records["verifier"].find("1357")==std::string::npos);
+ CHECK(AdminPin::begin(true));CHECK(AdminPin::verify("2468",360006)==R::Invalid);CHECK(AdminPin::verify("1357",360007)==R::Ok);

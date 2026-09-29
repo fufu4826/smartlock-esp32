@@ -1,0 +1,98 @@
+{
+  "build_command": "pio run -e esp32_035",
+  "result": "SUCCESS",
+  "endpoint": "https://script.google.com/macros/s/<redacted-deployment-id>/exec",
+  "ram": {
+    "used_bytes": 118276,
+    "total_bytes": 327680,
+    "free_static_bytes": 209404,
+    "percent_used": 36.1
+  },
+  "flash_app_slot": {
+    "offset": "0x010000",
+    "size_bytes": 1310720,
+    "used_reported_bytes": 1250553,
+    "percent_used": 95.4,
+    "remaining_reported_bytes": 60167,
+    "other_ota_slot": {
+      "offset": "0x150000",
+      "size_bytes": 1310720
+    },
+    "binary_bytes": 1257136,
+    "binary_headroom_bytes": 53584
+  },
+  "firmware": {
+    "path": "C:\\ESP\\esp32_035_lock_touch_test\\.pio\\build\\esp32_035\\firmware.bin",
+    "size_bytes": 1257136,
+    "sha256": "f880bd22a293abbd550a34dd2122d785ee2537da501ff55653e5cde8aeda4860"
+  },
+  "partition_table": {
+    "path": "C:\\ESP\\esp32_035_lock_touch_test\\.pio\\build\\esp32_035\\partitions.bin",
+    "size_bytes": 3072,
+    "sha256": "148b959cbff1c38aa8e1d5c0ba9d612c54997b945e56a63f41223eef650653a1",
+    "entries": [
+      {
+        "label": "nvs",
+        "offset": "0x009000",
+        "size_bytes": 20480
+      },
+      {
+        "label": "otadata",
+        "offset": "0x00e000",
+        "size_bytes": 8192
+      },
+      {
+        "label": "app0",
+        "offset": "0x010000",
+        "size_bytes": 1310720
+      },
+      {
+        "label": "app1",
+        "offset": "0x150000",
+        "size_bytes": 1310720
+      },
+      {
+        "label": "spiffs",
+        "offset": "0x290000",
+        "size_bytes": 1441792
+      },
+      {
+        "label": "coredump",
+        "offset": "0x3f0000",
+        "size_bytes": 65536
+      }
+    ]
+  },
+  "prior_board_dump_comparison": {
+    "path": "C:\\ESP\\esp32_035_lock_touch_test\\docs\\phase_reports\\evidence\\phase13\\production-partitions.bin",
+    "size_bytes": 4096,
+    "sha256": "f3134b747fef242287f33aa0be8a5008958132e0c7611f5bc5bb917c02c9e397",
+    "table_prefix_matches_built": true,
+    "remaining_bytes_all_erased_ff": true,
+    "padding_bytes": 1024
+  },
+  "upload_boundary": {
+    "build_only_no_upload": true,
+    "standard_platformio_upload_writes": [
+      "bootloader@0x1000",
+      "partitions@0x8000",
+      "boot_app0@0xe000",
+      "firmware@app_offset"
+    ],
+    "recommended_after_gate": "APP-ONLY write completed at verified selected app0 offset 0x10000; bootloader, partition table, boot_app0, otadata and NVS images were not written."
+  },
+  "live_upload_window_check": {
+    "partition_table_match": true,
+    "partition_table_offset": "0x8000",
+    "partition_table_bytes": 3072,
+    "partition_table_sha256": "148b959cbff1c38aa8e1d5c0ba9d612c54997b945e56a63f41223eef650653a1",
+    "padding_0x0c00_to_0x0fff_erased": true,
+    "otadata_offset": "0xe000",
+    "otadata_bytes": 8192,
+    "otadata_byte_identical_to_saved_board_capture": true,
+    "ota_sequence": 1,
+    "boot_selected_application": "app0@0x10000",
+    "private_nvs_comparison_all_unchanged": true,
+    "private_nvs_snapshots_removed_after_comparison": true
+  }
+}

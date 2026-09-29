@@ -1,0 +1,146 @@
+[
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/registration/run_registration_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 6.14
+  },
+  {
+    "command": [
+      "node",
+      "tests/registration/registration_browser_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.11
+  },
+  {
+    "command": [
+      "node",
+      "tests/registration/session_display_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.09
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--session-display"
+    ],
+    "exit": 0,
+    "seconds": 8.07
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--management-expiry"
+    ],
+    "exit": 0,
+    "seconds": 7.4
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/http_deadline/run_http_deadline_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.24
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/events/run_event_log_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 7.87
+  },
+  {
+    "command": [
+      "node",
+      "tests/events/log_browser_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.11
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/cloud/run_cloud_protocol_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.23
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 7.46
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--cleanup-smoke"
+    ],
+    "exit": 0,
+    "seconds": 7.64
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--audit-attribution"
+    ],
+    "exit": 0,
+    "seconds": 7.58
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/admin/run_admin_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 5.5
+  },
+  {
+    "command": [
+      "node",
+      "tests/admin/web_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.11
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/network/run_network_manager_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 4.15
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/security/run_security_policy_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 4.32
+  }
+]

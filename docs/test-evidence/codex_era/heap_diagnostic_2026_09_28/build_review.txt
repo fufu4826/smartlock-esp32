@@ -1,0 +1,36 @@
+﻿SMARTLOCK REGION-FIRST HEAP DIAGNOSTIC BUILD REVIEW
+Date: 2026-09-28
+
+Source baseline: d1e5ce38058790a973ce90c1addf33ef206ce4cd (instrumentation changes uncommitted).
+Target: esp32_035 / ESP32 Dev Module.
+
+PRODUCTION IMAGE PRESERVED BEFORE BUILD
+Source: .pio/build/esp32_035/firmware.bin
+Evidence copy: production_firmware_before_diag.bin
+Size: 1,238,752 bytes
+SHA-256: 084227e2e77994ae21b773e253c209b8ba49b897354b3969a5f76f328cb06be9
+Copy hash verified identical before build.
+
+DIAGNOSTIC IMAGE
+Command: pio run -e esp32_035
+Result: SUCCESS (120.75 seconds)
+Evidence copy: diagnostic_firmware.bin
+Size: 1,242,352 bytes
+SHA-256: 06971003d545542d1f9975f62104319ebafc9d3560d6be97cf2c2ab0e7f259f9
+PlatformIO reported RAM 115,636 / 327,680 bytes and Flash 1,235,781 / 1,310,720 bytes.
+
+DRAM SECTION COMPARISON
+Production baseline (Astra report and original map): .dram0.data 25,164; .dram0.bss 87,448; total 112,612 bytes.
+Diagnostic ELF (xtensa-esp32-elf-objdump -h): .dram0.data 25,164; .dram0.bss 90,472; total 115,636 bytes.
+Delta: .dram0.data 0; .dram0.bss +3,024; total DRAM +3,024 bytes.
+The fixed snapshot array is sizeof(Snapshot) 124 x 24 = 2,976 bytes. Remaining fixed diagnostic state is approximately 48 bytes.
+
+VALIDATION
+Command: python tests\line\run_line_tests.py
+Result: PASS (LINE notification host fake tests: PASS). Existing MSVC conversion warnings were emitted.
+Command: git diff --check
+Result: PASS; Git emitted its existing LF-to-CRLF warning for unrelated CANONICAL_RECURRENCE_INVESTIGATION.md.
+Local ESP-IDF task.h confirms uxTaskGetStackHighWaterMark reports bytes; serial labels use *_hwm_bytes.
+
+STOP GATE
+No firmware flash, serial/board interaction, reboot, or physical action was performed. Production image copy is preserved. Diagnostic source and binary await Sol's review; do not flash until separately authorized.

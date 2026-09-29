@@ -1,0 +1,16 @@
+IDENTITY META: id=D000001 name=ko role=0 status=0 verifier=1
+IDENTITY META: id=D000002 name=hi role=2 status=0 verifier=1
+AUTH INSPECT: valid=1 identities=2 owners=1 verifiers=2 OWNER_VERIFIER_PRESERVED=0 heap=133940 min_heap=93968
+AUTH INSPECT END
+
+AUDIT STATUS: enabled=1 fault=0 full=0 queue=0 segments=9 dropped=0 NTP=1
+AUDIT CSV BEGIN
+
+event_id,timestamp,time_quality,user_id,device_id,action,result,network_mode,uptime_ms,crc32
+136ec0e34906e830581a8ccc2c25e74f00000000,,UPTIME,,,BOOT,SUCCESS,AP,2542,AAE46350
+AUDIT CSV END
+
+IDENTITY META: id=D000001 name=ko role=0 status=0 verifier=1
+IDENTITY META: id=D000002 name=hi role=2 status=0 verifier=1
+AUTH INSPECT: valid=1 identities=2 owners=1 verifiers=2 OWNER_VERIFIER_PRESERVED=0 heap=133940 min_heap=93968
+AUTH INSPECT END

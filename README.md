@@ -57,6 +57,29 @@ POST https://api.line.me/v2/bot/message/broadcast   (TLS, pinned root CA)
 
 ## Repository layout
 
+This repository is the **complete sanitized project**: firmware source, released firmware, all reports, thesis materials and sanitized test evidence.
+
+| Folder | Contents |
+|---|---|
+| `src/`, `lib/`, `platformio.ini` | Firmware source (build with `pio run -e esp32_035`) |
+| `tests/` | Host tests |
+| `firmware/latest/` | Accepted firmware `eaac772` (LINE broadcast) |
+| `firmware/previous/` | Original accepted release `d1e5ce3` |
+| `firmware/SHA256SUMS.txt`, `firmware/VERSION_INFO.md` | Hashes and flashing instructions |
+| `docs/reports/claude/` | Claude reports: Factory Reset LINE preservation, Management settings, LINE broadcast, real-board acceptance |
+| `docs/reports/phases/` | Codex phase reports (Phase 0–14, LINE, Google Sheets history, heap investigations; 58 reports) |
+| `docs/reports/architecture/`, `docs/reports/product-scope/` | Architecture, design and product-scope documents |
+| `docs/thesis/` | Source indexes for **chapters 1–5**, plus `FINAL_TEST_MATRIX.md`, `DEVELOPMENT_TIMELINE.md` and `IMPORTANT_COMMITS.md` |
+| `docs/test-evidence/` | Sanitized evidence: Codex-era logs and JSON, Claude real-board serial logs (redacted), build evidence, screenshots |
+| `docs/hardware/` | Hardware and configuration notes |
+| `docs/release-history/` | Timeline, important commits, full commit chronology (no author emails) and tags |
+| `docs/links/` | Where the shared Google Drive copy lives, and the access policy |
+| `tools/` | Read-only diagnostic scripts and bitmap generators. The destructive `reset_tool` is intentionally **not** included. |
+
+Chapter index files refer to old paths such as `docs/phase_reports/NAME.md`; the same file names are in `docs/reports/phases/`.
+
+Source map:
+
 ```
 src/app            state machine, access, enrollment, setup, physical admin, factory reset
 src/hardware       LockController (GPIO22), display, touch
@@ -125,3 +148,13 @@ Development is **closed**. The user accepted the prototype in its current state.
 - No secrets are in this repository. The LINE token, Wi-Fi password, Admin PIN and browser credentials live only on the device or the phone.
 - Anyone who is a friend of the OA receives notifications, including identity names in unlock messages.
 - Factory Reset intentionally keeps the LINE token. Use Management → LINE → disconnect before handing the device over.
+- **Sanitization.** Historical documents were copied with redactions:
+  - personal emails, Google Apps Script and Sheet IDs, and the real LINE OA Basic ID appear as `<redacted-…>`
+  - two Google Sheets screenshots were removed
+  - raw git history is not published (author emails are omitted from `docs/release-history/SANITIZED_COMMIT_CHRONOLOGY.txt`)
+- **Test fixtures** use obvious mock values, for example `mock_token_…`, `U0123456789abcdef…`, `owner-session` and PIN `2468`.
+
+## Sharing
+
+- **This repository is PRIVATE.** Access requires being a GitHub collaborator.
+- **Primary share link:** a Google Drive folder `SmartLock_Project_Complete_2026-09-29` (anyone with the link can view and download). It has the same sanitized content plus one ZIP of everything. See `docs/links/`.

@@ -1,0 +1,170 @@
+[
+  {
+    "file": "src/app/AccessController.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/app/AccessController.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/app/EnrollmentManager.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/app/EnrollmentManager.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/app/PhysicalAdmin.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/app/PhysicalAdmin.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/events/Audit.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/events/Audit.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/events/EventLog.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/events/EventLog.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/events/TimeManager.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/events/TimeManager.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/hardware/LockController.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/hardware/LockController.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/network/CanonicalOrigin.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/network/CanonicalOrigin.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/network/NetworkManager.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/network/NetworkManager.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/AtomicFileStore.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/AtomicFileStore.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/AuthStore.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/AuthStore.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/ConfigStore.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/ConfigStore.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/DeviceStore.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/DeviceStore.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/IdentityStore.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/IdentityStore.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/InstallationMetadata.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/InstallationMetadata.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/NetworkSecrets.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/NetworkSecrets.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/Phase2SelfTest.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/Phase2SelfTest.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/RecordCodec.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/RecordCodec.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/StaSecrets.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/StaSecrets.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/StorageHealth.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/StorageHealth.h",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/UserStore.cpp",
+    "unchanged": true
+  },
+  {
+    "file": "src/storage/UserStore.h",
+    "unchanged": true
+  }
+]

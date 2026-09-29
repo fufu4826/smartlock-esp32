@@ -1,0 +1,20 @@
+﻿LINE v2 physical provisioning test evidence
+Date: 2026-09-28
+Environment: Windows host fakes; no physical device or credentials used.
+
+Commands and results:
+- python tests/admin/run_admin_tests.py — PASS; 81 focused checks; production Admin router/gesture regression PASS.
+- python tests/line/run_line_tests.py — PASS; production LINE notification core host fakes.
+- python tests/line/run_provisioning_tests.py — PASS; production USB provisioning frame and physical-gate tests.
+
+Additional Admin regression cases in admin_transition_test.cpp:
+- Explicit Menu selection enters LineSetup and preserves the Management application state.
+- Emergency and Reset hit regions do not act on LineSetup; lock remains locked.
+- Touch activity does not extend the fixed 120-second setup deadline.
+- Back cancels setup and clears authorization.
+- Admin PIN/auth revision change expires setup and clears authorization.
+- LINE setup does not change the Admin PIN failure callback count.
+
+Existing admin_test.cpp PIN checks also pass: actual wrong comparisons count through attempt 3; lockout rejects further attempts without incrementing the wrong-PIN callback count.
+
+Production source was frozen during this test-only pass. No COM6 flash, build, commit, real token, or real recipient ID was used by this agent.

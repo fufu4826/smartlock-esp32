@@ -1,0 +1,96 @@
+COMMAND ['C:\\Python314\\python.exe', '-B', 'tests/line/run_line_tests.py']
+
+C:\Users\fufu\AppData\Local\Temp\smartlock-line-tests-8zn2a55z>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+line_notifications_host.cpp
+C:\ESP\esp32_035_lock_touch_test\src\notifications\LineProtocol.h(50): warning C4244: '=': conversion from 'uint32_t' to 'uint16_t', possible loss of data
+C:\ESP\esp32_035_lock_touch_test\tests\line\../../src/notifications/LineNotifications.cpp(401): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\ESP\esp32_035_lock_touch_test\tests\line\../../src/notifications/LineNotifications.cpp(429): warning C4244: '=': conversion from 'int' to 'char', possible loss of data
+LINE notification host fake tests: PASS
+
+COMMAND ['C:\\Python314\\python.exe', '-B', 'tests/line/run_provisioning_tests.py']
+
+C:\Users\fufu\AppData\Local\Temp\smartlock-line-tests-fnqftd41>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+provisioning_host.cpp
+C:\ESP\esp32_035_lock_touch_test\tests\line\../../src/notifications/LineProvisioning.cpp(11): warning C4244: '=': conversion from 'int' to 'uint8_t', possible loss of data
+Production USB gate/frame tests PASS (no hardware)
+
+COMMAND ['C:\\Python314\\python.exe', 'tools/line_provisioning/provision.py', '--self-test']
+fake_exchange_success=true
+frame_header_and_version=true
+field_order_and_binary_ids=true
+dtr_rts_low=true
+strict_challenge_reject=true
+token_constraints_reject=true
+oversize_frame_reject=true
+failure_response=true
+
+COMMAND ['C:\\Python314\\python.exe', '-B', 'tests/admin/run_admin_tests.py']
+
+C:\Users\fufu\AppData\Local\Temp\admin-tests-jjpnitru>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+admin_test.cpp
+admin_transition_test.cpp
+AdminPin.cpp
+PhysicalAdmin.cpp
+AppStateMachine.cpp
+TouchManager.cpp
+LockController.cpp
+ConfigStore.cpp
+Generating Code...
+Admin focused checks: 81 PASS (isolated NVS/crypto fakes)
+Admin production router/gesture regression: all 10 requested cases PASS (isolated clock/crypto/GPIO)
+
+COMMAND ['C:\\Python314\\python.exe', '-B', 'tests/identity/run_identity_tests.py', '--cleanup-smoke']
+
+C:\Users\fufu\AppData\Local\Temp\identity-host-tests-lub5f84z>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+enrollmentmanager_production.cpp
+accesscontroller_production.cpp
+identity_test_fakes.cpp
+cleanup_smoke.cpp
+IdentityStore.cpp
+AtomicFileStore.cpp
+UserStore.cpp
+DeviceStore.cpp
+RecordCodec.cpp
+SessionManager.cpp
+Generating Code...
+Cleanup core Access/Management/storage smoke PASS (isolated fakes)
+
+COMMAND ['C:\\Python314\\python.exe', '-B', 'tests/network/run_network_manager_tests.py']
+
+C:\Users\fufu\AppData\Local\Temp\network-manager-tests-w6zhi9h0>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+NetworkManager.cpp
+network_manager_test.cpp
+network_manager_test_fakes.cpp
+Generating Code...
+PASS: 101 assertions across 8 isolated scenarios
+
+COMMAND ['C:\\Python314\\python.exe', '-B', 'tests/security/run_security_policy_tests.py']
+
+C:\Users\fufu\AppData\Local\Temp\security-policy-tests-9l8uremj>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+request_policy_test.cpp
+PASS: 43 RequestPolicy assertions
+PASS: source policy confirms LockController GPIO ownership and AccessController-only unlock call

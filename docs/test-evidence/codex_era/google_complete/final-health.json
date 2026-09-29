@@ -1,0 +1,22 @@
+{
+  "state": "RECOVERED_WITH_WARNING",
+  "first_probe": {
+    "client": "Python urllib",
+    "result": "URLError / TimeoutError in socket.connect",
+    "timeout_seconds": 5
+  },
+  "follow_up": {
+    "client": "curl with proxy disabled",
+    "http_status": 200,
+    "connect_seconds": 0.054195,
+    "total_seconds": 0.085786
+  },
+  "ping_follow_up": {
+    "sent": 3,
+    "received": 3,
+    "loss_percent": 0,
+    "rtt_min_ms": 29,
+    "rtt_max_ms": 46
+  },
+  "cause": "Unknown; confirms TCP connection timeout rather than HTTP response parsing in the failed final probe"
+}

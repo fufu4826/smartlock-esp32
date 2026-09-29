@@ -1,0 +1,11 @@
+
+C:\Users\fufu\AppData\Local\Temp\smartlock-line-tests-zgk25443>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+line_notifications_host.cpp
+C:\ESP\esp32_035_lock_touch_test\src\notifications\LineProtocol.h(50): warning C4244: '=': conversion from 'uint32_t' to 'uint16_t', possible loss of data
+C:\ESP\esp32_035_lock_touch_test\tests\line\../../src/notifications/LineNotifications.cpp(401): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\ESP\esp32_035_lock_touch_test\tests\line\../../src/notifications/LineNotifications.cpp(429): warning C4244: '=': conversion from 'int' to 'char', possible loss of data
+LINE notification host fake tests: PASS

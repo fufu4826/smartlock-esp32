@@ -1,0 +1,16 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "origin": "ephemeral loopback fixture",
+  "management": "production kManage",
+  "syntheticOnly": true,
+  "checks": [
+    "Owner can save on 390x844; secret input clears and token is absent from HTML and localStorage",
+    "testState=queued is reported as queued; the UI does not claim LINE accepted the message",
+    "Disconnect POST updates the displayed status",
+    "Admin cannot see or open Owner-only LINE settings"
+  ],
+  "result": "PASS"
+}

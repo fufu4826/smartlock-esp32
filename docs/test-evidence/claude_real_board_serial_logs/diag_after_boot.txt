@@ -1,0 +1,12 @@
+SYSTEM INSPECT: configured=1 owner=1 unlock_ms=5000 sd=1 calibration=1 pin_store=1 locked=1 gpio22=1 sta=1 admin_active=0
+NETWORK INSPECT: sta_ip=192.168.1.179 rssi=-89 ap_enabled=1 ap_clients=0 mdns=1 host=smartlock-04225a0ff0a4.local http=1
+SYSTEM SESSIONS: access=0 management_qr=0 management_auth=0 enrollment=0
+SYSTEM INSPECT END
+
+INSTALLATION: <redacted for handoff>
+HEAP: free=109324 min=54684 largest=55284
+LINE INSPECT: configured=1 enabled=1 config_version=2 test_state=0 queue=0 sent=0 failed=0 state=5
+LINE PIPELINE: unlock=0 pin=0 emergency=0 enqueued=0 push_started=0 tls_connected=1 push_written=0 responses=1 heap_blocked=18 last_push_http=0 admission_free=109324 admission_largest=55284 admission_min=54684 tls_min=54684 tls_after_largest=36852
+INERT HISTORY: files=23 bytes=18945 digest=a63df454 writes=DISABLED
+SYSTEM DIAG END
+

@@ -1,8 +1,11 @@
 .pio/
 __pycache__/
+*.pyc
 *.log
 .vscode/
 node_modules/
-*.bin
 *.elf
 *.map
+*.bundle
+# Build output; released firmware lives in firmware/
+/.pio/build/

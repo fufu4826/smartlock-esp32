@@ -1,0 +1,15 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "management": "production kManage",
+  "syntheticOnly": true,
+  "checks": [
+    "Owner reaches LINE through System; Add Friend uses fixed origin/path and only the local label is editable",
+    "API test acceptance is distinguished from delivery; no recipient or token is submitted by the page",
+    "Reconfigure button only shows physical ADMIN and USB guidance; it sends no HTTP request",
+    "Unconfigured state has no fabricated Add Friend URL; Admin cannot open Owner LINE settings"
+  ],
+  "result": "PASS"
+}

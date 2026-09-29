@@ -1,0 +1,14 @@
+✔ production: AES-GCM vault is authenticated, binding-specific, randomized and no plaintext (3.6017ms)
+✔ production: schema3 CSV quotes, snapshots, canonical conflicts and formula RAW projection (4.7371ms)
+✔ production: claim/poll proofs are separated, one-use claim, no Google login binding without local confirmation (2684.3461ms)
+✔ production: committed pairing lost response/retry recovers same binding and Sheet; revoke cannot ingest (1895.2609ms)
+✔ production: ambiguous Sheet create response is recovered using marker without second file (1739.0508ms)
+✔ production: native PostgreSQL migrations, durable binding and two-process writer lock (466.3855ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7265.086

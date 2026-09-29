@@ -1,0 +1,2 @@
+AUTH INSPECT: valid=0 identities=0 owners=0 verifiers=0 OWNER_VERIFIER_PRESERVED=0 heap=139088 min_heap=137516
+AUTH INSPECT END

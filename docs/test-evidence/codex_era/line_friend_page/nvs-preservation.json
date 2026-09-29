@@ -1,0 +1,37 @@
+{
+  "sl-config": {
+    "entries_before": 4,
+    "entries_after": 4,
+    "identical": true
+  },
+  "sl-pin": {
+    "entries_before": 3,
+    "entries_after": 3,
+    "identical": true
+  },
+  "sl-net": {
+    "entries_before": 2,
+    "entries_after": 2,
+    "identical": true
+  },
+  "sl-sta": {
+    "entries_before": 2,
+    "entries_after": 2,
+    "identical": true
+  },
+  "lock-touch-v2": {
+    "entries_before": 2,
+    "entries_after": 2,
+    "identical": true
+  },
+  "sl-install": {
+    "entries_before": 2,
+    "entries_after": 2,
+    "identical": true
+  },
+  "sl-line": {
+    "entries_before": 6,
+    "entries_after": 6,
+    "identical": true
+  }
+}

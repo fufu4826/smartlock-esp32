@@ -1,0 +1,2 @@
+.dram0.data     0x000000003ffbdb60     0x624c
+.dram0.bss      0x000000003ffc3db0    0x155a0

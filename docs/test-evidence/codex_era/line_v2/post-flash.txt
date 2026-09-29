@@ -1,0 +1,52 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+BOOT
+SmartLock core product (USB updates)
+LockController: LOCKED
+GPIO22: LOCKED
+LOCK TIMER: OK
+Config schema: 1
+Configured: YES
+Owner exists: YES
+TFT: OK
+Touch calibration loaded
+Touch: OK
+SD: OK (30000 MB)
+SESSION TEST: PASS
+IDENTITY MODEL: PASS OWNER_VERIFIER_PRESERVED=0
+IDENTITY DB: PASS identities=2 owners=1 active=2 revoked=0
+AP: OK SSID SmartLock-F0A4 IP 192.168.4.1
+DNS: OK
+CANONICAL: http://smartlock-04225a0ff0a4.local MDNS: OK
+HTTP: OK
+NETWORK: PROTECTED RECOVERY AP
+STA saved config: CONNECTING
+ADMIN PIN STORE: OK
+INSTALLATION STORE: OK
+[  2118][E][Preferences.cpp:50] begin(): nvs_open failed: NOT_FOUND
+LINE: READY (not configured until Owner setup)
+HEAP: free=122640 min=122132
+SCREEN: OFF
+READY
+STA: CONNECTED IP 192.168.1.179
+IDENTITY META: id=D000001 name=ko role=0 status=0 verifier=1
+IDENTITY META: id=D000002 name=hi role=2 status=0 verifier=1
+AUTH INSPECT: valid=1 identities=2 owners=1 verifiers=2 OWNER_VERIFIER_PRESERVED=0 heap=118332 min_heap=105408
+AUTH INSPECT END
+SYSTEM INSPECT: configured=1 owner=1 unlock_ms=5000 sd=1 calibration=1 pin_store=1 locked=1 gpio22=1 sta=1 admin_active=0
+SYSTEM SESSIONS: access=0 management_qr=0 management_auth=0 enrollment=0
+SYSTEM INSPECT END
+INSTALLATION: healthy=1 id=3676c44dffc173298feb01620c8d00cf unit=000004225a0ff0a4
+HEAP: free=121676 min=105408 largest=65524
+LINE INSPECT: configured=0 enabled=0 queue=0 sent=0 failed=0 state=0
+INERT HISTORY: files=23 bytes=18945 digest=a63df454 writes=DISABLED
+SYSTEM DIAG END
+LINE_RESULT FAILURE

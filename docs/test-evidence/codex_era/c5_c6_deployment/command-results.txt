@@ -1,0 +1,36 @@
+﻿Sanitized command and result record. MAC values and raw serial identity fields are omitted.
+
+Identity:
+- pio device list: sole present adapter COM6, USB-SERIAL CH340, VID:PID 1A86:7523, location 1-2.
+- esptool chip_id on COM6: ESP32-D0WD-V3 rev 3.1, 40 MHz crystal; internally compared returned MAC to saved deployment record and exact match confirmed. MAC value not recorded.
+- Read-only live partition read at 0x8000, 0xC00: 3072 bytes, SHA-256 148b959cbff1c38aa8e1d5c0ba9d612c54997b945e56a63f41223eef650653a1; matched saved capture and current build.
+- Read-only live otadata read at 0xE000, 0x2000: 8192 bytes, SHA-256 f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0; matched saved capture, whose parsed sequence is 1 and selected image is app0 at 0x10000.
+
+Build:
+- HEAD d1e5ce38058790a973ce90c1addf33ef206ce4cd.
+- firmware.bin: 1,238,752 bytes; SHA-256 084227e2e77994ae21b773e253c209b8ba49b897354b3969a5f76f328cb06be9.
+- PlatformIO size report: RAM 112,612 / 327,680 bytes; flash 1,232,177 / 1,310,720 bytes.
+
+Exact application-only write command:
+python C:\Users\fufu\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port COM6 --baud 115200 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect 0x10000 C:\ESP\esp32_035_lock_touch_test\.pio\build\esp32_035\firmware.bin
+Result: esptool.py v4.11.0; detected 4 MB flash; erased only 0x00010000 through 0x0013efff; wrote 1,238,752 bytes at 0x00010000; "Hash of data verified."; normal RTS hard reset. No bootloader, partition, boot_app0, otadata, NVS or SD image argument was supplied.
+
+Exact read-only verification command:
+python C:\Users\fufu\.platformio\packages\tool-esptoolpy\esptool.py --chip esp32 --port COM6 --baud 115200 --before default_reset --after no_reset verify_flash 0x10000 C:\ESP\esp32_035_lock_touch_test\.pio\build\esp32_035\firmware.bin
+Result: verify 0x12e6e0 (1,238,752) bytes at 0x00010000; "verify OK (digest matched)"; stayed in bootloader.
+
+Postflash capture:
+- Opened COM6 with DTR=false and RTS=false, pulsed RTS for 150 ms for a normal reset, then captured boot markers and issued only DIAG_AUTH and DIAG_SYSTEM.
+- Boot marker, locked controller, GPIO22 locked, lock timer ready and SmartLock firmware banner observed.
+- Redacted auth/system state matches preflash; panic/watchdog absent.
+- No PIN attempt, unlock, Factory Reset, enrollment, LINE action or event diagnostic was performed.
+
+
+Additional single postflash diagnostic requested by Sol:
+- Opened COM6 with DTR=false and RTS=false before open; no reset or DTR/RTS pulse.
+- Sent only the fixed read-only command `DIAG_SYSTEM`; emitted a sanitized JSON summary to `postflash-extended-diagnostic.json` and did not print raw serial lines.
+- Observed configured Owner, 5-second unlock, healthy SD/calibration/PIN store, locked=1/GPIO22=1, STA connected, Admin inactive; mDNS and HTTP ready; AP enabled with zero clients; canonical host `smartlock-04225a0ff0a4.local` (station IP omitted); installation healthy (ID/unit omitted); all session counts zero.
+- Heap free/min/largest: 109552/55268/34804 bytes.
+- LINE status: configured/enabled=1, config_version=2, test_state=0, queue/sent/failed=0, state=5. LINE pipeline unlock/PIN/emergency/enqueued/push_started/push_written=0; tls_connected=2; responses=2; heap_blocked=214; last_push_http=0. These are observed counters only; no LINE test was triggered.
+- Read-only inert history metadata: 23 files, 18945 bytes, digest a63df454, writes=DISABLED. This is postflash-only, not compared with preflash.
+- Extended network, LINE, heap and inert-history values were not retained in preflash capture; pre/post preservation comparison for those fields is unavailable. No NVS sector/content digest or SD raw-content/sector digest was collected.

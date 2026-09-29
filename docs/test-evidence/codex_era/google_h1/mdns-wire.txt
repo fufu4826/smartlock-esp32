@@ -1,0 +1,9 @@
+H1 mDNS wire probe UTC=2026-09-27T13:28:16+00:00 source_interface=192.168.1.145 device=192.168.1.179:5353
+Bounded UDP queries only; no host/network settings changed.
+2026-09-27T13:28:17+00:00 multicast-QM-A qtype=1 class=QM dst=224.0.0.251:5353 replies=0 answers=none
+2026-09-27T13:28:17+00:00 multicast-QU-A qtype=1 class=QU dst=224.0.0.251:5353 replies=0 answers=none
+2026-09-27T13:28:18+00:00 multicast-QM-http-PTR qtype=12 class=QM dst=224.0.0.251:5353 replies=0 answers=none
+2026-09-27T13:28:19+00:00 multicast-QU-http-PTR qtype=12 class=QU dst=224.0.0.251:5353 replies=0 answers=none
+2026-09-27T13:28:19+00:00 direct-device-QM-A qtype=1 class=QM dst=192.168.1.179:5353 replies=0 answers=none
+2026-09-27T13:28:20+00:00 direct-device-QM-http-PTR qtype=12 class=QM dst=192.168.1.179:5353 replies=0 answers=none
+2026-09-27T13:28:20+00:00 END

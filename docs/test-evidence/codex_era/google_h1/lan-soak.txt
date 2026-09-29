@@ -1,0 +1,46 @@
+H1 read-only LAN probe target=192.168.1.179:80 started=2026-09-27T13:20:49+00:00
+2026-09-27T13:20:54+00:00 CHECK health ERROR TimeoutError
+2026-09-27T13:20:59+00:00 CHECK management-shell ERROR TimeoutError
+2026-09-27T13:21:04+00:00 CHECK retired-verify-owner ERROR TimeoutError
+2026-09-27T13:21:09+00:00 CHECK retired-owner-bootstrap ERROR TimeoutError
+2026-09-27T13:21:14+00:00 CHECK cloud-status-auth-rejection ERROR TimeoutError
+2026-09-27T13:21:14+00:00 HEALTH_SAMPLER start interval_seconds=10 duration_seconds=300
+2026-09-27T13:21:19+00:00 SAMPLE 1 ERROR TimeoutError
+2026-09-27T13:21:29+00:00 SAMPLE 2 ERROR TimeoutError
+2026-09-27T13:21:39+00:00 SAMPLE 3 ERROR TimeoutError
+2026-09-27T13:21:49+00:00 SAMPLE 4 ERROR TimeoutError
+2026-09-27T13:21:59+00:00 SAMPLE 5 ERROR TimeoutError
+2026-09-27T13:22:09+00:00 SAMPLE 6 ERROR TimeoutError
+2026-09-27T13:22:19+00:00 SAMPLE 7 ERROR TimeoutError
+2026-09-27T13:22:29+00:00 SAMPLE 8 ERROR TimeoutError
+2026-09-27T13:22:39+00:00 SAMPLE 9 ERROR TimeoutError
+2026-09-27T13:22:49+00:00 SAMPLE 10 ERROR TimeoutError
+2026-09-27T13:22:59+00:00 SAMPLE 11 ERROR TimeoutError
+2026-09-27T13:23:09+00:00 SAMPLE 12 ERROR TimeoutError
+2026-09-27T13:23:19+00:00 SAMPLE 13 ERROR TimeoutError
+2026-09-27T13:23:29+00:00 SAMPLE 14 ERROR TimeoutError
+2026-09-27T13:23:39+00:00 SAMPLE 15 ERROR TimeoutError
+2026-09-27T13:23:49+00:00 SAMPLE 16 ERROR TimeoutError
+2026-09-27T13:23:59+00:00 SAMPLE 17 ERROR TimeoutError
+2026-09-27T13:24:05+00:00 SAMPLE 18 status=200 health_body_ok=True
+2026-09-27T13:24:15+00:00 SAMPLE 19 status=200 health_body_ok=True
+2026-09-27T13:24:27+00:00 SAMPLE 20 status=200 health_body_ok=True
+2026-09-27T13:24:35+00:00 SAMPLE 21 status=200 health_body_ok=True
+2026-09-27T13:24:48+00:00 SAMPLE 22 status=200 health_body_ok=True
+2026-09-27T13:24:55+00:00 SAMPLE 23 status=200 health_body_ok=True
+2026-09-27T13:25:05+00:00 SAMPLE 24 status=200 health_body_ok=True
+2026-09-27T13:25:19+00:00 SAMPLE 25 status=200 health_body_ok=True
+2026-09-27T13:25:32+00:00 SAMPLE 26 status=200 health_body_ok=True
+2026-09-27T13:25:36+00:00 SAMPLE 27 status=200 health_body_ok=True
+2026-09-27T13:25:46+00:00 SAMPLE 28 status=200 health_body_ok=True
+2026-09-27T13:26:01+00:00 SAMPLE 29 ERROR TimeoutError
+2026-09-27T13:26:11+00:00 SAMPLE 30 ERROR TimeoutError
+2026-09-27T13:26:14+00:00 HEALTH_SAMPLER done samples=30 successful=11 duration_seconds=300
+RESULT: FAIL
+POST-RECOVERY ROUTE RECHECK UTC=2026-09-27T13:26:36+00:00 host=192.168.1.179:80 (single pass; no credentials/session)
+health: status=200 health_body_ok=True
+management-shell: ERROR TimeoutError
+numeric-root: status=200 html=True bytes_read=1250
+retired-verify-owner: status=410 retired_expected=True
+retired-owner-bootstrap: status=410 retired_expected=True
+cloud-status-auth-rejection: status=403 auth_rejection=True

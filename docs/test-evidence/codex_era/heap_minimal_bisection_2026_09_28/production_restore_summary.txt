@@ -1,0 +1,20 @@
+Production restore: PASS
+Accepted source checkpoint: d1e5ce38058790a973ce90c1addf33ef206ce4cd
+Accepted production app SHA-256: 084227e2e77994ae21b773e253c209b8ba49b897354b3969a5f76f328cb06be9
+Production app size: 1238752 bytes
+Flash operation: app-only at 0x10000 on COM6; no partition or erase operation
+Independent verify_flash: PASS; digest matched
+Normal RTS reset: one 150 ms pulse; boot reached READY
+GPIO22: LOCKED (boot and SYSTEM INSPECT)
+Identity DB: PASS; identities=2 owners=1 active=2 revoked=0
+Configured Owner: PASS
+Admin PIN store: OK
+Touch calibration: loaded
+System state: configured=1 owner=1 unlock_ms=5000 sd=1 calibration=1 pin_store=1 locked=1 gpio22=1 sta=0 admin_active=0
+Network state: STA disconnected; AP enabled, mDNS ready, HTTP ready
+LINE: configured=1 enabled=1 queue=0 sent=0 failed=0 state=2
+LINE pipeline: no events or push attempts during this boot
+Commands sent after reset: DIAG_SYSTEM once; DIAG_HEAP_MIN not sent
+Serial evidence is sanitized; MAC, IP, host, installation identifiers, and identity names are not retained.
+Active diagnostic source: removed; src/events/Diagnostics.cpp equals HEAD; no HeapDiagnostics/HeapTrace source under src.
+Unrelated working-tree WIP preserved.

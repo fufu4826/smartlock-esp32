@@ -1,0 +1,9 @@
+{
+  "commit": "48c653e",
+  "tag": "line-owner-provisioning-v2-physical",
+  "binary_bytes": 1232992,
+  "sha256": "5c696c1890f6141f055201be486c1823a6ee984444597fdb93e81fa21f935432",
+  "address": "0x10000",
+  "write_verified": true,
+  "partition_or_nvs_erase": false
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "target": "192.168.1.179",
+    "port": 53,
+    "reply": true,
+    "bytes": 62,
+    "sta_address_present": false,
+    "ap_address_present": true
+  },
+  {
+    "target": "192.168.1.179",
+    "port": 5353,
+    "reply": true,
+    "bytes": 62,
+    "sta_address_present": true,
+    "ap_address_present": false
+  },
+  {
+    "target": "224.0.0.251",
+    "port": 5353,
+    "reply": false
+  }
+]

@@ -1,0 +1,64 @@
+# All commits (hash, date, subject). Author names/emails intentionally omitted.
+73f4780  2026-09-25  Phase 0: verify ESP32-035 hardware baseline
+bd9098b  2026-09-25  Phase 1: lock controller and visible touch states
+c686476  2026-09-25  Phase 2: versioned config and fail-closed SD stores
+fd68a5b  2026-09-25  Phase 3: secure temporary sessions and TFT QR
+fd0d2da  2026-09-25  Phase 4: setup SoftAP and read-only captive web
+313dbba  2026-09-25  Phase 5: first owner setup and protected AP
+e7e5f29  2026-09-26  Phase 7: verify canonical Owner access across AP and LAN
+d9e568a  2026-09-26  Phase 8: verify Thai authenticated Management dashboard
+90ecd82  2026-09-26  Phase 9: harden confirmed STA transactions and defer physical regression
+b1a0831  2026-09-26  Phase 10: add protected recovery without erasing authorization
+04740e7  2026-09-26  Phase 11: add bounded local audit events and authenticated CSV export
+171cf29  2026-09-26  Phase 12: add optional cloud sync pending Google deployment
+a3bf1c1  2026-09-26  Add LAN-primary policy and Thai Phone 2 enrollment checkpoint
+5e16000  2026-09-26  Migrate authorization to single identities preserving Owner and Wi-Fi
+794e3eb  2026-09-26  Fix second hold on Management opening physical reset prompt
+b73fe45  2026-09-26  Fix enrollment QR display after asynchronous form submission
+6d3ed85  2026-09-26  Use fresh clock when expiring web-created enrollment sessions
+17de16a  2026-09-26  Record real Phone2 enrollment and Access PASS; queue targeted revoke regression
+7d28416  2026-09-26  Record reported revoke PASS and conflicting live persistence evidence
+df7b61f  2026-09-26  feat: harden HTTP and prepare encrypted maintenance
+7f6c0e8  2026-09-26  Complete Phase 13 restore generations and authenticated OTA checkpoint
+51c1086  2026-09-26  Close Phase 14 checkpoint with user-waived physical checks
+c3c9dac  2026-09-26  Add physical Admin PIN and confirmed timed emergency unlock
+519a6d7  2026-09-26  Record Admin physical PASS and prepare from-zero acceptance
+65ee81d  2026-09-26  Remove Backup Restore and browser OTA from product
+d991331  2026-09-26  Record cleanup physical PASS and gate final reset execution
+6ca306d  2026-09-26  Reconcile deployed Admin menu fix with production baseline
+55273cd  2026-09-26  Simplify fresh Owner Setup and remove legacy admin passphrase
+fc6c4bf  2026-09-26  Remove display and lock settings Management sections
+62ae5c2  2026-09-27  Check current credential authority before browser enrollment
+9613716  2026-09-27  Fix SmartLock registration recovery, session deadlines and bounded audit history
+a1712ca  2026-09-27  Add Phase 1 Google history protocol and durable backend proof
+9217f0c  2026-09-27  Implement local-first Google Sheets history pipeline
+0ce8c66  2026-09-27  Record Google history integration and live acceptance evidence
+f40efbc  2026-09-27  Add local free-only Worker and D1 feasibility proof
+c6c90af  2026-09-27  Release one-click Google Sheets integration with verified receipts
+4439bdb  2026-09-27  Checkpoint Google Sheets implementation before removal
+b6db664  2026-09-27  Remove Google Sheets integration
+07ef632  2026-09-27  Record Google removal commit in acceptance report
+064518a  2026-09-27  Implement RAM-only LINE security notifications
+f1bdc71  2026-09-27  Record LINE deployment and preserved-state acceptance
+3fc128d  2026-09-28  Add Owner-gated USB LINE provisioning and remove web credential entry
+324b92d  2026-09-28  Record LINE v2 deployment and state preservation evidence
+48c653e  2026-09-28  Authorize scoped LINE USB setup through physical Admin
+a8bffe5  2026-09-28  Record physical LINE provisioning deployment and state preservation
+14645a9  2026-09-28  Give isolated LINE TLS worker sufficient handshake stack
+f750bf8  2026-09-28  Record private LINE provisioning and live TLS recovery evidence
+8df5c8e  2026-09-28  Record accepted real LINE push without exposing credentials
+c5106ac  2026-09-28  Confirm Owner receipt and complete LINE acceptance
+2b4fcf2  2026-09-28  Add protected same-origin Wi-Fi fallback for Access and Management
+c229d41  2026-09-28  Preserve mDNS responder and disable modem sleep for availability
+dc2a6fa  2026-09-28  Record fallback deployment and pending real phone acceptance
+870ec7f  2026-09-28  Give LINE Add Friend its own Management page and remove TFT fallback button
+2c28030  2026-09-28  Record LINE friend page deployment and runtime observations
+979fc74  2026-09-28  Move LINE maintenance to Owner and shared Admin PIN; release HTTP buffers
+ae25d30  2026-09-28  Record web LINE deployment and preserved-state verification
+8c15375  2026-09-28  Record canonical hostname recurrence evidence without firmware changes
+d1e5ce3  2026-09-28  fix: harden admin pin bootstrap and emergency unlock gating
+570f382  2026-09-28  chore: archive post-acceptance SmartLock materials
+523fd0b  2026-09-28  feat: preserve prototype line config across factory reset
+a5325b5  2026-09-28  feat: complete owner management settings
+eaac772  2026-09-28  feat: broadcast line notifications to all friends
+cd4c451  2026-09-29  docs: update README for team handoff

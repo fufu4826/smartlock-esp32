@@ -1,0 +1,12 @@
+IDENTITY META: id=D000001 name=ko role=0 status=0 verifier=1
+IDENTITY META: id=D000002 name=hi role=2 status=0 verifier=1
+AUTH INSPECT: valid=1 identities=2 owners=1 verifiers=2 OWNER_VERIFIER_PRESERVED=0 heap=121908 min_heap=99160
+AUTH INSPECT END
+SYSTEM INSPECT: configured=1 owner=1 unlock_ms=5000 sd=1 calibration=1 pin_store=1 locked=1 gpio22=1 sta=1 admin_active=0
+SYSTEM SESSIONS: access=0 management_qr=0 management_auth=0 enrollment=0
+SYSTEM INSPECT END
+INSTALLATION: healthy=1 id=3676c44dffc173298feb01620c8d00cf unit=000004225a0ff0a4
+HEAP: free=125252 min=99160 largest=69620
+LINE INSPECT: configured=0 enabled=0 queue=0 sent=0 failed=0 state=0
+INERT HISTORY: files=23 bytes=18945 digest=a63df454 writes=DISABLED
+SYSTEM DIAG END

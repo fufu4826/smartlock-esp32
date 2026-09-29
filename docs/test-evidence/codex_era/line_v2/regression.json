@@ -1,0 +1,59 @@
+[
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/line/run_line_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/line/run_provisioning_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "tools/line_provisioning/provision.py",
+      "--self-test"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/admin/run_admin_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--cleanup-smoke"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/network/run_network_manager_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/security/run_security_policy_tests.py"
+    ],
+    "exit": 0
+  }
+]

@@ -1,0 +1,13 @@
+﻿admin-pin-physical-pass-2026-09-26 Physical Admin accepted; from-zero reset acceptance prepared only
+google-sheets-archive-before-removal Checkpoint Google Sheets implementation before removal
+hardware-baseline-v1 Phase 0: verify ESP32-035 hardware baseline
+line-notifications-v1 Implement RAM-only LINE security notifications
+line-owner-provisioning-v2 Add Owner-gated USB LINE provisioning and remove web credential entry
+line-owner-provisioning-v2-physical Authorize scoped LINE USB setup through physical Admin
+line-owner-provisioning-v2-tls Record private LINE provisioning and live TLS recovery evidence
+phase-1-verified Phase 1: lock controller and visible touch states
+phase-2-verified Phase 2: versioned config and fail-closed SD stores
+phase-3-verified Phase 3: secure temporary sessions and TFT QR
+phase-4-verified Phase 4: setup SoftAP and read-only captive web
+phase-5-verified Phase 5: first owner setup and protected AP
+smartlock-final-accepted-2026-09-28 SmartLock final accepted: software, deployment, and user physical checks passed on 2026-09-28

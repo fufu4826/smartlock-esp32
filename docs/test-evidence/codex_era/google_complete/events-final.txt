@@ -1,0 +1,28 @@
+
+C:\Users\fufu\AppData\Local\Temp\event-log-tests-26pxn62l>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+EventLog.cpp
+event_log_test.cpp
+Generating Code...
+
+C:\Users\fufu\AppData\Local\Temp\event-log-tests-26pxn62l>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+EventLog.cpp
+Audit.cpp
+audit_test.cpp
+Generating Code...
+
+C:\Users\fufu\AppData\Local\Temp\event-log-tests-26pxn62l>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+InstallationMetadata.cpp
+installation_metadata_test.cpp
+Generating Code...

@@ -1,0 +1,6 @@
+{
+  "segments_read": 3,
+  "rows_crc_validated": 14,
+  "live_denial_claim_only_lan": 1,
+  "no_secret_fields": true
+}

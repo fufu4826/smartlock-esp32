@@ -1,0 +1,96 @@
+﻿{
+    "date":  "2026-09-27",
+    "scope":  "Host-only production-code and source checks; no COM6, live door, or Google acceptance",
+    "runs":  [
+                 {
+                     "command":  "python -B tests/cloud/run_google_route_tests.py",
+                     "exit":  0,
+                     "checks":  43,
+                     "kind":  "Production HTTP handler bodies with dependency fakes"
+                 },
+                 {
+                     "command":  "python -B tests/events/run_event_log_tests.py",
+                     "exit":  0,
+                     "checks":  null,
+                     "kind":  "Production EventLog/Audit/InstallationMetadata fixtures; no aggregate count emitted"
+                 },
+                 {
+                     "command":  "python -B tests/security/run_security_policy_tests.py",
+                     "exit":  0,
+                     "checks":  43,
+                     "kind":  "RequestPolicy assertions plus lock-writer source ownership"
+                 },
+                 {
+                     "command":  "python -B tests/identity/run_identity_tests.py",
+                     "exit":  0,
+                     "checks":  349,
+                     "migration_fault_boundaries":  20,
+                     "kind":  "Production identity/auth/enrollment with host storage fakes"
+                 },
+                 {
+                     "command":  "python -B tests/admin/run_admin_tests.py",
+                     "exit":  0,
+                     "checks":  78,
+                     "router_gesture_cases":  10,
+                     "kind":  "Production Admin/lock/touch/state/config with isolated clock/NVS/crypto/GPIO"
+                 },
+                 {
+                     "command":  "python -B tests/network/run_network_manager_tests.py",
+                     "exit":  0,
+                     "checks":  101,
+                     "scenarios":  8,
+                     "kind":  "Production network manager with host network fakes"
+                 },
+                 {
+                     "command":  "python -B tests/http_deadline/run_http_deadline_tests.py",
+                     "exit":  0,
+                     "checks":  11,
+                     "kind":  "Production request-deadline helper"
+                 }
+             ],
+    "final_cloud_runs":  [
+                             {
+                                 "command":  "node cloud/google_receiver/Code.test.js",
+                                 "tests":  19,
+                                 "exit":  0
+                             },
+                             {
+                                 "command":  "node tests/cloud/google_ui_test.js",
+                                 "checks":  48,
+                                 "exit":  0
+                             },
+                             {
+                                 "command":  "python -B tests/cloud/run_cloud_protocol_tests.py",
+                                 "checks":  63,
+                                 "exit":  0
+                             },
+                             {
+                                 "command":  "python -B tests/cloud/run_cloud_transport_tests.py",
+                                 "checks":  55,
+                                 "exit":  0
+                             },
+                             {
+                                 "command":  "python -B tests/cloud/run_cloud_sync_tests.py",
+                                 "checks":  44,
+                                 "exit":  0
+                             },
+                             {
+                                 "command":  "python -B tests/cloud/run_cloud_reset_tests.py",
+                                 "checks":  27,
+                                 "exit":  0
+                             },
+                             {
+                                 "command":  "python -B tests/cloud/run_google_route_tests.py",
+                                 "checks":  43,
+                                 "exit":  0
+                             },
+                             {
+                                 "exit":  0,
+                                 "command":  "node tests/registration/registration_browser_test.js"
+                             },
+                             {
+                                 "exit":  0,
+                                 "command":  "node tests/admin/web_test.js"
+                             }
+                         ]
+}

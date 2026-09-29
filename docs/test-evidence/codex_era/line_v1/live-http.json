@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/health",
+    "status": 200,
+    "body": "ok\n"
+  },
+  {
+    "path": "/manage",
+    "status": 200,
+    "body": {
+      "lineUI": true,
+      "googleUI": false,
+      "historyAPI": false
+    }
+  },
+  {
+    "path": "/api/line/status",
+    "status": 403,
+    "body": "{\"error\":\"forbidden\"}"
+  },
+  {
+    "path": "/api/logs/status",
+    "status": 404,
+    "body": "ไม่พบหน้าที่ต้องการ\n"
+  }
+]

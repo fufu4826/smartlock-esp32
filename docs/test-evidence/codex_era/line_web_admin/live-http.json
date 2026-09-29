@@ -1,0 +1,9 @@
+{
+  "management": true,
+  "no_raw_fields": true,
+  "line_page": true,
+  "health": true,
+  "/api/line/maintenance/arm": 403,
+  "/api/line/maintenance/commit": 403,
+  "/api/line/save": 404
+}

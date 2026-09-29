@@ -1,0 +1,311 @@
+{
+  "generated_utc": "2026-09-28T03:46:46.416332+00:00",
+  "scope": "read-only exact-FQDN IPv4 mDNS A query matrix; no firewall/router/network changes, serial access, or device writes",
+  "target": {
+    "canonical_host": "smartlock-04225a0ff0a4.local",
+    "board_ip": "192.168.1.179",
+    "pc_ip": "192.168.1.145",
+    "rounds_per_cell": 2,
+    "timeout_seconds": 4.0,
+    "multicast_ttl": 255
+  },
+  "interpretation": "Only QR responses from the board containing the exact canonical owner A record are retained. Results distinguish query source port, destination, and QU/QM behavior; they do not prove a particular NIC or router forwarding path.",
+  "matrix": [
+    {
+      "source_mode": "ephemeral",
+      "destination": "192.168.1.179",
+      "destination_mode": "unicast",
+      "qu": false,
+      "rounds": [
+        {
+          "status": "response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "not_required",
+          "join_error": null,
+          "source_port": 64566,
+          "multicast_ttl": null,
+          "qd": 1,
+          "rcode": 0,
+          "peer_port": 5353,
+          "elapsed_ms": 219,
+          "board_answer_a": [
+            "192.168.1.179"
+          ]
+        },
+        {
+          "status": "response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "not_required",
+          "join_error": null,
+          "source_port": 64567,
+          "multicast_ttl": null,
+          "qd": 1,
+          "rcode": 0,
+          "peer_port": 5353,
+          "elapsed_ms": 203,
+          "board_answer_a": [
+            "192.168.1.179"
+          ]
+        }
+      ]
+    },
+    {
+      "source_mode": "ephemeral",
+      "destination": "192.168.1.179",
+      "destination_mode": "unicast",
+      "qu": true,
+      "rounds": [
+        {
+          "status": "response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "not_required",
+          "join_error": null,
+          "source_port": 64568,
+          "multicast_ttl": null,
+          "qd": 1,
+          "rcode": 0,
+          "peer_port": 5353,
+          "elapsed_ms": 203,
+          "board_answer_a": [
+            "192.168.1.179"
+          ]
+        },
+        {
+          "status": "response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "not_required",
+          "join_error": null,
+          "source_port": 64569,
+          "multicast_ttl": null,
+          "qd": 1,
+          "rcode": 0,
+          "peer_port": 5353,
+          "elapsed_ms": 187,
+          "board_answer_a": [
+            "192.168.1.179"
+          ]
+        }
+      ]
+    },
+    {
+      "source_mode": "ephemeral",
+      "destination": "224.0.0.251",
+      "destination_mode": "multicast",
+      "qu": false,
+      "rounds": [
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 64570,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4000,
+          "board_answer_a": null
+        },
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 64588,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4000,
+          "board_answer_a": null
+        }
+      ]
+    },
+    {
+      "source_mode": "ephemeral",
+      "destination": "224.0.0.251",
+      "destination_mode": "multicast",
+      "qu": true,
+      "rounds": [
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 55254,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4016,
+          "board_answer_a": null
+        },
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 50626,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4016,
+          "board_answer_a": null
+        }
+      ]
+    },
+    {
+      "source_mode": "5353",
+      "destination": "192.168.1.179",
+      "destination_mode": "unicast",
+      "qu": false,
+      "rounds": [
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4000,
+          "board_answer_a": null
+        },
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4000,
+          "board_answer_a": null
+        }
+      ]
+    },
+    {
+      "source_mode": "5353",
+      "destination": "192.168.1.179",
+      "destination_mode": "unicast",
+      "qu": true,
+      "rounds": [
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4015,
+          "board_answer_a": null
+        },
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4016,
+          "board_answer_a": null
+        }
+      ]
+    },
+    {
+      "source_mode": "5353",
+      "destination": "224.0.0.251",
+      "destination_mode": "multicast",
+      "qu": false,
+      "rounds": [
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4016,
+          "board_answer_a": null
+        },
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4000,
+          "board_answer_a": null
+        }
+      ]
+    },
+    {
+      "source_mode": "5353",
+      "destination": "224.0.0.251",
+      "destination_mode": "multicast",
+      "qu": true,
+      "rounds": [
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4015,
+          "board_answer_a": null
+        },
+        {
+          "status": "no_response",
+          "bind": "ok",
+          "bind_error": null,
+          "join": "ok",
+          "join_error": null,
+          "source_port": 5353,
+          "multicast_ttl": 255,
+          "qd": null,
+          "rcode": null,
+          "peer_port": null,
+          "elapsed_ms": 4000,
+          "board_answer_a": null
+        }
+      ]
+    }
+  ]
+}

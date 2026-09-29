@@ -1,0 +1,28 @@
+﻿## master
+ M docs/phase_reports/CANONICAL_RECURRENCE_INVESTIGATION.md
+ M docs/phase_reports/FINAL_FROM_ZERO_REPORT.md
+ M docs/phase_reports/STALE_ENROLLMENT_REPORT.md
+?? docs/architecture/
+?? docs/phase_reports/FINAL_SMARTLOCK_ACCEPTANCE_2026-09-28.md
+?? docs/phase_reports/GOOGLE_SHEETS_HARDWARE_DEPLOYMENT_REPORT.md
+?? docs/phase_reports/H1_CANONICAL_HOST_DIAGNOSIS.md
+?? docs/phase_reports/SOL_C5_C6_DEPLOYMENT_ACCEPTANCE_2026-09-28.md
+?? docs/phase_reports/SOL_LINE_HEAP_DELIVERY_FIX_2026-09-28.md
+?? docs/phase_reports/SOL_LINE_HEAP_MINIMAL_BISECTION_2026-09-28.md
+?? docs/phase_reports/SOL_LINE_HEAP_REGION_DIAGNOSTIC_2026-09-28.md
+?? docs/phase_reports/SOL_POST_ASTRA_REVIEW_2026-09-28.md
+?? docs/phase_reports/SOL_PRODUCTION_HEAP_REPRODUCTION_2026-09-28.md
+?? docs/phase_reports/evidence/c5_c6_deployment/
+?? docs/phase_reports/evidence/canonical_recurrence/lan-environment.json
+?? docs/phase_reports/evidence/canonical_recurrence/mdns-matrix-python312.json
+?? docs/phase_reports/evidence/canonical_recurrence/mdns-matrix-python314.json
+?? docs/phase_reports/evidence/final_from_zero/after-phone2.txt
+?? docs/phase_reports/evidence/google_h1/
+?? docs/phase_reports/evidence/heap_diagnostic_2026_09_28/
+?? docs/phase_reports/evidence/heap_diagnostic_orphan/
+?? docs/phase_reports/evidence/heap_minimal_bisection_2026_09_28/
+?? docs/phase_reports/evidence/line_heap_2026_09_28/
+?? docs/phase_reports/evidence/line_v1/otadata-live.bin
+?? docs/phase_reports/evidence/line_v1/partition-live.bin
+?? scripts/canonical_mdns_matrix.py
+?? tools/canonical_recurrence/

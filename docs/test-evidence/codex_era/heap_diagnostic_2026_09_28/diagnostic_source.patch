@@ -1,0 +1,287 @@
+diff --git a/src/events/Diagnostics.cpp b/src/events/Diagnostics.cpp
+index 9cca8c3..a5ffbc1 100644
+--- a/src/events/Diagnostics.cpp
++++ b/src/events/Diagnostics.cpp
+@@ -4,6 +4,7 @@
+ #include <cstring>
+ #include "../storage/IdentityStore.h"
+ #include "../storage/AuthStore.h"
++#include "HeapDiagnostics.h"
+ namespace { void (*systemDiagnostic)() = nullptr; }
+ void Diagnostics::setSystemDiagnostic(void (*callback)()) { systemDiagnostic = callback; }
+ void Diagnostics::poll() {
+@@ -23,6 +24,7 @@ void Diagnostics::poll() {
+     command[used] = '\0';
+     const bool authRequested = !overflow && !strcmp(command, "DIAG_AUTH");
+     const bool systemRequested = !overflow && !strcmp(command, "DIAG_SYSTEM");
++    const bool heapRequested = !overflow && !strcmp(command, "DIAG_HEAP");
+     const bool commandValid=!overflow;
+     used = 0; overflow = false;
+     if (authRequested) {
+@@ -47,5 +49,9 @@ void Diagnostics::poll() {
+       Serial.println("SYSTEM DIAG END");
+       continue;
+     }
++    if (heapRequested) {
++      HeapDiagnostics::print();
++      continue;
++    }
+   }
+ }
+diff --git a/src/main.cpp b/src/main.cpp
+index df18710..2e14504 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -31,6 +31,7 @@
+ #include "app/FactoryResetController.h"
+ #include "storage/NetworkSecrets.h"
+ #include "events/Diagnostics.h"
++#include "events/HeapDiagnostics.h"
+ #include "events/TimeManager.h"
+ #include "notifications/LineNotifications.h"
+ #include <esp_system.h>
+@@ -272,6 +273,7 @@ void systemDiagnostic() {
+ 
+ void setup() {
+   lockController.begin();
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H00);
+   Serial.begin(115200);
+   Serial.println("BOOT");
+   Serial.println("SmartLock core product (USB updates)");
+@@ -289,6 +291,7 @@ void setup() {
+   } else {
+     Serial.println("Config: FAIL (locked)");
+   }
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H01);
+ 
+   displayManager.begin(tft);
+   pinMode(kRecalibratePin, INPUT_PULLUP);
+@@ -323,12 +326,14 @@ void setup() {
+   preferences.end();
+   touchManager.begin(tft);
+   Serial.println("Touch: OK");
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H02);
+   const bool mayRepairSetup = configStore.healthy() &&
+                               !configStore.config().configured &&
+                               !configStore.config().ownerExists;
+-  if (storageHealth.begin(mayRepairSetup)) {
+-    runPhase2SelfTest();
+-  } else systemFault=true;
++  const bool storageReady = storageHealth.begin(mayRepairSetup);
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H03);
++  if (storageReady) runPhase2SelfTest();
++  else systemFault=true;
+   Serial.printf("SESSION TEST: %s\n", runSessionSelfTest() ? "PASS" : "FAIL");
+   const bool configClaimsConfigured = configStore.healthy() &&
+                                       configStore.config().configured &&
+@@ -341,6 +346,7 @@ void setup() {
+   size_t usersCount = 0, devicesCount = 0, activeCount = 0, revokedCount = 0;
+   const bool databaseValid = !configured ||
+       enrollment.databaseIntegrity(usersCount, devicesCount, activeCount, revokedCount);
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H04);
+   if (configured) Serial.printf("IDENTITY DB: %s identities=%u owners=%u active=%u revoked=%u\n",
+                                 databaseValid ? "PASS" : "FAIL", (unsigned)usersCount,
+                                 (unsigned)devicesCount, (unsigned)activeCount,
+@@ -351,23 +357,29 @@ void setup() {
+   systemFault = systemFault || (!setupAllowed && !(configured && databaseValid));
+   char apPassword[33] = {};
+   bool apStarted = false;
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H05);
+   if (setupAllowed) apStarted = network.beginSetupAp();
+   if (configured && databaseValid &&
+       networkSecrets.load(apPassword) == NetworkSecrets::Result::Valid)
+     apStarted = network.beginConfiguredAp(apPassword);
+   memset(apPassword, 0, sizeof(apPassword));
++  if (apStarted) HeapDiagnostics::capture(HeapDiagnostics::Phase::H06);
+   if (apStarted) {
+     if (physicalRecovery && configured && !network.enterRecovery())
+       Serial.println("NETWORK: RECOVERY REQUEST FAILED (normal AP retained)");
+     Serial.printf("AP: OK SSID %s IP %s\n", network.ssid(),
+                   network.ip().toString().c_str());
+     Serial.printf("DNS: %s\n", portal.begin(network.ip()) ? "OK" : "FAIL");
++    HeapDiagnostics::capture(HeapDiagnostics::Phase::H07);
+     Serial.printf("CANONICAL: http://%s MDNS: %s\n", CanonicalOrigin::host(),
+                   (canonicalReady=CanonicalOrigin::begin()) ? "OK" : "FAIL (numeric recovery available)");
++    HeapDiagnostics::capture(HeapDiagnostics::Phase::H08);
+     httpReady=web.begin(configured, &firstOwner, network.ssid(), &enrollment, &network, &accessController, &factoryReset, &lockController, &configStore);
+     Serial.printf("HTTP: %s\n",httpReady ? "OK" : "FAIL");
++    HeapDiagnostics::capture(HeapDiagnostics::Phase::H09);
+     if (configured && databaseValid) {
+       Serial.printf("STA saved config: %s\n", network.startSavedSta(millis()) ? "CONNECTING" : "NONE");
++      HeapDiagnostics::capture(HeapDiagnostics::Phase::H10);
+     }
+   } else if (systemFault) {
+     Serial.println("SYSTEM: FAIL (configuration/database)");
+@@ -412,10 +424,12 @@ void setup() {
+   Serial.printf("ADMIN PIN STORE: %s\n",pinReady?"OK":"FAIL (LOCKED)");
+   const bool installationReady = smartlock::storage::InstallationMetadata::begin(configured);
+   Serial.printf("INSTALLATION STORE: %s\n",installationReady?"OK":"UNAVAILABLE");
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H11);
+   Diagnostics::setSystemDiagnostic(systemDiagnostic);
+   AdminPin::setFailureCallback([](uint8_t count, bool lockout) {
+     LineNotifications::pinFailed(count, lockController.isLocked(), lockout);
+   });
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H12);
+   LineNotifications::begin(network.staState() == NetworkManager::StaState::Connected);
+   Serial.println("LINE: READY (Owner Management + ADMIN PIN)");
+   Serial.printf("HEAP: free=%u min=%u\n", (unsigned)ESP.getFreeHeap(),
+@@ -452,6 +466,7 @@ void loop() {
+   const bool staConnected = network.staState() == NetworkManager::StaState::Connected;
+   TimeManager::update(staConnected, now);
+   LineNotifications::update(staConnected);
++  HeapDiagnostics::captureStableIdleIfReady();
+   if (firstOwner.restartDue(now)) ESP.restart();
+   if (factoryReset.restartDue(now)) {
+     lockController.lock();
+diff --git a/src/notifications/LineNotifications.cpp b/src/notifications/LineNotifications.cpp
+index e92a030..9f4ea76 100644
+--- a/src/notifications/LineNotifications.cpp
++++ b/src/notifications/LineNotifications.cpp
+@@ -1,4 +1,5 @@
+ #include "LineNotifications.h"
++#include "../events/HeapDiagnostics.h"
+ #include "LineProtocol.h"
+ #include <atomic>
+ #include <esp_heap_caps.h>
+@@ -17,6 +18,13 @@
+ #include "../events/TimeManager.h"
+ #include <string.h>
+ 
++#ifdef LINE_NOTIFICATIONS_HOST_TEST
++namespace HeapDiagnostics {
++inline void capture(Phase, bool) {}
++inline void setQuotaRequestActive(bool) {}
++}  // namespace HeapDiagnostics
++#endif
++
+ namespace LineNotifications {
+ namespace {
+ 
+@@ -108,13 +116,39 @@ std::atomic<uint32_t> gPushStarted{0},gTlsConnected{0},gPushWritten{0},gResponse
+ std::atomic<uint32_t> gAdmissionFree{0},gAdmissionLargest{0},gAdmissionMinimum{0};
+ std::atomic<uint32_t> gTlsMinimum{0},gTlsAfterLargest{0};
+ std::atomic<uint16_t> gLastPushHttp{0};
++bool gFirstQuotaDenialCaptured = false;
++bool gFirstSettledCaptured = false;
++uint8_t gQuotaTlsSnapshots = 0;
+ bool heapAdmitted(){
+   gAdmissionFree=ESP.getFreeHeap();gAdmissionLargest=heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);gAdmissionMinimum=ESP.getMinFreeHeap();
+   const bool admitted=gAdmissionFree>=90000&&gAdmissionLargest>=40000;
+-  if(!admitted)++gHeapBlocked;return admitted;
++  if(!admitted){
++    ++gHeapBlocked;
++    if(!gFirstQuotaDenialCaptured){
++      gFirstQuotaDenialCaptured=true;
++      HeapDiagnostics::capture(HeapDiagnostics::Phase::H21, true);
++    }
++  }
++  return admitted;
+ }
+ struct TlsMeasurement {
+-  ~TlsMeasurement(){gTlsMinimum=ESP.getMinFreeHeap();gTlsAfterLargest=heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);}
++  bool diagnosticQuota = false;
++  bool quotaRequest = false;
++  HeapDiagnostics::Phase afterPhase = HeapDiagnostics::Phase::H18;
++  TlsMeasurement(bool trackQuota, bool isQuotaRequest, HeapDiagnostics::Phase before,
++                 HeapDiagnostics::Phase after)
++      : diagnosticQuota(trackQuota), quotaRequest(isQuotaRequest), afterPhase(after) {
++    if (quotaRequest) HeapDiagnostics::setQuotaRequestActive(true);
++    if (diagnosticQuota) {
++      HeapDiagnostics::capture(before, true);
++    }
++  }
++  ~TlsMeasurement(){
++    gTlsMinimum=ESP.getMinFreeHeap();
++    gTlsAfterLargest=heap_caps_get_largest_free_block(MALLOC_CAP_8BIT);
++    if(diagnosticQuota) HeapDiagnostics::capture(afterPhase, true);
++    if(quotaRequest) HeapDiagnostics::setQuotaRequestActive(false);
++  }
+ };
+ 
+ 
+@@ -397,7 +431,26 @@ bool readBodyBytes(WiFiClientSecure& c,char* output,size_t length,uint32_t deadl
+   }return used==length;
+ }
+ bool lineRequest(const Config& cfg,const char* path,const char* body,const char* retryKey,HttpResult& result){
+-  result={0,false,0,0,false,false,false};TlsMeasurement measurement;WiFiClientSecure client;
++  result={0,false,0,0,false,false,false};
++  bool trackQuota = false;
++  const bool quotaRequest = !strcmp(path,"/v2/bot/message/quota") ||
++      !strcmp(path,"/v2/bot/message/quota/consumption");
++  HeapDiagnostics::Phase beforePhase = HeapDiagnostics::Phase::H17;
++  HeapDiagnostics::Phase afterPhase = HeapDiagnostics::Phase::H18;
++  if(quotaRequest){
++    if(gQuotaTlsSnapshots < 2){
++      trackQuota = true;
++      if(gQuotaTlsSnapshots++ == 0){
++        beforePhase = HeapDiagnostics::Phase::H17;
++        afterPhase = HeapDiagnostics::Phase::H18;
++      }else{
++        beforePhase = HeapDiagnostics::Phase::H19;
++        afterPhase = HeapDiagnostics::Phase::H20;
++      }
++    }
++  }
++  TlsMeasurement measurement(trackQuota,quotaRequest,beforePhase,afterPhase);
++  WiFiClientSecure client;
+   if(body){++gPushStarted;gLastPushHttp=0;}
+   client.setCACert(kRootCa);client.setHandshakeTimeout(5);client.setTimeout(1);
+   const uint32_t deadline=millis()+12000;
+@@ -524,6 +577,7 @@ bool maybeQuota(Config& c,uint32_t generation) {
+   updateState(State::ServiceError);return false;
+ }
+ void worker(void*) {
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H15, true);
+   uint32_t checkedGeneration=0,nextQuotaMs=0;
+   for(;;){
+     expireWaiting();Config cfg;uint32_t generation=0;
+@@ -531,6 +585,10 @@ void worker(void*) {
+     if(generation!=checkedGeneration){checkedGeneration=generation;nextQuotaMs=millis();}
+     if(!gSta){updateState(State::Offline);clear(&cfg,sizeof(cfg));xSemaphoreTake(gWake,pdMS_TO_TICKS(1000));continue;}
+     if(!TimeManager::synchronized()){updateState(State::TimeUnavailable);clear(&cfg,sizeof(cfg));xSemaphoreTake(gWake,pdMS_TO_TICKS(1000));continue;}
++    if(!gFirstSettledCaptured){
++      gFirstSettledCaptured=true;
++      HeapDiagnostics::capture(HeapDiagnostics::Phase::H16, true);
++    }
+     if(gAuthBlocked){updateState(State::AuthRequired);clear(&cfg,sizeof(cfg));xSemaphoreTake(gWake,pdMS_TO_TICKS(1000));continue;}
+     if(!heapAdmitted()){updateState(State::ServiceError);clear(&cfg,sizeof(cfg));xSemaphoreTake(gWake,pdMS_TO_TICKS(1000));continue;}
+     if(static_cast<int32_t>(millis()-nextQuotaMs)>=0){
+@@ -593,10 +651,12 @@ void fillBase(Event& e, EventKind kind) {
+ 
+ void begin(bool staConnected) {
+   initLocks();gSta=staConnected;refreshConfigState();
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H13);
+   if(!gQueueMutex||!gConfigMutex||!gWake){gEnabled=false;gState=State::ServiceError;return;}
+   // TLS certificate verification needs more stack than the host transport fake.
+   // Keep its worker isolated from the lock loop, including during a cold handshake.
+   if(!gTask)xTaskCreatePinnedToCore(worker,"line-worker",24576,nullptr,1,&gTask,0);
++  HeapDiagnostics::capture(HeapDiagnostics::Phase::H14);
+   if(!gTask){gEnabled=false;gState=State::ServiceError;return;}
+   if(gWake)xSemaphoreGive(gWake);
+ }
+@@ -664,6 +724,13 @@ void status(Status& out) {
+ void telemetry(Telemetry& out){
+  out={gUnlockGenerated,gPinGenerated,gEmergencyGenerated,gEnqueued,gPushStarted,gTlsConnected,gPushWritten,gResponses,gHeapBlocked,gAdmissionFree,gAdmissionLargest,gAdmissionMinimum,gTlsMinimum,gTlsAfterLargest,gLastPushHttp};
+ }
++uint32_t stackHighWaterMark(){
++#ifdef LINE_NOTIFICATIONS_HOST_TEST
++  return 0;
++#else
++  return gTask ? uxTaskGetStackHighWaterMark(gTask) : 0;
++#endif
++}
+ Result requestTest() {
+   if(!gEnabled)return Result::NotConfigured;
+   const uint32_t now=millis();
+diff --git a/src/notifications/LineNotifications.h b/src/notifications/LineNotifications.h
+index bde2f25..61d642f 100644
+--- a/src/notifications/LineNotifications.h
++++ b/src/notifications/LineNotifications.h
+@@ -44,6 +44,7 @@ struct Telemetry {
+   uint16_t lastPushHttp;
+ };
+ void telemetry(Telemetry& out);
++uint32_t stackHighWaterMark();
+ Result requestTest();
+ 
+ // Emitters only copy bounded event metadata into the RAM queue. They never block on LINE.

@@ -1,0 +1,6 @@
+{
+  "numericHealth": "PASS",
+  "newPageServed": "PASS",
+  "unauthorizedPinChange": 403,
+  "malformedPinChange": 400
+}

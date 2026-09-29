@@ -1,0 +1,66 @@
+[
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/line/run_line_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/admin/run_admin_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "node",
+      "tests/admin/web_test.js"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--cleanup-smoke"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/network/run_network_manager_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/security/run_security_policy_tests.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/http_deadline/run_http_deadline_tests.py"
+    ],
+    "exit": 0
+  }
+]

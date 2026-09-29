@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "captured_at_utc": "2026-09-27T07:37:12.156Z",
+  "scope": "local-only F1 budget verification; no deployment, accounts, device, or billing access",
+  "worst_admission": {
+    "statements": 15,
+    "rows_read": 308,
+    "rows_written": 205,
+    "duration_ms": 7,
+    "node_driver_cpu_us": 312000,
+    "elapsed_ms": 634.7188999999998,
+    "note": "Driver CPU includes D1 proxy overhead, not isolated Worker CPU"
+  },
+  "pending_retry": {
+    "statements": 3,
+    "rows_read": 6,
+    "rows_written": 0,
+    "duration_ms": 0
+  },
+  "committed_ack": {
+    "statements": 2,
+    "rows_read": 69,
+    "rows_written": 0,
+    "duration_ms": 1
+  },
+  "committed_retry": {
+    "statements": 4,
+    "rows_read": 73,
+    "rows_written": 0,
+    "duration_ms": 1
+  },
+  "workerd_parser": {
+    "runtime": "local Miniflare workerd with nodejs_compat",
+    "fixture_names": [
+      "synthetic-E0000000D_AABBCCDDEEFF00112233445566778899.csv",
+      "recorded-E00000006_28E87FA9E545D8A6800A6F189F3A8FC1.csv",
+      "recorded-E0000000C_3EED2BFA008AD62A6AA6AD37883A17A0.csv"
+    ],
+    "fixture_results": [
+      {
+        "name": "synthetic-E0000000D_AABBCCDDEEFF00112233445566778899.csv",
+        "raw_bytes": 441,
+        "event_count": 3,
+        "max_row_bytes": 109,
+        "sha256": "cc7ca3028708dc087f37ddefd6a6ea0f18ed856d79c7d98eb8f454c7c4147e5d",
+        "canonical_sha256": [
+          "2fea78cc5de3ca701904b32bc25530bf61667fb47a70d562f57dafad20598aef",
+          "acfc575469a45e426d0c8d00f8ee9f3f8ef88fb9041b71852bf5161a7f83095d",
+          "87d8cee8696117690f3ea64d49dd0e4ffcad2b45ff605d5041db90993fa96d7c"
+        ],
+        "canonical_bytes": 382,
+        "projection_rows": 3,
+        "projection_cells": [
+          24,
+          24,
+          24
+        ],
+        "schema_values": [
+          "current"
+        ]
+      },
+      {
+        "name": "recorded-E00000006_28E87FA9E545D8A6800A6F189F3A8FC1.csv",
+        "raw_bytes": 1059,
+        "event_count": 9,
+        "max_row_bytes": 122,
+        "sha256": "801caab71d9f4fb271ecba7fb95cc8f35f279151f05b7932296aa2ea17793231",
+        "canonical_sha256": [
+          "5ab25f4811223d77058584b648e1b818f305bfe9853db94a1ad8664ed36bbee0",
+          "a57865a766b7adff65341519c21b76e359235eb3432f95b6756d2f92a7b91d68",
+          "c657beed3223df02fc3583de64778814c1b160b420afbbaaffa9c7a608fdc7b6",
+          "83da11fab5c61b0f68eda85016c222dd2347c25cdcb5c553810612358fc44623",
+          "2c5aee4835ccec2b667bc24a4c29b9bd1614b36410ddc89ed842960447595897",
+          "7ee7ca3005f8cd764d3cf990fe9988ae73624501eb26769f5637a085a427fcfc",
+          "c94b69bfcefb13ed5b3dd06cbfe16e971475ff2774021a05d4f1eacd595d20e1",
+          "6df5fb12463acbcc85adf578d8c8b633f7b473fbd695d5fe2b7a173de70f3787",
+          "cae26ae736ce483f28e8ce98949a2bf62d1d3e76ce28374a4a167ebe06ecd853"
+        ],
+        "canonical_bytes": 1173,
+        "projection_rows": 9,
+        "projection_cells": [
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24
+        ],
+        "schema_values": [
+          "legacy"
+        ]
+      },
+      {
+        "name": "recorded-E0000000C_3EED2BFA008AD62A6AA6AD37883A17A0.csv",
+        "raw_bytes": 422,
+        "event_count": 3,
+        "max_row_bytes": 104,
+        "sha256": "dca59d368fa6b025888a96e7e076cf3aa583875b1a98a698f56e262f3d29c01f",
+        "canonical_sha256": [
+          "1285950030f4059dc0fd3f3fecae1c521983024ef2126f38efc0232d09449b92",
+          "103374440f2ed1a61ffbe10c0e56db45f72dd82eb539d5204030ba29813522c6",
+          "84a516d090e9f1608397fe9dd15e62ca8510891633e254d129a126bfcac191e2"
+        ],
+        "canonical_bytes": 363,
+        "projection_rows": 3,
+        "projection_cells": [
+          24,
+          24,
+          24
+        ],
+        "schema_values": [
+          "current"
+        ]
+      }
+    ],
+    "worst_practical": {
+      "raw_bytes": 8192,
+      "event_count": 32,
+      "max_row_bytes": 248,
+      "canonical_bytes": 8731,
+      "schema_values": [
+        "3"
+      ],
+      "segment_sha256": "01272e26b81ada4bd580f342c863b1d193174c648fd54f5530c0d635afa733e6"
+    },
+    "workerd_elapsed_ms": 40,
+    "workerd_cpu_time": "unavailable in this local workerd measurement; elapsed wall time only",
+    "node_repeated_100_runs_elapsed_ms": 141.2168999999999,
+    "node_repeated_100_runs_cpu_user_us": 125000,
+    "node_repeated_100_runs_cpu_system_us": 32000,
+    "node_worst_8192b_32row_ntp_100_runs_elapsed_ms": 625.3771000000002,
+    "node_worst_8192b_32row_ntp_100_runs_cpu_user_us": 485000,
+    "node_worst_8192b_32row_ntp_100_runs_cpu_system_us": 125000,
+    "note": "Local measurements only; no remote Worker CPU or 10 ms budget claim."
+  },
+  "crypto_100_runs": {
+    "node_cpu_us": 110000,
+    "elapsed_ms": 77.5048999999999,
+    "note": "Local Node WebCrypto helpers, separate from parsing; remote Worker CPU remains unmeasured"
+  },
+  "d1_storage": {
+    "engine": "local Miniflare D1 backed by SQLite",
+    "identical_population": "same 1000 generated schema-3 events with Thai identity snapshots, submitted through D1Ledger, committed through DeliveryWorker, then ACK replay checked",
+    "uncompacted": {
+      "event_count": 1000,
+      "batch_count": 32,
+      "compacted": false,
+      "row_allocation": {
+        "before_population": {
+          "allocated_bytes": 172032,
+          "source": "local D1 meta.size_after; page pragmas denied by D1 authorizer"
+        },
+        "after_population": {
+          "allocated_bytes": 2445312,
+          "source": "local D1 meta.size_after; page pragmas denied by D1 authorizer"
+        },
+        "after_compaction": null
+      },
+      "population_statements": 2144,
+      "population_d1_rows_read": 39185,
+      "population_d1_rows_written": 9080,
+      "receipt_retained_after_population": true,
+      "receipt_retained_after_compaction": false,
+      "raw_csv_cleared_after_compaction": false,
+      "replay_ack_unchanged": true,
+      "ledger_statement_count": 2147,
+      "d1_rows_read": 39256,
+      "d1_rows_written": 9080,
+      "d1_metadata_fields_observed": [
+        "changed_db",
+        "changes",
+        "duration",
+        "last_row_id",
+        "rows_read",
+        "rows_written",
+        "served_by",
+        "size_after"
+      ],
+      "d1_metadata_probe": {
+        "served_by": "miniflare.db",
+        "duration": 0,
+        "changes": 0,
+        "last_row_id": 2,
+        "changed_db": false,
+        "size_after": 172032,
+        "rows_read": 0,
+        "rows_written": 0
+      }
+    },
+    "compacted": {
+      "event_count": 1000,
+      "batch_count": 32,
+      "compacted": true,
+      "row_allocation": {
+        "before_population": {
+          "allocated_bytes": 172032,
+          "source": "local D1 meta.size_after; page pragmas denied by D1 authorizer"
+        },
+        "after_population": {
+          "allocated_bytes": 2228224,
+          "source": "local D1 meta.size_after; page pragmas denied by D1 authorizer"
+        },
+        "after_compaction": {
+          "allocated_bytes": 2228224,
+          "source": "local D1 meta.size_after; page pragmas denied by D1 authorizer"
+        }
+      },
+      "population_statements": 2272,
+      "population_d1_rows_read": 47281,
+      "population_d1_rows_written": 10208,
+      "receipt_retained_after_population": true,
+      "receipt_retained_after_compaction": true,
+      "raw_csv_cleared_after_compaction": true,
+      "replay_ack_unchanged": true,
+      "ledger_statement_count": 2275,
+      "d1_rows_read": 47352,
+      "d1_rows_written": 10208,
+      "d1_metadata_fields_observed": [
+        "changed_db",
+        "changes",
+        "duration",
+        "last_row_id",
+        "rows_read",
+        "rows_written",
+        "served_by",
+        "size_after"
+      ],
+      "d1_metadata_probe": {
+        "served_by": "miniflare.db",
+        "duration": 1,
+        "changes": 0,
+        "last_row_id": 2,
+        "changed_db": false,
+        "size_after": 172032,
+        "rows_read": 0,
+        "rows_written": 0
+      }
+    },
+    "final_allocated_bytes_delta_compacted_minus_uncompacted": -217088,
+    "interpretation": "D1 meta.size_after reports allocated SQLite size; UPDATE-to-NULL compaction can leave pages allocated but reusable. Separate databases compare steady-state allocation."
+  }
+}

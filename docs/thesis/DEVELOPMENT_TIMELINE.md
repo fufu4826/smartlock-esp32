@@ -1,0 +1,62 @@
+# Development timeline (Git-verified)
+
+Chronological order follows Git author dates. The full graph/log exports are preserved alongside this summary. For selected milestones, see `IMPORTANT_COMMITS.md`; Git history supports code/report changes but does not independently prove hardware behavior.
+
+- 2026-09-25T20:54:31+07:00 — `73f4780` Phase 0: verify ESP32-035 hardware baseline ((tag: hardware-baseline-v1))
+- 2026-09-25T21:08:59+07:00 — `bd9098b` Phase 1: lock controller and visible touch states ((tag: phase-1-verified))
+- 2026-09-25T21:31:56+07:00 — `c686476` Phase 2: versioned config and fail-closed SD stores ((tag: phase-2-verified))
+- 2026-09-25T21:42:48+07:00 — `fd68a5b` Phase 3: secure temporary sessions and TFT QR ((tag: phase-3-verified))
+- 2026-09-25T21:59:51+07:00 — `fd0d2da` Phase 4: setup SoftAP and read-only captive web ((tag: phase-4-verified))
+- 2026-09-25T23:31:23+07:00 — `313dbba` Phase 5: first owner setup and protected AP ((tag: phase-5-verified))
+- 2026-09-26T14:37:11+07:00 — `e7e5f29` Phase 7: verify canonical Owner access across AP and LAN
+- 2026-09-26T14:53:18+07:00 — `d9e568a` Phase 8: verify Thai authenticated Management dashboard
+- 2026-09-26T15:20:24+07:00 — `90ecd82` Phase 9: harden confirmed STA transactions and defer physical regression
+- 2026-09-26T15:28:39+07:00 — `b1a0831` Phase 10: add protected recovery without erasing authorization
+- 2026-09-26T15:42:35+07:00 — `04740e7` Phase 11: add bounded local audit events and authenticated CSV export
+- 2026-09-26T16:08:12+07:00 — `171cf29` Phase 12: add optional cloud sync pending Google deployment
+- 2026-09-26T16:48:24+07:00 — `a3bf1c1` Add LAN-primary policy and Thai Phone 2 enrollment checkpoint
+- 2026-09-26T17:37:27+07:00 — `5e16000` Migrate authorization to single identities preserving Owner and Wi-Fi
+- 2026-09-26T17:45:07+07:00 — `794e3eb` Fix second hold on Management opening physical reset prompt
+- 2026-09-26T17:51:43+07:00 — `b73fe45` Fix enrollment QR display after asynchronous form submission
+- 2026-09-26T18:02:31+07:00 — `6d3ed85` Use fresh clock when expiring web-created enrollment sessions
+- 2026-09-26T18:24:59+07:00 — `17de16a` Record real Phone2 enrollment and Access PASS; queue targeted revoke regression
+- 2026-09-26T18:33:25+07:00 — `7d28416` Record reported revoke PASS and conflicting live persistence evidence
+- 2026-09-26T19:13:01+07:00 — `df7b61f` feat: harden HTTP and prepare encrypted maintenance
+- 2026-09-26T20:10:12+07:00 — `7f6c0e8` Complete Phase 13 restore generations and authenticated OTA checkpoint
+- 2026-09-26T21:09:37+07:00 — `51c1086` Close Phase 14 checkpoint with user-waived physical checks
+- 2026-09-26T21:16:37+07:00 — `c3c9dac` Add physical Admin PIN and confirmed timed emergency unlock
+- 2026-09-26T21:25:17+07:00 — `519a6d7` Record Admin physical PASS and prepare from-zero acceptance ((tag: admin-pin-physical-pass-2026-09-26))
+- 2026-09-26T21:44:34+07:00 — `65ee81d` Remove Backup Restore and browser OTA from product
+- 2026-09-26T22:03:46+07:00 — `d991331` Record cleanup physical PASS and gate final reset execution
+- 2026-09-26T22:08:06+07:00 — `6ca306d` Reconcile deployed Admin menu fix with production baseline
+- 2026-09-26T23:17:20+07:00 — `55273cd` Simplify fresh Owner Setup and remove legacy admin passphrase
+- 2026-09-26T23:57:25+07:00 — `fc6c4bf` Remove display and lock settings Management sections
+- 2026-09-27T00:03:43+07:00 — `62ae5c2` Check current credential authority before browser enrollment
+- 2026-09-27T08:11:08+07:00 — `9613716` Fix SmartLock registration recovery, session deadlines and bounded audit history
+- 2026-09-27T10:46:40+07:00 — `a1712ca` Add Phase 1 Google history protocol and durable backend proof
+- 2026-09-27T12:19:08+07:00 — `9217f0c` Implement local-first Google Sheets history pipeline
+- 2026-09-27T12:34:23+07:00 — `0ce8c66` Record Google history integration and live acceptance evidence
+- 2026-09-27T14:42:03+07:00 — `f40efbc` Add local free-only Worker and D1 feasibility proof
+- 2026-09-27T20:11:30+07:00 — `c6c90af` Release one-click Google Sheets integration with verified receipts
+- 2026-09-27T21:44:18+07:00 — `4439bdb` Checkpoint Google Sheets implementation before removal ((tag: google-sheets-archive-before-removal))
+- 2026-09-27T21:57:03+07:00 — `b6db664` Remove Google Sheets integration
+- 2026-09-27T21:57:13+07:00 — `07ef632` Record Google removal commit in acceptance report
+- 2026-09-27T22:47:44+07:00 — `064518a` Implement RAM-only LINE security notifications ((tag: line-notifications-v1))
+- 2026-09-27T22:51:27+07:00 — `f1bdc71` Record LINE deployment and preserved-state acceptance
+- 2026-09-28T00:59:16+07:00 — `3fc128d` Add Owner-gated USB LINE provisioning and remove web credential entry ((tag: line-owner-provisioning-v2))
+- 2026-09-28T01:02:21+07:00 — `324b92d` Record LINE v2 deployment and state preservation evidence
+- 2026-09-28T02:40:25+07:00 — `48c653e` Authorize scoped LINE USB setup through physical Admin ((tag: line-owner-provisioning-v2-physical))
+- 2026-09-28T02:42:53+07:00 — `a8bffe5` Record physical LINE provisioning deployment and state preservation
+- 2026-09-28T03:20:46+07:00 — `14645a9` Give isolated LINE TLS worker sufficient handshake stack
+- 2026-09-28T03:22:23+07:00 — `f750bf8` Record private LINE provisioning and live TLS recovery evidence ((tag: line-owner-provisioning-v2-tls))
+- 2026-09-28T03:25:21+07:00 — `8df5c8e` Record accepted real LINE push without exposing credentials
+- 2026-09-28T03:26:07+07:00 — `c5106ac` Confirm Owner receipt and complete LINE acceptance
+- 2026-09-28T03:42:36+07:00 — `2b4fcf2` Add protected same-origin Wi-Fi fallback for Access and Management
+- 2026-09-28T03:48:52+07:00 — `c229d41` Preserve mDNS responder and disable modem sleep for availability
+- 2026-09-28T03:51:34+07:00 — `dc2a6fa` Record fallback deployment and pending real phone acceptance
+- 2026-09-28T03:58:02+07:00 — `870ec7f` Give LINE Add Friend its own Management page and remove TFT fallback button
+- 2026-09-28T04:00:35+07:00 — `2c28030` Record LINE friend page deployment and runtime observations
+- 2026-09-28T04:32:11+07:00 — `979fc74` Move LINE maintenance to Owner and shared Admin PIN; release HTTP buffers
+- 2026-09-28T04:36:11+07:00 — `ae25d30` Record web LINE deployment and preserved-state verification
+- 2026-09-28T10:30:47+07:00 — `8c15375` Record canonical hostname recurrence evidence without firmware changes
+- 2026-09-28T12:09:16+07:00 — `d1e5ce3` fix: harden admin pin bootstrap and emergency unlock gating ((HEAD -> master, tag: smartlock-final-accepted-2026-09-28))

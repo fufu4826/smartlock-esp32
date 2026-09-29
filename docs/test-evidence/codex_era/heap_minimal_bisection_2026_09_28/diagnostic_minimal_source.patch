@@ -1,0 +1,40 @@
+diff --git a/src/events/Diagnostics.cpp b/src/events/Diagnostics.cpp
+index 9cca8c3..2e9b3f1 100644
+--- a/src/events/Diagnostics.cpp
++++ b/src/events/Diagnostics.cpp
+@@ -1,5 +1,6 @@
+ #include "Diagnostics.h"
+ #include <Arduino.h>
++#include <esp_heap_caps.h>
+ #include <memory>
+ #include <cstring>
+ #include "../storage/IdentityStore.h"
+@@ -23,6 +24,7 @@ void Diagnostics::poll() {
+     command[used] = '\0';
+     const bool authRequested = !overflow && !strcmp(command, "DIAG_AUTH");
+     const bool systemRequested = !overflow && !strcmp(command, "DIAG_SYSTEM");
++    const bool heapMinRequested = !overflow && !strcmp(command, "DIAG_HEAP_MIN");
+     const bool commandValid=!overflow;
+     used = 0; overflow = false;
+     if (authRequested) {
+@@ -47,5 +49,20 @@ void Diagnostics::poll() {
+       Serial.println("SYSTEM DIAG END");
+       continue;
+     }
++    if (heapMinRequested) {
++      constexpr uint32_t caps = MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT;
++      multi_heap_info_t info{};
++      const uint32_t timestamp = millis();
++      heap_caps_get_info(&info, caps);
++      const bool integrity = heap_caps_check_integrity(caps, false);
++      Serial.printf("DIAG_HEAP_MIN phase=stable_idle timestamp_ms=%lu total_free=%lu allocated=%lu largest=%lu minimum_free=%lu free_blocks=%lu allocated_blocks=%lu integrity=%s internal_free=%lu internal_largest=%lu\n",
++          (unsigned long)timestamp, (unsigned long)info.total_free_bytes,
++          (unsigned long)info.total_allocated_bytes, (unsigned long)info.largest_free_block,
++          (unsigned long)info.minimum_free_bytes, (unsigned long)info.free_blocks,
++          (unsigned long)info.allocated_blocks, integrity ? "PASS" : "FAIL",
++          (unsigned long)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
++          (unsigned long)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL));
++      continue;
++    }
+   }
+ }

@@ -1,0 +1,51 @@
+{
+  "generated_utc": "2026-09-28T03:25:12.442621+00:00",
+  "scope": "read-only unauthenticated numeric-IP GET metadata only; response bodies discarded after byte counting; no credentials, cookies, or session data sent",
+  "diagnostic_ip": "192.168.1.179",
+  "timeout_seconds": 4.0,
+  "rounds_per_route": 3,
+  "results": [
+    {
+      "round": 1,
+      "route": "/access",
+      "status": 302,
+      "body_length_bytes": 49,
+      "elapsed_ms": 175
+    },
+    {
+      "round": 1,
+      "route": "/manage",
+      "status": 200,
+      "body_length_bytes": 53164,
+      "elapsed_ms": 1254
+    },
+    {
+      "round": 2,
+      "route": "/access",
+      "status": 302,
+      "body_length_bytes": 49,
+      "elapsed_ms": 58
+    },
+    {
+      "round": 2,
+      "route": "/manage",
+      "status": 200,
+      "body_length_bytes": 53164,
+      "elapsed_ms": 1470
+    },
+    {
+      "round": 3,
+      "route": "/access",
+      "status": 302,
+      "body_length_bytes": 49,
+      "elapsed_ms": 72
+    },
+    {
+      "round": 3,
+      "route": "/manage",
+      "status": 200,
+      "body_length_bytes": 53164,
+      "elapsed_ms": 1268
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+Browser tab: 4, Title: "Disposable Google failure check", URL: "http://127.0.0.1:52186/__fixture/google-failure".
+1 AXWebArea Disposable Google failure check, URL: 127.0.0.1:52186/__fixture/google-failure
+	2 container
+		3 heading Disposable Google failure and recovery, Value: 1
+			4 text Disposable Google failure and recovery
+		5 text Uses one synthetic event held in fixture memory. No proof or payload is displayed.
+		6 button Prepare pending event, ID: prepare
+		7 button Record failed attempt, ID: fail
+		8 button Retry after destination restoration, ID: recover
+		9 text {
+  "state": "RECOVERED",
+  "pending": false,
+  "recovery_receipt": "COMMITTED",
+  "duplicate_receipt": "ALREADY_STORED",
+  "segment_sha256": "eb09e70e3c66fd72ca6261757f44b32ca4b8f7b21df425da6646d8f27caa8ba1",
+  "event_ids": [
+    "567bd91efc7e4c3a41717b2a21c0979c00000001"
+  ]
+}
+
+The focused UI element is 8 button Retry after destination restoration, ID: recover

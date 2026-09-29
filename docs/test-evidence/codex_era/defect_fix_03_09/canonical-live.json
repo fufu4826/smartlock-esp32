@@ -1,0 +1,6 @@
+{
+  "canonical_mdns": ["192.168.1.179"],
+  "canonical_host_http": "PASS",
+  "windows_os_resolution": "DEFERRED: resolver failure",
+  "probe": "python -B scripts/canonical_runtime_probe.py smartlock-04225a0ff0a4.local 192.168.1.179"
+}

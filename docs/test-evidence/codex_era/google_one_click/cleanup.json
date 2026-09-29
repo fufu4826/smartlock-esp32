@@ -1,0 +1,119 @@
+{
+  "recorded_at": "2026-09-27",
+  "workspace": "C:\\ESP\\esp32_035_lock_touch_test",
+  "status": "legacy source removed; generated dependency caches archived outside the active repository; empty dist directories remain",
+  "local_repository_cleanup": {
+    "tracked_files_removed": 75,
+    "tracked_roots": [
+      "backend/",
+      "backend-worker/",
+      "cloud/apps_script/"
+    ],
+    "explicit_untracked_files_removed": [
+      "backend-worker/src/google-oauth.ts",
+      "backend-worker/src/google-request.ts",
+      "backend-worker/src/google-sheets.ts",
+      "backend-worker/test/google-oauth.test.ts",
+      "backend-worker/test/google-request.test.ts",
+      "backend-worker/test/google-sheets.test.ts",
+      "backend-worker/test/restore-freeze.test.ts"
+    ],
+    "project_local_files_removed_without_reading_contents": [
+      "backend/.local/postgres-url.txt",
+      "backend/.local/postgres.env",
+      "backend/.local/resource-platformio.ini"
+    ],
+    "generated_dependency_cache_archive": {
+      "archive_root": "C:\\ESP\\_archive\\smartlock-obsolete-generated-20260927",
+      "paths": [
+        "backend/node_modules/ -> C:\\ESP\\_archive\\smartlock-obsolete-generated-20260927\\backend-node_modules",
+        "backend-worker/node_modules/ -> C:\\ESP\\_archive\\smartlock-obsolete-generated-20260927\\backend-worker-node_modules"
+      ],
+      "method": "PowerShell Move-Item on exact resolved source and destination paths after confirming destinations did not exist",
+      "review": "Before archival, each source contained only vendor/generated node_modules contents; zero reparse points were present. No project source, credential file, database file, or SQL file was identified by the inventory. backend-worker/.mf/cf.json was removed individually without reading its contents.",
+      "active_repository_dependencies_remaining": false
+    },
+    "dependency_prune": {
+      "command": "npm prune --ignore-scripts --no-audit --no-fund --package-lock=false --prefix <approved legacy root>",
+      "temporary_manifests": "Minimal private manifests with no scripts or dependencies were used for backend/ and backend-worker/ and then removed.",
+      "result": "success; npm reported 45 packages removed before the remaining vendor caches were archived"
+    },
+    "generated_dist_files_removed": 61,
+    "empty_dist_directories_remaining": [
+      "backend/dist/ (no files; 2 empty subdirectories remain)",
+      "backend-worker/dist/ (no files)"
+    ],
+    "local_test_output_files_removed": [
+      "backend-worker/budget-final-results.txt",
+      "backend-worker/budget-results.txt",
+      "backend-worker/final-results.txt",
+      "backend-worker/recovery-results.txt",
+      "backend-worker/review-results.txt",
+      "backend-worker/test-results.txt"
+    ],
+    "legacy_source_files_remaining": [],
+    "physical_directory_roots_removed": [],
+    "note": "Source/config/test files and generated dist files were removed individually. Both approved npm prune operations completed; the residual node_modules trees were moved intact to the named archive outside the active repository. The dist directories contain no files; an attempt to remove only the empty directories was blocked by automatic review, so they were left in place. The six exact local test output files were removed with individually approved non-recursive file operations."
+  },
+  "platformio_generated_resource_build": {
+    "path": ".pio/google-resource/",
+    "action": "pio run --project-conf backend/.local/resource-platformio.ini --target clean",
+    "result": "success",
+    "path_exists_after": false,
+    "default_build_and_libdeps_preserved": true
+  },
+  "docker_cleanup": {
+    "container": {
+      "name": "smartlock-google-stage",
+      "id": "d5695979f005d3760aaa71a31381dba678e9656992bb11f4be9feaa66faf36ab",
+      "image": "postgres:17",
+      "state_before_removal": "exited",
+      "created_at_utc": "2026-09-27T04:01:24.344070675Z",
+      "removed": true
+    },
+    "volume": {
+      "name": "3f49870ef16f0935fd8cfd7694a06741a81e5005b62bbb9dec43e576e4fa3eb7",
+      "kind": "anonymous",
+      "mount": "/var/lib/postgresql/data",
+      "sole_container_reference_verified": "smartlock-google-stage",
+      "removed": true
+    },
+    "post_removal_verification": "container and volume absent",
+    "unrelated_windows_postgresql_listener": {
+      "port": 5432,
+      "pid": 8052,
+      "action": "left running and untouched"
+    }
+  },
+  "historical_document_banners_added": [
+    "docs/design/GOOGLE_SHEETS_ARCHITECTURE.md",
+    "docs/design/GOOGLE_SHEETS_FREE_ONLY_ARCHITECTURE.md",
+    "docs/phase_reports/GOOGLE_PHASE_01_PROTOCOL_BACKEND_REPORT.md",
+    "docs/phase_reports/GOOGLE_SHEETS_COMPLETE_IMPLEMENTATION_REPORT.md",
+    "docs/phase_reports/GOOGLE_FREE_PHASE_F1_D1_WORKER_REPORT.md"
+  ],
+  "readme_updated": "README.md now links to the approved one-click architecture and states that it is not a deployed receiver.",
+  "root_verified_external_checks": {
+    "provenance": "Reported by root from official Cloudflare API and Wrangler CLI; not independently queried by this cleanup task.",
+    "cloudflare_account_id": "beefaf26643808dfee6114adc80af9c9",
+    "workers_scripts_query": {
+      "success": true,
+      "resources": []
+    },
+    "d1_databases_query": {
+      "success": true,
+      "resources": []
+    },
+    "wrangler_logout": "Successfully logged out",
+    "wrangler_default_toml_present": false,
+    "remote_changes_by_this_cleanup": false
+  },
+  "google_account_or_remote_resources": {
+    "actions_by_this_cleanup": "none"
+  },
+  "preserved_user_edits": [
+    "docs/phase_reports/FINAL_FROM_ZERO_REPORT.md",
+    "docs/phase_reports/STALE_ENROLLMENT_REPORT.md",
+    "docs/phase_reports/evidence/final_from_zero/after-phone2.txt"
+  ]
+}

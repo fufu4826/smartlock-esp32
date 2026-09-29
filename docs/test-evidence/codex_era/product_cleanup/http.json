@@ -1,0 +1,107 @@
+[
+  {
+    "path": "/health",
+    "method": "GET",
+    "status": 200
+  },
+  {
+    "path": "/manage",
+    "method": "GET",
+    "status": 200
+  },
+  {
+    "path": "/api/system/backup",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/backup",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/restore/validate",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/restore/validate",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/restore/activate",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/restore/activate",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/prepare",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/prepare",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/start",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/start",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/chunk",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/chunk",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/finish",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/finish",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/result",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/result",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/current",
+    "method": "GET",
+    "status": 404
+  },
+  {
+    "path": "/api/system/ota/current",
+    "method": "POST",
+    "status": 404
+  },
+  {
+    "path": "/api/system/admin-pin",
+    "method": "POST",
+    "status": 403
+  }
+]

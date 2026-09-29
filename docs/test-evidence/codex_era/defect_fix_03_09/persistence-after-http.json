@@ -1,0 +1,41 @@
+{
+  "compared": "logical NVS values only; no values or hashes exported",
+  "namespaces": [
+    {
+      "namespace": "sl-config",
+      "entries_before": 2,
+      "entries_after": 2,
+      "byte_identical": true,
+      "present": true
+    },
+    {
+      "namespace": "sl-pin",
+      "entries_before": 2,
+      "entries_after": 2,
+      "byte_identical": true,
+      "present": true
+    },
+    {
+      "namespace": "sl-net",
+      "entries_before": 1,
+      "entries_after": 1,
+      "byte_identical": true,
+      "present": true
+    },
+    {
+      "namespace": "sl-sta",
+      "entries_before": 1,
+      "entries_after": 1,
+      "byte_identical": true,
+      "present": true
+    },
+    {
+      "namespace": "lock-touch-v2",
+      "entries_before": 1,
+      "entries_after": 1,
+      "byte_identical": true,
+      "present": true
+    }
+  ],
+  "all_unchanged": true
+}

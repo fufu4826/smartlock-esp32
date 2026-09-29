@@ -1,0 +1,190 @@
+[
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/registration/run_registration_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 10.52
+  },
+  {
+    "command": [
+      "node",
+      "tests/registration/registration_browser_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.13
+  },
+  {
+    "command": [
+      "node",
+      "tests/registration/session_display_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.12
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--session-display"
+    ],
+    "exit": 0,
+    "seconds": 8.75
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--management-expiry"
+    ],
+    "exit": 0,
+    "seconds": 7.36
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/http_deadline/run_http_deadline_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.35
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/events/run_event_log_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 11.04
+  },
+  {
+    "command": [
+      "node",
+      "tests/events/log_browser_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.1
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/cloud/run_cloud_protocol_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.58
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 7.51
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--cleanup-smoke"
+    ],
+    "exit": 0,
+    "seconds": 7.33
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/identity/run_identity_tests.py",
+      "--audit-attribution"
+    ],
+    "exit": 0,
+    "seconds": 7.21
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/admin/run_admin_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 5.5
+  },
+  {
+    "command": [
+      "node",
+      "tests/admin/web_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.1
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/network/run_network_manager_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 4.23
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/security/run_security_policy_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.46
+  },
+  {
+    "command": [
+      "node",
+      "tests/cloud/google_ui_test.js"
+    ],
+    "exit": 0,
+    "seconds": 0.13
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/cloud/run_google_route_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.37
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/cloud/run_cloud_sync_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.71
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/cloud/run_cloud_transport_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.51
+  },
+  {
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-B",
+      "tests/cloud/run_cloud_reset_tests.py"
+    ],
+    "exit": 0,
+    "seconds": 3.64
+  }
+]

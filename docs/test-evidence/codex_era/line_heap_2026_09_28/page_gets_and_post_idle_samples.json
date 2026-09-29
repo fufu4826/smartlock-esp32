@@ -1,0 +1,700 @@
+{
+  "port": "COM6",
+  "page_gets": {
+    "management": {
+      "request": {
+        "method": "GET",
+        "path": "/manage",
+        "target": "private_sta_ip_withheld",
+        "host_header_matches_saved_canonical_host": true,
+        "started_local": "2026-09-28T17:10:08+07:00",
+        "completed_local": "2026-09-28T17:10:09+07:00",
+        "http_status": 200,
+        "error_type": null,
+        "response_body_saved_or_printed": false,
+        "browser_javascript_executed": false,
+        "authentication_or_unlock": false,
+        "dummy_invalid_route_token_used": false
+      },
+      "samples": [
+        {
+          "label": "management_page_get_before",
+          "timestamp_local": "2026-09-28T17:10:08+07:00",
+          "command": "DIAG_SYSTEM",
+          "response_complete": true,
+          "reset_performed": false,
+          "system": {
+            "configured": 1,
+            "owner": 1,
+            "unlock_ms": 5000,
+            "sd_healthy": 1,
+            "calibration_loaded": 1,
+            "pin_store_healthy": 1,
+            "locked": 1,
+            "gpio22_locked": 1,
+            "sta_connected": 1,
+            "admin_active": 0
+          },
+          "network": {
+            "sta_ip_private_rfc1918": true,
+            "ap_enabled": 0,
+            "ap_clients": 0,
+            "mdns_ready": 1,
+            "canonical_host_match_saved": true,
+            "http_ready": 1
+          },
+          "heap": {
+            "free": 111888,
+            "minimum": 55268,
+            "largest": 34804
+          },
+          "line": {
+            "configured": 1,
+            "enabled": 1,
+            "config_version": 2,
+            "test_state": 0,
+            "queue": 0,
+            "sent": 0,
+            "failed": 0,
+            "state": 5
+          },
+          "pipeline": {
+            "unlock_generated": 0,
+            "pin_generated": 0,
+            "emergency_generated": 0,
+            "enqueued": 0,
+            "push_started": 0,
+            "tls_connected": 2,
+            "push_written": 0,
+            "responses": 2,
+            "heap_blocked": 17229,
+            "last_push_http": 0,
+            "admission_free": 111788,
+            "admission_largest": 34804,
+            "admission_minimum": 55268,
+            "tls_minimum": 55268,
+            "tls_after_largest": 34804
+          }
+        },
+        {
+          "label": "management_page_get_3.25s_after",
+          "timestamp_local": "2026-09-28T17:10:12+07:00",
+          "command": "DIAG_SYSTEM",
+          "response_complete": true,
+          "reset_performed": false,
+          "system": {
+            "configured": 1,
+            "owner": 1,
+            "unlock_ms": 5000,
+            "sd_healthy": 1,
+            "calibration_loaded": 1,
+            "pin_store_healthy": 1,
+            "locked": 1,
+            "gpio22_locked": 1,
+            "sta_connected": 1,
+            "admin_active": 0
+          },
+          "network": {
+            "sta_ip_private_rfc1918": true,
+            "ap_enabled": 0,
+            "ap_clients": 0,
+            "mdns_ready": 1,
+            "canonical_host_match_saved": true,
+            "http_ready": 1
+          },
+          "heap": {
+            "free": 111664,
+            "minimum": 55268,
+            "largest": 34804
+          },
+          "line": {
+            "configured": 1,
+            "enabled": 1,
+            "config_version": 2,
+            "test_state": 0,
+            "queue": 0,
+            "sent": 0,
+            "failed": 0,
+            "state": 5
+          },
+          "pipeline": {
+            "unlock_generated": 0,
+            "pin_generated": 0,
+            "emergency_generated": 0,
+            "enqueued": 0,
+            "push_started": 0,
+            "tls_connected": 2,
+            "push_written": 0,
+            "responses": 2,
+            "heap_blocked": 17233,
+            "last_push_http": 0,
+            "admission_free": 111664,
+            "admission_largest": 34804,
+            "admission_minimum": 55268,
+            "tls_minimum": 55268,
+            "tls_after_largest": 34804
+          }
+        }
+      ]
+    },
+    "access_inert": {
+      "request": {
+        "method": "GET",
+        "path": "/a/<64-zero-inert-route>",
+        "target": "private_sta_ip_withheld",
+        "host_header_matches_saved_canonical_host": true,
+        "started_local": "2026-09-28T17:10:13+07:00",
+        "completed_local": "2026-09-28T17:10:13+07:00",
+        "http_status": 200,
+        "error_type": null,
+        "response_body_saved_or_printed": false,
+        "browser_javascript_executed": false,
+        "authentication_or_unlock": false,
+        "dummy_invalid_route_token_used": true
+      },
+      "samples": [
+        {
+          "label": "inert_access_page_get_before",
+          "timestamp_local": "2026-09-28T17:10:13+07:00",
+          "command": "DIAG_SYSTEM",
+          "response_complete": true,
+          "reset_performed": false,
+          "system": {
+            "configured": 1,
+            "owner": 1,
+            "unlock_ms": 5000,
+            "sd_healthy": 1,
+            "calibration_loaded": 1,
+            "pin_store_healthy": 1,
+            "locked": 1,
+            "gpio22_locked": 1,
+            "sta_connected": 1,
+            "admin_active": 0
+          },
+          "network": {
+            "sta_ip_private_rfc1918": true,
+            "ap_enabled": 0,
+            "ap_clients": 0,
+            "mdns_ready": 1,
+            "canonical_host_match_saved": true,
+            "http_ready": 1
+          },
+          "heap": {
+            "free": 111664,
+            "minimum": 55268,
+            "largest": 34804
+          },
+          "line": {
+            "configured": 1,
+            "enabled": 1,
+            "config_version": 2,
+            "test_state": 0,
+            "queue": 0,
+            "sent": 0,
+            "failed": 0,
+            "state": 5
+          },
+          "pipeline": {
+            "unlock_generated": 0,
+            "pin_generated": 0,
+            "emergency_generated": 0,
+            "enqueued": 0,
+            "push_started": 0,
+            "tls_connected": 2,
+            "push_written": 0,
+            "responses": 2,
+            "heap_blocked": 17233,
+            "last_push_http": 0,
+            "admission_free": 111664,
+            "admission_largest": 34804,
+            "admission_minimum": 55268,
+            "tls_minimum": 55268,
+            "tls_after_largest": 34804
+          }
+        },
+        {
+          "label": "inert_access_page_get_3.25s_after",
+          "timestamp_local": "2026-09-28T17:10:16+07:00",
+          "command": "DIAG_SYSTEM",
+          "response_complete": true,
+          "reset_performed": false,
+          "system": {
+            "configured": 1,
+            "owner": 1,
+            "unlock_ms": 5000,
+            "sd_healthy": 1,
+            "calibration_loaded": 1,
+            "pin_store_healthy": 1,
+            "locked": 1,
+            "gpio22_locked": 1,
+            "sta_connected": 1,
+            "admin_active": 0
+          },
+          "network": {
+            "sta_ip_private_rfc1918": true,
+            "ap_enabled": 0,
+            "ap_clients": 0,
+            "mdns_ready": 1,
+            "canonical_host_match_saved": true,
+            "http_ready": 1
+          },
+          "heap": {
+            "free": 111440,
+            "minimum": 55268,
+            "largest": 34804
+          },
+          "line": {
+            "configured": 1,
+            "enabled": 1,
+            "config_version": 2,
+            "test_state": 0,
+            "queue": 0,
+            "sent": 0,
+            "failed": 0,
+            "state": 5
+          },
+          "pipeline": {
+            "unlock_generated": 0,
+            "pin_generated": 0,
+            "emergency_generated": 0,
+            "enqueued": 0,
+            "push_started": 0,
+            "tls_connected": 2,
+            "push_written": 0,
+            "responses": 2,
+            "heap_blocked": 17237,
+            "last_push_http": 0,
+            "admission_free": 111440,
+            "admission_largest": 34804,
+            "admission_minimum": 55268,
+            "tls_minimum": 55268,
+            "tls_after_largest": 34804
+          }
+        }
+      ]
+    }
+  },
+  "post_page_idle_samples": [
+    {
+      "label": "post_pages_idle_1",
+      "timestamp_local": "2026-09-28T17:10:17+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 111440,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17238,
+        "last_push_http": 0,
+        "admission_free": 110304,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    },
+    {
+      "label": "post_pages_idle_2",
+      "timestamp_local": "2026-09-28T17:10:48+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 111664,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17268,
+        "last_push_http": 0,
+        "admission_free": 111664,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    },
+    {
+      "label": "post_pages_idle_3",
+      "timestamp_local": "2026-09-28T17:11:18+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 111664,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17299,
+        "last_push_http": 0,
+        "admission_free": 111664,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    },
+    {
+      "label": "post_pages_idle_4",
+      "timestamp_local": "2026-09-28T17:11:49+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 111664,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17330,
+        "last_push_http": 0,
+        "admission_free": 111664,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    },
+    {
+      "label": "post_pages_idle_5",
+      "timestamp_local": "2026-09-28T17:12:20+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 112144,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17360,
+        "last_push_http": 0,
+        "admission_free": 112144,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    },
+    {
+      "label": "post_pages_idle_6",
+      "timestamp_local": "2026-09-28T17:12:50+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 112144,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17391,
+        "last_push_http": 0,
+        "admission_free": 112144,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    },
+    {
+      "label": "post_pages_idle_7",
+      "timestamp_local": "2026-09-28T17:13:21+07:00",
+      "command": "DIAG_SYSTEM",
+      "response_complete": true,
+      "reset_performed": false,
+      "system": {
+        "configured": 1,
+        "owner": 1,
+        "unlock_ms": 5000,
+        "sd_healthy": 1,
+        "calibration_loaded": 1,
+        "pin_store_healthy": 1,
+        "locked": 1,
+        "gpio22_locked": 1,
+        "sta_connected": 1,
+        "admin_active": 0
+      },
+      "network": {
+        "sta_ip_private_rfc1918": true,
+        "ap_enabled": 0,
+        "ap_clients": 0,
+        "mdns_ready": 1,
+        "canonical_host_match_saved": true,
+        "http_ready": 1
+      },
+      "heap": {
+        "free": 112144,
+        "minimum": 55268,
+        "largest": 34804
+      },
+      "line": {
+        "configured": 1,
+        "enabled": 1,
+        "config_version": 2,
+        "test_state": 0,
+        "queue": 0,
+        "sent": 0,
+        "failed": 0,
+        "state": 5
+      },
+      "pipeline": {
+        "unlock_generated": 0,
+        "pin_generated": 0,
+        "emergency_generated": 0,
+        "enqueued": 0,
+        "push_started": 0,
+        "tls_connected": 2,
+        "push_written": 0,
+        "responses": 2,
+        "heap_blocked": 17421,
+        "last_push_http": 0,
+        "admission_free": 112144,
+        "admission_largest": 34804,
+        "admission_minimum": 55268,
+        "tls_minimum": 55268,
+        "tls_after_largest": 34804
+      }
+    }
+  ],
+  "capture": {
+    "dtr_rts_false_before_open": true,
+    "only_DIAG_SYSTEM": true,
+    "no_reset_or_pin_or_unlock_or_line_test": true,
+    "response_bodies_discarded": true,
+    "browser_context_unavailable": true,
+    "station_ip_withheld": true
+  }
+}

@@ -1,0 +1,162 @@
+﻿commit d1e5ce38058790a973ce90c1addf33ef206ce4cd
+Author:     nitipatja66 <<redacted-email>>
+AuthorDate: Mon Sep 28 12:09:16 2026 +0700
+Commit:     nitipatja66 <<redacted-email>>
+CommitDate: Mon Sep 28 12:09:16 2026 +0700
+
+    fix: harden admin pin bootstrap and emergency unlock gating
+
+diff --git a/src/main.cpp b/src/main.cpp
+index d8568c4..df18710 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -4,6 +4,7 @@
+ #include <esp_heap_caps.h>
+ #include <Arduino.h>
+ #include <Preferences.h>
++#include <nvs.h>
+ #include <TFT_eSPI.h>
+ #include <WiFi.h>
+ #include <SD.h>
+@@ -373,8 +374,39 @@ void setup() {
+   } else {
+     Serial.println("AP: FAIL");
+   }
+-  safeBootInitialized=!systemFault&&configured&&databaseValid&&apStarted&&canonicalReady&&httpReady&&lockController.isLocked()&&digitalRead(LockController::kPin)==LockController::kLockedLevel;
+-  const bool pinReady=AdminPin::begin(configured);
++  // Only an affirmative empty-installation state may create the temporary PIN.
++  // A failed SD/AP/migration check on a configured installation is not new setup.
++  auto absentNvsKey = [](const char* name, const char* key) {
++    nvs_handle_t handle = 0;
++    const esp_err_t opened = nvs_open(name, NVS_READONLY, &handle);
++    if (opened == ESP_ERR_NVS_NOT_FOUND) return true;
++    if (opened != ESP_OK) return false;
++    size_t length = 0;
++    const esp_err_t found = nvs_get_blob(handle, key, nullptr, &length);
++    nvs_close(handle);
++    return found == ESP_ERR_NVS_NOT_FOUND;
++  };
++  const bool noPriorNvs = absentNvsKey("sl-install", "id") &&
++      absentNvsKey("sl-pin", "initial") && absentNvsKey("sl-pin", "fail") &&
++      absentNvsKey("sl-net", "ap-pass") &&
++      absentNvsKey("sl-sta", "cfg-a") && absentNvsKey("sl-sta", "cfg-b") &&
++      absentNvsKey("sl-line", "active") && absentNvsKey("sl-line", "cfg0") &&
++      absentNvsKey("sl-line", "cfg1") && absentNvsKey("sl-line", "config");
++  size_t initialAuthCount = 0;
++  const bool freshInstallation = configResult == ConfigStore::Result::CreatedDefaults &&
++      setupAllowed && storageHealth.available() && noPriorNvs &&
++      !smartlock::storage::IdentityStore::modePresent() &&
++      AuthStore::inspect(initialAuthCount) == AuthStore::ReadResult::Missing &&
++      !SD.exists("/smartlock/db/users.rec") && !SD.exists("/smartlock/db/users.rec.bak") &&
++      !SD.exists("/smartlock/db/users.rec.tmp") &&
++      !SD.exists("/smartlock/db/devices.rec") && !SD.exists("/smartlock/db/devices.rec.bak") &&
++      !SD.exists("/smartlock/db/devices.rec.tmp") &&
++      !SD.exists("/smartlock/db/auth.rec.bak") && !SD.exists("/smartlock/db/auth.rec.tmp");
++  // Local emergency authorization needs local security readiness, not a working
++  // AP, mDNS responder or HTTP server. Runtime storage is checked again below.
++  safeBootInitialized=!systemFault&&configured&&databaseValid&&lockController.readyForUnlock()&&
++      lockController.isLocked()&&digitalRead(LockController::kPin)==LockController::kLockedLevel;
++  const bool pinReady=AdminPin::begin(configured, freshInstallation);
+   adminPinReady=pinReady;
+   if(!pinReady){systemFault=true;safeBootInitialized=false;}
+   Serial.printf("ADMIN PIN STORE: %s\n",pinReady?"OK":"FAIL (LOCKED)");
+@@ -451,6 +483,7 @@ void loop() {
+     // Only the PIN-authenticated explicit confirmation emits this local action.
+     size_t authCount=0;
+     bool granted=safeBootInitialized&&storageHealth.available()&&
++      lockController.isLocked()&&digitalRead(LockController::kPin)==LockController::kLockedLevel&&
+       smartlock::storage::IdentityStore::healthy()&&AuthStore::inspect(authCount)==AuthStore::ReadResult::Valid&&
+       lockController.unlock(configStore.config().unlockDurationMs)==LockController::UnlockResult::Unlocked;
+     if(granted) LineNotifications::emergencyUnlock();
+diff --git a/src/security/AdminPin.cpp b/src/security/AdminPin.cpp
+index 76a814c..c00a374 100644
+--- a/src/security/AdminPin.cpp
++++ b/src/security/AdminPin.cpp
+@@ -21,19 +21,19 @@ uint8_t AdminPin::failures_=0;
+ uint32_t AdminPin::lockedAt_=0,AdminPin::revision_=0;
+ void AdminPin::setFailureCallback(FailureCallback callback){failureCallback=callback;}
+ bool AdminPin::valid(const char* p){if(!p||strnlen(p,5)!=4)return false;for(int i=0;i<4;++i)if(p[i]<'0'||p[i]>'9')return false;return true;}
+-bool AdminPin::begin(bool configured){
++bool AdminPin::begin(bool configured, bool freshInstallation){
+  Preferences n;healthy_=n.begin("sl-pin",false);if(!healthy_)return false;
+  size_t len=n.getBytesLength("verifier");present_=len!=0;healthy_=!present_||len==sizeof(Record);
+  failures_=n.getUChar("fail",0);initialDefault_=!configured&&n.getUChar("initial",0)==1;
+  // Only a genuinely unconfigured installation may create the initial default.
+  // A missing/corrupt verifier on a configured installation remains fail-closed.
+- if(healthy_&&!present_&&!configured){
++ if(healthy_&&!present_&&!configured&&freshInstallation){
+    if(n.putUChar("initial",1)!=1){n.end();healthy_=false;return false;}
+    initialDefault_=true;n.end();lockedAt_=millis();return save("1234");
+  }
+  n.end();lockedAt_=millis();
+  if(!healthy_)return false;
+- if(!present_&&configured){healthy_=false;return false;}
++ if(!present_){healthy_=false;return false;}
+  return true;
+ }
+ bool AdminPin::save(const char* p){
+diff --git a/src/security/AdminPin.h b/src/security/AdminPin.h
+index 1870e19..c01f091 100644
+--- a/src/security/AdminPin.h
++++ b/src/security/AdminPin.h
+@@ -5,7 +5,7 @@ class AdminPin {
+   enum class Result { Ok, Invalid, Locked, StorageFailure };
+   using FailureCallback = void (*)(uint8_t count, bool lockout);
+   static void setFailureCallback(FailureCallback callback);
+-  static bool begin(bool configured);
++  static bool begin(bool configured, bool freshInstallation = false);
+   static bool valid(const char* pin);
+   static bool initialize(const char* pin);
+   static Result verify(const char* pin,uint32_t now);
+diff --git a/tests/admin/admin_test.cpp b/tests/admin/admin_test.cpp
+index 4eb04af..2978a59 100644
+--- a/tests/admin/admin_test.cpp
++++ b/tests/admin/admin_test.cpp
+@@ -16,7 +16,9 @@ int pinEvents=0; unsigned lastAttempt=0; bool lastLockout=false;
+ void digits(PhysicalAdmin& p,const char* s,uint32_t now){for(;*s;++s){int v=*s-'0';int row=v?(v-1)/3:3,col=v?(v-1)%3:1;p.touch(20+col*100,140+row*66,false,now);}}
+ int main(){
+  AdminPin::setFailureCallback([](uint8_t count,bool lockout){++pinEvents;lastAttempt=count;lastLockout=lockout;});
+- CHECK(!AdminPin::begin(true));CHECK(records["verifier"].empty());CHECK(AdminPin::begin(false));CHECK(records["verifier"].size()==48);CHECK(AdminPin::verify("1234",0)==R::Ok);CHECK(AdminPin::initialize("1234"));CHECK(records["verifier"].size()==48);CHECK(records["verifier"].find("1234")==std::string::npos);
++ CHECK(!AdminPin::begin(true));CHECK(records["verifier"].empty());
++ CHECK(!AdminPin::begin(false));CHECK(records["verifier"].empty());
++ CHECK(AdminPin::begin(false,true));CHECK(records["verifier"].size()==48);CHECK(AdminPin::verify("1234",0)==R::Ok);CHECK(AdminPin::initialize("1234"));CHECK(records["verifier"].size()==48);CHECK(records["verifier"].find("1234")==std::string::npos);
+  CHECK(!AdminPin::valid("123"));CHECK(!AdminPin::valid("12345"));CHECK(!AdminPin::valid("12x4"));CHECK(AdminPin::valid("0000"));
+  CHECK(AdminPin::verify("1234",0)==R::Ok);CHECK(AdminPin::verify("9999",0)==R::Invalid);CHECK(AdminPin::verify("9999",0)==R::Invalid);CHECK(AdminPin::verify("9999",0)==R::Locked);CHECK(AdminPin::verify("1234",59999)==R::Locked);
+  CHECK(pinEvents==3&&lastAttempt==3&&lastLockout);
+@@ -35,7 +37,9 @@ int main(){
+  LockController lock;lock.begin();CHECK(lock.isLocked());CHECK(lockLevel==1);clockMs=200000;
+  CHECK(lock.unlock(5000)==LockController::UnlockResult::Unlocked);CHECK(lockLevel==0);lock.update(204999);CHECK(!lock.isLocked());lock.update(205000);CHECK(lock.isLocked());CHECK(lockLevel==1);
+  CHECK(lock.unlock(0)==LockController::UnlockResult::InvalidDuration);CHECK(lockLevel==1);
+- failed=false;records.clear();CHECK(AdminPin::begin(false));CHECK(records["verifier"].size()==48);CHECK(AdminPin::verify("1234",210000)==R::Ok);CHECK(AdminPin::begin(false));CHECK(AdminPin::initialize("4321"));CHECK(!AdminPin::initialize("1234"));CHECK(AdminPin::begin(true));CHECK(AdminPin::verify("4321",210000)==R::Ok);CHECK(AdminPin::begin(false));CHECK(!AdminPin::initialize("1234"));CHECK(AdminPin::verify("4321",210001)==R::Ok);
++ failed=false;records.clear();CHECK(AdminPin::begin(false,true));CHECK(records["verifier"].size()==48);CHECK(AdminPin::verify("1234",210000)==R::Ok);CHECK(AdminPin::begin(false,true));CHECK(AdminPin::initialize("4321"));CHECK(!AdminPin::initialize("1234"));CHECK(AdminPin::begin(true));CHECK(AdminPin::verify("4321",210000)==R::Ok);CHECK(AdminPin::begin(false));CHECK(!AdminPin::initialize("1234"));CHECK(AdminPin::verify("4321",210001)==R::Ok);
++ saved=records["verifier"];CHECK(AdminPin::begin(false));CHECK(records["verifier"]==saved);
++ records.erase("verifier");CHECK(!AdminPin::begin(false));CHECK(records["verifier"].empty());
+  records.clear();ConfigStore config;CHECK(config.begin()==ConfigStore::Result::CreatedDefaults);auto next=config.config();next.unlockDurationMs=7000;CHECK(config.save(next));ConfigStore reboot;CHECK(reboot.begin()==ConfigStore::Result::Ok);CHECK(reboot.config().unlockDurationMs==7000);
+  auto savedConfig=records;records["active"]="unsupported-retired-selector";ConfigStore retired;CHECK(retired.begin()==ConfigStore::Result::Corrupt);CHECK(!retired.healthy());records=savedConfig;records["txn"]="unsupported-retired-journal";ConfigStore journal;CHECK(journal.begin()==ConfigStore::Result::Corrupt);
+  records=savedConfig;records["cfg-b"][0]^=1;ConfigStore corrupt;CHECK(corrupt.begin()==ConfigStore::Result::Corrupt);CHECK(!corrupt.healthy());
+diff --git a/tests/admin/admin_transition_test.cpp b/tests/admin/admin_transition_test.cpp
+index b5ca17e..3fc7b03 100644
+--- a/tests/admin/admin_transition_test.cpp
++++ b/tests/admin/admin_transition_test.cpp
+@@ -34,7 +34,7 @@ void transitionChecks(){
+   refresh.update(59000);assert(refresh.state()==AppState::IdleScreenOff);
+  }
+  records.clear();clockMs=300000;verificationDelay=0;
+- assert(AdminPin::begin(false)&&AdminPin::initialize("4321"));
++ assert(AdminPin::begin(false,true)&&AdminPin::initialize("4321"));
+  LockController lock;lock.begin();
+  PhysicalAdmin admin;AppStateMachine app;AdminTouchRouter router;
+  app.begin(clockMs,true);
+diff --git a/tests/admin/setup_backend_test.py b/tests/admin/setup_backend_test.py
+index fd3e2da..e52234e 100644
+--- a/tests/admin/setup_backend_test.py
++++ b/tests/admin/setup_backend_test.py
+@@ -40,7 +40,7 @@ namespace smartlock{namespace storage{struct IdentityStore{static inline std::st
+  code+=strip((root/'src/app/FirstOwnerSetup.h').read_text())+strip((root/'src/app/FirstOwnerSetup.cpp').read_text())
+  code+=r'''
+ int main(){using R=FirstOwnerSetup::Result;ConfigStore c;StorageHealth h;SessionManager sess;NetworkSecrets net;FirstOwnerSetup setup(c,h,sess,net);FirstOwnerInput in={};strcpy(in.ownerName,"Only Owner");memset(in.credential,'a',64);memset(in.apPassword,'b',32);in.unlockSeconds=5;
+-for(const char*p:{"","123","12x4","1234"}){strcpy(in.adminPin,p);strcpy(in.pinConfirm,p);assert(setup.complete(in,0)==R::InvalidInput);assert(files.empty()&&sess.valid&&AdminPin::pin.empty());}
++for(const char*p:{"","123","12x4"}){strcpy(in.adminPin,p);strcpy(in.pinConfirm,p);assert(setup.complete(in,0)==R::InvalidInput);assert(files.empty()&&sess.valid&&AdminPin::pin.empty());}
+ strcpy(in.adminPin,"5678");strcpy(in.pinConfirm,"5679");assert(setup.complete(in,0)==R::InvalidInput);strcpy(in.pinConfirm,"5678");assert(setup.complete(in,0)==R::Success);assert(c.c.configured&&c.c.ownerExists&&c.c.unlockDurationMs==5000);assert(IdentityStore::name=="Only Owner");assert(AdminPin::pin=="5678");size_t n=0;assert(AuthStore::inspect(n)==AuthStore::ReadResult::Valid&&n==1);assert(AuthStore::verifyFirst("D000001",in.credential));assert(!AuthStore::saveFirst("D000001",in.credential));assert(setup.complete(in,0)==R::AlreadyConfigured);
+ // Header contains only magic/schema/count; no legacy passphrase salt/hash.
+ auto snapshot=files["/smartlock/db/auth.rec"];assert(snapshot.size()==12+57);assert(snapshot[4]==2);assert(!AuthStore::addDevice("D000002",in.credential));char other[65]={};memset(other,'c',64);assert(AuthStore::addDevice("D000002",other));assert(AuthStore::verifyDevice("D000002",other));assert(!AuthStore::verifyDevice("D000001",other));assert(AuthStore::inspect(n)==AuthStore::ReadResult::Valid&&n==2);

@@ -1,0 +1,8 @@
+{
+  "state": "DEFERRED",
+  "hostname": "smartlock-04225a0ff0a4.local",
+  "firmware_initialization": "MDNS: OK (postflash Serial)",
+  "windows_udp_query": "Three-second multicast/unicast-response query timed out",
+  "numeric_lan_health": "HTTP 200 at recorded current DHCP address",
+  "interpretation": "No new claim of Windows .local resolution or phone browser acceptance"
+}

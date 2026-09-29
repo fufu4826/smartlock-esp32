@@ -1,0 +1,28 @@
+{
+  "generated_utc": "2026-09-28T03:26:20.649332+00:00",
+  "scope": "synthetic Access shell transport check only: unauthenticated GET using an invalid all-zero 64-character path token; not a valid QR/session and not an authentication or authorization test; response bodies discarded after byte counting",
+  "diagnostic_ip": "192.168.1.179",
+  "route_pattern": "/a/<64-character-session>",
+  "timeout_seconds": 4.0,
+  "rounds": 3,
+  "results": [
+    {
+      "round": 1,
+      "status": 200,
+      "body_length_bytes": 4109,
+      "elapsed_ms": 324
+    },
+    {
+      "round": 2,
+      "status": 200,
+      "body_length_bytes": 4109,
+      "elapsed_ms": 113
+    },
+    {
+      "round": 3,
+      "status": 200,
+      "body_length_bytes": 4109,
+      "elapsed_ms": 191
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "binaryBytes": 1241072,
+  "bytesRecovered": 47808,
+  "slotBytes": 1310720,
+  "headroomBytes": 69648,
+  "staticRamBytes": 108468,
+  "programBytes": 1234497,
+  "sha256": "f3b5868d34edbf2086702a563cfcd045cf6e59ca634f75a04b24e952c09b4e46",
+  "partitionLayoutUnchanged": true
+}

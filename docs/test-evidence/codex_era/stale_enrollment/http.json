@@ -1,0 +1,10 @@
+[
+  {
+    "case": "empty",
+    "status": 400
+  },
+  {
+    "case": "invalid_invitation",
+    "status": 403
+  }
+]

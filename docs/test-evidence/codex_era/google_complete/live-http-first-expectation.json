@@ -1,0 +1,122 @@
+{
+  "state": "FAIL",
+  "checks": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200,
+      "pass": true,
+      "ms": 381
+    },
+    {
+      "path": "/api/cloud/status",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 36
+    },
+    {
+      "path": "/api/cloud/pair/start",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 38
+    },
+    {
+      "path": "/api/cloud/pair/claim",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 39
+    },
+    {
+      "path": "/api/cloud/pair/confirm",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 36
+    },
+    {
+      "path": "/api/cloud/pair/status",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 38
+    },
+    {
+      "path": "/api/cloud/sync",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 37
+    },
+    {
+      "path": "/api/cloud/disconnect",
+      "method": "POST",
+      "status": 403,
+      "pass": true,
+      "ms": 45
+    },
+    {
+      "path": "/api/access/request",
+      "method": "POST",
+      "status": 400,
+      "pass": true,
+      "ms": 53
+    },
+    {
+      "path": "/api/enroll/complete",
+      "method": "POST",
+      "status": 400,
+      "pass": true,
+      "ms": 57
+    },
+    {
+      "path": "/owner-bootstrap",
+      "method": "GET",
+      "status": 410,
+      "pass": true,
+      "ms": 52
+    },
+    {
+      "path": "/api/cloud/configure",
+      "method": "GET",
+      "status": 200,
+      "pass": false,
+      "ms": 138
+    },
+    {
+      "path": "/api/backup",
+      "method": "GET",
+      "status": 200,
+      "pass": false,
+      "ms": 264
+    },
+    {
+      "path": "/api/restore",
+      "method": "GET",
+      "status": 200,
+      "pass": false,
+      "ms": 120
+    },
+    {
+      "path": "/api/ota",
+      "method": "GET",
+      "status": 200,
+      "pass": false,
+      "ms": 102
+    },
+    {
+      "path": "slow-body",
+      "seconds": 5.06,
+      "pass": true
+    },
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200,
+      "pass": true,
+      "ms": 31
+    }
+  ]
+}

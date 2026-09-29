@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/health",
+    "status": 200
+  },
+  {
+    "path": "/manage",
+    "status": 200
+  },
+  {
+    "path": "/api/line/save",
+    "status": 404
+  },
+  {
+    "path": "/api/line/status",
+    "status": 403
+  },
+  {
+    "path": "/api/line/label",
+    "status": 403
+  },
+  {
+    "path": "/api/line/test",
+    "status": 403
+  },
+  {
+    "path": "/api/line/disconnect",
+    "status": 403
+  },
+  {
+    "path": "/api/line/provisioning/arm",
+    "status": 403
+  },
+  {
+    "path": "/api/line/provisioning/cancel",
+    "status": 403
+  }
+]

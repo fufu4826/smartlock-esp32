@@ -1,0 +1,82 @@
+WRITE: app-only 0x10000, COM6, dio/40m/detect; image SHA-256 3DCD3BCBD249377712F83E74A2133DE94400F55F15AB8073B3A10636A940104D
+esptool.py v4.11.0
+Serial port COM6
+Connecting....
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: [REDACTED]
+Uploading stub...
+Running stub...
+Stub running...
+Configuring flash size...
+Auto-detected Flash size: 4MB
+Flash will be erased from 0x00010000 to 0x0013efff...
+Compressed 1239904 bytes to 754266...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001b870... (4 %)
+Writing at 0x0002c49e... (6 %)
+Writing at 0x00037656... (8 %)
+Writing at 0x00043d7f... (10 %)
+Writing at 0x0004d020... (12 %)
+Writing at 0x0005e496... (14 %)
+Writing at 0x00064745... (17 %)
+Writing at 0x0006a340... (19 %)
+Writing at 0x0006faee... (21 %)
+Writing at 0x00075326... (23 %)
+Writing at 0x0007a890... (25 %)
+Writing at 0x000803ba... (27 %)
+Writing at 0x00086270... (29 %)
+Writing at 0x0008baab... (31 %)
+Writing at 0x000915df... (34 %)
+Writing at 0x00096a55... (36 %)
+Writing at 0x0009be8c... (38 %)
+Writing at 0x000a17c9... (40 %)
+Writing at 0x000a6ab9... (42 %)
+Writing at 0x000abd37... (44 %)
+Writing at 0x000b106c... (46 %)
+Writing at 0x000b6237... (48 %)
+Writing at 0x000bb377... (51 %)
+Writing at 0x000c0852... (53 %)
+Writing at 0x000c5a1e... (55 %)
+Writing at 0x000cab5a... (57 %)
+Writing at 0x000d00dd... (59 %)
+Writing at 0x000d5f7f... (61 %)
+Writing at 0x000db4b9... (63 %)
+Writing at 0x000e0776... (65 %)
+Writing at 0x000e5d74... (68 %)
+Writing at 0x000eb03b... (70 %)
+Writing at 0x000f0536... (72 %)
+Writing at 0x000f5aee... (74 %)
+Writing at 0x000fb2d7... (76 %)
+Writing at 0x00100b1d... (78 %)
+Writing at 0x00106ad1... (80 %)
+Writing at 0x0010c3ce... (82 %)
+Writing at 0x00112f0c... (85 %)
+Writing at 0x0011b2c1... (87 %)
+Writing at 0x001235fb... (89 %)
+Writing at 0x001286f1... (91 %)
+Writing at 0x0012e018... (93 %)
+Writing at 0x00133a25... (95 %)
+Writing at 0x00138b81... (97 %)
+Writing at 0x0013e7fb... (100 %)
+Wrote 1239904 bytes (754266 compressed) at 0x00010000 in 66.7 seconds (effective 148.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+VERIFY: readback only at 0x10000, COM6; image SHA-256 3DCD3BCBD249377712F83E74A2133DE94400F55F15AB8073B3A10636A940104D
+esptool.py v4.11.0
+Serial port COM6
+Connecting....
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: [REDACTED]
+Uploading stub...
+Running stub...
+Stub running...
+Configuring flash size...
+Verifying 0x12eb60 (1239904) bytes @ 0x00010000 in flash against C:\ESP\esp32_035_lock_touch_test\docs\phase_reports\evidence\heap_minimal_bisection_2026_09_28\diagnostic_minimal_firmware.bin...
+-- verify OK (digest matched)
+Staying in bootloader.

@@ -1,0 +1,13 @@
+﻿commit d1e5ce38058790a973ce90c1addf33ef206ce4cd (HEAD -> master, tag: smartlock-final-accepted-2026-09-28)
+Author: nitipatja66 <<redacted-email>>
+Date:   Mon Sep 28 12:09:16 2026 +0700
+
+    fix: harden admin pin bootstrap and emergency unlock gating
+
+ src/main.cpp                          | 37 +++++++++++++++++++++++++++++++++--
+ src/security/AdminPin.cpp             |  6 +++---
+ src/security/AdminPin.h               |  2 +-
+ tests/admin/admin_test.cpp            |  8 ++++++--
+ tests/admin/admin_transition_test.cpp |  2 +-
+ tests/admin/setup_backend_test.py     |  2 +-
+ 6 files changed, 47 insertions(+), 10 deletions(-)

@@ -1,0 +1,17 @@
+{
+  "production_pattern_hits": {
+    "Google Sheets": [],
+    "googleapis": [],
+    "script.google": [],
+    "google-v1": [],
+    "setInsecure": [],
+    "Audit::": [],
+    "EventLog": []
+  },
+  "binary_bytes": 1224528,
+  "headroom": 86192,
+  "sha256": "230561c5cfa073ef42f4da17c587c7ed130315338023705896ac2d75efaf0281",
+  "source_commit": "064518a",
+  "application_offset": "0x10000",
+  "partition_table_match": true
+}

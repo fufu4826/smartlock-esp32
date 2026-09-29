@@ -1,0 +1,167 @@
+NETWORK: HOME LAN PRIMARY; AP OFF
+
+NETWORK: PROTECTED RECOVERY AP
+
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+SCREEN: MANAGEMENT QR
+ADMIN: MANAGEMENT HOLD -> PIN
+
+ADMIN: PIN ACCEPTED -> MENU
+
+SCREEN: ACCESS QR
+ets Jul 29 2019 12:21:46
+
+
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+
+configsip: 0, SPIWP:0xee
+
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+
+mode:DIO, clock div:2
+
+load:0x3fff0030,len:1184
+
+load:0x40078000,len:13232
+
+load:0x40080400,len:3028
+
+entry 0x400805e4
+
+BOOT
+
+SmartLock core product (USB updates)
+
+LockController: LOCKED
+
+GPIO22: LOCKED
+LOCK TIMER: OK
+Config schema: 1
+Configured: NO
+Owner exists: NO
+TFT: OK
+
+Touch calibration loaded
+
+Touch: OK
+
+SD: OK (30000 MB)
+SESSION TEST: <redacted for handoff>
+AP: OK SSID SmartLock-F0A4 IP 192.168.4.1
+DNS: OK
+CANONICAL: http://smartlock-04225a0ff0a4.local MDNS: OK
+HTTP: OK
+[  2532][E][Preferences.cpp:503] getBytesLength(): nvs_get_blob len fail: verifier NOT_FOUND
+
+ADMIN PIN STORE: OK
+INSTALLATION STORE: OK
+LINE: READY (Owner Management + ADMIN PIN)
+
+HEAP: free=114144 min=113240
+SCREEN: OFF
+
+READY
+
+SCREEN: SETUP QR
+[150821][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[181583][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[186834][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[199984][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+ets Jul 29 2019 12:21:46
+
+
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+
+configsip: 0, SPIWP:0xee
+
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+
+mode:DIO, clock div:2
+
+load:0x3fff0030,len:1184
+
+load:0x40078000,len:13232
+
+load:0x40080400,len:3028
+
+entry 0x400805e4
+
+BOOT
+
+SmartLock core product (USB updates)
+
+LockController: LOCKED
+
+GPIO22: LOCKED
+LOCK TIMER: OK
+Config schema: 1
+Configured: YES
+Owner exists: YES
+TFT: OK
+
+Touch calibration loaded
+
+Touch: OK
+
+SD: OK (30000 MB)
+SESSION TEST: <redacted for handoff>
+IDENTITY MODEL: <redacted for handoff>
+IDENTITY DB: <redacted for handoff>
+AP: OK SSID SmartLock-F0A4 IP 192.168.4.1
+DNS: OK
+CANONICAL: http://smartlock-04225a0ff0a4.local MDNS: OK
+HTTP: OK
+STA saved config: NONE
+ADMIN PIN STORE: OK
+[  1906][E][Preferences.cpp:503] getBytesLength(): nvs_get_blob len fail: id NOT_FOUND
+
+INSTALLATION STORE: OK
+LINE: READY (Owner Management + ADMIN PIN)
+
+HEAP: free=113100 min=112704
+SCREEN: OFF
+
+READY
+
+[ 49805][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+NETWORK: PROTECTED RECOVERY AP
+
+SCREEN: ACCESS QR
+SCREEN: ACCESS QR
+SCREEN: MANAGEMENT QR
+[ 95019][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[112230][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[112855][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[125732][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[130532][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[130898][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[131534][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+[135274][E][WebServer.cpp:650] _handleRequest(): request handler not found
+
+SCREEN: OFF
+
+STA: CONNECTED IP 192.168.1.179
+[187407][E][ssl_client.cpp:37] _handle_error(): [start_ssl_client():273]: (-9984) X509 - Certificate verification failed, e.g. CRL, CA or signature check failed
+
+[187421][E][WiFiClientSecure.cpp:144] connect(): start_ssl_client: -9984
+
+SCREEN: ACCESS QR
+[219348][E][ssl_client.cpp:37] _handle_error(): [start_ssl_client():273]: (-9984) X509 - Certificate verification failed, e.g. CRL, CA or signature check failed
+
+[219367][E][WiFiClientSecure.cpp:144] connect(): start_ssl_client: -9984
+

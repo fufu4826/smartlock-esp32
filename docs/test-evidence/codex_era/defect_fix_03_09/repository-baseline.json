@@ -1,0 +1,15 @@
+{
+  "branch": "master",
+  "commit": "62ae5c2463fedeb424a3e9aa3b083824cd70818a",
+  "preexisting_changes_excluded_from_fix_commit": [
+    "docs/phase_reports/FINAL_FROM_ZERO_REPORT.md",
+    "docs/phase_reports/STALE_ENROLLMENT_REPORT.md",
+    "docs/phase_reports/evidence/final_from_zero/after-phone2.txt"
+  ],
+  "firmware_bytes": 1240208,
+  "application_slot_bytes": 1310720,
+  "headroom_bytes": 70512,
+  "static_ram_bytes": 108468,
+  "firmware_sha256": "4dd2eb25db6f3828097eb2448327c4aa17f44620b0341fcf18ddf4329a1c1ee8",
+  "baseline_observation": "The live board has ko/D000001/Owner/ACTIVE and hi/D000002/User/ACTIVE, one Owner and two verifiers. Preserve this actual state, not an earlier reported revocation."
+}

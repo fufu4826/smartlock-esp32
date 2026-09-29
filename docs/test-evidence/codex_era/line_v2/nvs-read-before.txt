@@ -1,0 +1,22 @@
+esptool v5.4.0
+Serial port COM6:
+Connecting...........
+Connected to ESP32 on COM6:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                a4:f0:0f:5a:22:04
+
+Uploading stub flasher...
+Running stub flasher...
+Stub flasher running.
+
+Configuring flash size...
+Reading from 0x0000a000 ======                          20.0% 4.00kB/20.00kB [0s]
+Reading from 0x0000b000 ============                    40.0% 8.00kB/20.00kB [0s]
+Reading from 0x0000c000 ==================              60.0% 12.00kB/20.00kB [1s]
+Reading from 0x0000d000 ========================        80.0% 16.00kB/20.00kB [1s]
+Reading from 0x0000e000 ============================== 100.0% 20.00kB/20.00kB [1s]
+Read 20480 bytes from 0x00009000 in 1.8 seconds (89.3 kbit/s) to 'C:/Users/fufu/AppData/Local/Temp/line-v2-private-before.bin'.
+
+Hard resetting via RTS pin...

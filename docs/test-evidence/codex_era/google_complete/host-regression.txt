@@ -1,0 +1,318 @@
+
+COMMAND: C:\Python314\python.exe -B tests/registration/run_registration_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\registration-recovery-wk1e99gk>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+RegistrationRecovery.cpp
+registration_recovery_test.cpp
+Generating Code...
+PASS: production RegistrationRecovery active identity, kind binding, revoked/orphan/wrong credential and unhealthy-store cases (9 assertions)
+
+C:\Users\fufu\AppData\Local\Temp\registration-recovery-wk1e99gk>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+authstore_production.cpp
+authstore_lookup_test.cpp
+Generating Code...
+PASS: production AuthStore salted verifier lookup, full scan, malformed input, ambiguity and corrupt-store rejection (11 assertions)
+
+EXIT: 0
+
+COMMAND: node tests/registration/registration_browser_test.js
+PASS: production Setup/Enrollment/Access/Management credential selection VM scenarios (commit response loss, same-ID recovery, stale Owner precedence, pending preservation, consumed/revoked/wrong proof)
+
+EXIT: 0
+
+COMMAND: node tests/registration/session_display_test.js
+PASS: 12 display checks: delayed response/callback, suspended resume, exact expiry, no expired submission; TFT fresh-time source ownership.
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/identity/run_identity_tests.py --session-display
+
+C:\Users\fufu\AppData\Local\Temp\identity-host-tests-ep4f7fvm>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+enrollmentmanager_production.cpp
+accesscontroller_production.cpp
+render_current_state_production.cpp
+identity_test_fakes.cpp
+session_display_test.cpp
+IdentityStore.cpp
+AtomicFileStore.cpp
+UserStore.cpp
+DeviceStore.cpp
+RecordCodec.cpp
+SessionManager.cpp
+Generating Code...
+PASS: production renderCurrentState creates Access session from fresh millis after stale loop timestamp
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/identity/run_identity_tests.py --management-expiry
+
+C:\Users\fufu\AppData\Local\Temp\identity-host-tests-3ruqa0u9>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+enrollmentmanager_production.cpp
+accesscontroller_production.cpp
+identity_test_fakes.cpp
+management_auth_expiry_test.cpp
+IdentityStore.cpp
+AtomicFileStore.cpp
+UserStore.cpp
+DeviceStore.cpp
+RecordCodec.cpp
+SessionManager.cpp
+Generating Code...
+PASS: 33 ManagementAuth assertions (expiry boundaries, wrap, replacement, issuer revocation)
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/http_deadline/run_http_deadline_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\http-deadline-tests-qij9__vj>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+request_deadline_test.cpp
+HTTP request deadline helper: 11 checks passed
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/events/run_event_log_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\event-log-tests-8m2axw1e>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+EventLog.cpp
+event_log_test.cpp
+Generating Code...
+
+C:\Users\fufu\AppData\Local\Temp\event-log-tests-8m2axw1e>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+EventLog.cpp
+Audit.cpp
+audit_test.cpp
+Generating Code...
+
+C:\Users\fufu\AppData\Local\Temp\event-log-tests-8m2axw1e>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+InstallationMetadata.cpp
+installation_metadata_test.cpp
+Generating Code...
+
+EXIT: 0
+
+COMMAND: node tests/events/log_browser_test.js
+PASS: 14 production browser log checks: enumeration, history-loss visibility, oldest/middle/newest named export, bounded download cleanup.
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/cloud/run_cloud_protocol_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\cloud-protocol-tests-6yih6tw5>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+CloudProtocol.cpp
+cloud_protocol_test.cpp
+sha256_stub.cpp
+Generating Code...
+PASS: 59 assertions across 6 protocol groups
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/identity/run_identity_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\identity-host-tests-658e9n58>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+enrollmentmanager_production.cpp
+accesscontroller_production.cpp
+identity_test_fakes.cpp
+identity_store_test.cpp
+IdentityStore.cpp
+AtomicFileStore.cpp
+UserStore.cpp
+DeviceStore.cpp
+RecordCodec.cpp
+SessionManager.cpp
+Generating Code...
+PASS: 349 assertions, 20 migration fault boundaries; migration, authorization, enrollment, replay, role restrictions, revocation and Access fail-closed
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/identity/run_identity_tests.py --cleanup-smoke
+
+C:\Users\fufu\AppData\Local\Temp\identity-host-tests-j0wrk6u1>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+enrollmentmanager_production.cpp
+accesscontroller_production.cpp
+identity_test_fakes.cpp
+cleanup_smoke.cpp
+IdentityStore.cpp
+AtomicFileStore.cpp
+UserStore.cpp
+DeviceStore.cpp
+RecordCodec.cpp
+SessionManager.cpp
+Generating Code...
+Cleanup core Access/Management/storage smoke PASS (isolated fakes)
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/identity/run_identity_tests.py --audit-attribution
+
+C:\Users\fufu\AppData\Local\Temp\identity-host-tests-17go11ry>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+enrollmentmanager_production.cpp
+accesscontroller_production.cpp
+identity_test_fakes.cpp
+access_attribution_test.cpp
+IdentityStore.cpp
+AtomicFileStore.cpp
+UserStore.cpp
+DeviceStore.cpp
+RecordCodec.cpp
+SessionManager.cpp
+Generating Code...
+PASS: 7 production Access attribution scenarios; LAN/recovery, verified revoked, wrong/unknown proof, invalid session, no extra unlock
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/admin/run_admin_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\admin-tests-esd9j5e3>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+admin_test.cpp
+admin_transition_test.cpp
+AdminPin.cpp
+PhysicalAdmin.cpp
+AppStateMachine.cpp
+TouchManager.cpp
+LockController.cpp
+ConfigStore.cpp
+Generating Code...
+Admin focused checks: 78 PASS (isolated NVS/crypto fakes)
+Admin production router/gesture regression: all 10 requested cases PASS (isolated clock/crypto/GPIO)
+
+EXIT: 0
+
+COMMAND: node tests/admin/web_test.js
+Admin web/Setup focused checks PASS; both changed page scripts syntax PASS
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/network/run_network_manager_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\network-manager-tests-nw27p__p>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+NetworkManager.cpp
+network_manager_test.cpp
+network_manager_test_fakes.cpp
+Generating Code...
+PASS: 101 assertions across 8 isolated scenarios
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/security/run_security_policy_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\security-policy-tests-wbrpo8mb>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+request_policy_test.cpp
+PASS: 43 RequestPolicy assertions
+PASS: source policy confirms LockController GPIO ownership and AccessController-only unlock call
+
+EXIT: 0
+
+COMMAND: node tests/cloud/google_ui_test.js
+PASS: 41 Google Management browser/route checks (production JS; route source ownership assertions).
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/cloud/run_google_route_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\google-routes-0n9p9giv>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+routes.cpp
+PASS: 58 production Google route checks: fresh management, Owner, LAN, input, rate-limit, async operation and failure boundaries.
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/cloud/run_cloud_sync_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\cloud-state-o4m55ysa>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+cloud.cpp
+CloudPairProtocol.cpp
+Generating Code...
+PASS: 42 production CloudSync state-machine assertions; transport/SD/SHA boundary fakes explicitly used.
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/cloud/run_cloud_transport_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\cloud-transport-kq1fv4e8>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+transport.cpp
+PASS: 27 production transport assertions; deterministic DNS/TLS/socket boundary fakes, absolute deadline, late callback, header and response bounds.
+
+EXIT: 0
+
+COMMAND: C:\Python314\python.exe -B tests/cloud/run_cloud_reset_tests.py
+
+C:\Users\fufu\AppData\Local\Temp\cloud-reset-d1npluh6>call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.38
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+reset.cpp
+PASS: 27 production reset fixture assertions; protected history/cloud/install metadata cleared, touch preserved, physical authorization gate retained. HOST ONLY.
+
+EXIT: 0
