@@ -1,0 +1,1 @@
+HISTORICAL: retired EventLog/Audit source preserved for isolated legacy fixture reference only. Not compiled by PlatformIO. Production SD event history was removed for RAM-only LINE notifications. The old tests/events suites describe retired behavior and are excluded from the current regression runner. SD/identity fakes remain useful.

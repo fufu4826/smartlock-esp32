@@ -1,0 +1,1 @@
+{"name":"SmartLockWebServer","version":"2.0.0-smartlock.1","frameworks":"arduino","platforms":"espressif32","dependencies":{"WiFi":"*","FS":"*"}}
